@@ -47,4 +47,4 @@ Components to do:
 - PlanPlan
 - PlanTemplate
 
-These pages/componets are only a start, everything can be modified. If any page/component doens't make sense, ask.
+These pages/componets are only a start, everything can be modified. If any page/component doesn't make sense, ask.
