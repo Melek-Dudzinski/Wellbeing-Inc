@@ -1,9 +1,7 @@
-import Navbar from "@/components/Navbar"
-
 export default function DiaryEntry() {
     return (
         <>
-            <h1>Diary Entry page</h1>
+            <h1>Diary Entry</h1>
         </>
     )
 }

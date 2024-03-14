@@ -1,3 +1,6 @@
+import Navbar from '@/components/Navbar'
+import ArticlesArticle from '@/components/ArticlesArticle'
+
 export default function Articles() {
     return (
         <>
