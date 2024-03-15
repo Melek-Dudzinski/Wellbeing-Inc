@@ -48,3 +48,11 @@ Components to do:
 - PlanTemplate
 
 These pages/componets are only a start, everything can be modified. If any page/component doesn't make sense, ask.
+
+Usefull webstes:
+Next.js - https://nextjs.org/docs/app/building-your-application/routing
+Supabase - https://supabase.com/docs/guides/getting-started
+Typescript - https://react.dev/learn/typescript
+React - https://legacy.reactjs.org/tutorial/tutorial.html
+HTML - https://www.w3schools.com/html/
+Tailwind CSS - https://tailwindcss.com/docs/installation
