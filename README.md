@@ -15,16 +15,18 @@ How to run:
 
 Only focus on 'app' and 'components' folders, ignore rest. Each folder in 'app' is a page, modify the page.tsx to modify the page. Page.tsx should be basic and call components.
 Pages to do:
-- articles
+- articles -              Sana
 - changePlan
-- contact
+- contact -               Rafay
 - diary
 - diaryEntry
 - healthTracker
-- home
+- home -                  Newton & Vivek
 - plan
 - planCreate
-- profile
+- profile -               Melek
+
+ - Supabase               Dayo and Ion
 
 We have a premade login page with authentication, CSS needs to be modified to match theme. Don't change code.
 
