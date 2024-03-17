@@ -20,7 +20,7 @@ Pages to do:
 - contact
 - diary
 - diaryEntry
-- healthRecord
+- healthTracker
 - home
 - plan
 - planCreate
