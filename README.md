@@ -15,16 +15,17 @@ How to run:
 
 Only focus on 'app' and 'components' folders, ignore rest. Each folder in 'app' is a page, modify the page.tsx to modify the page. Page.tsx should be basic and call components.
 Pages to do:
-- articles -              Sana
+- articles                Sana
 - changePlan
-- contact -               Rafay
+- contact                 Rafay
 - diary
 - diaryEntry
 - healthTracker
-- home -                  Newton & Vivek
+- home (now called protected)  Newton & Vivek
 - plan
 - planCreate
-- profile -               Melek
+- profile
+- landing                 Melek
 
  - Supabase               Dayo and Ion
 
