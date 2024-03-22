@@ -52,7 +52,8 @@ export default function Login({
   };
 
   return (
-    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
+    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 bg-green-700">
+      {/*Back Button on Page*/}
       <Link
         href="/"
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
@@ -73,22 +74,26 @@ export default function Login({
         </svg>{" "}
         Back
       </Link>
-
+      
+      {/*Sign In Form Layout*/}
       <form className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
-        <label className="text-md" htmlFor="email">
+        <p className="text-5xl h-32 justify-center">
+          Sign in to the Wellbeing Portal
+        </p>
+        <label className="text-md text-2xl" htmlFor="email">
           Email
         </label>
         <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          className="rounded-md px-4 py-2 bg-inherit border mb-6 bg-slate-50"
           name="email"
           placeholder="you@example.com"
           required
         />
-        <label className="text-md" htmlFor="password">
+        <label className="text-md text-2xl" htmlFor="password">
           Password
         </label>
         <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
+          className="rounded-md px-4 py-2 bg-inherit border mb-6 bg-slate-50"
           type="password"
           name="password"
           placeholder="••••••••"
@@ -96,14 +101,14 @@ export default function Login({
         />
         <SubmitButton
           formAction={signIn}
-          className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
+          className="bg-green-600 rounded-3xl px-4 py-2 text-foreground mb-2 text-2xl"
           pendingText="Signing In..."
         >
           Sign In
         </SubmitButton>
         <SubmitButton
           formAction={signUp}
-          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
+          className="bg-green-600 rounded-3xl px-4 py-2 text-foreground mb-2 text-2xl"
           pendingText="Signing Up..."
         >
           Sign Up
