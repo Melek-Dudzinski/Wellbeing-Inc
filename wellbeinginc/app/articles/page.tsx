@@ -1,11 +1,20 @@
 import Navbar from '@/components/Navbar'
-import ArticlesArticle from '@/components/ArticlesArticle'
+import {ArticlesView} from '@/components/ArticlesArticle';
+import './articles.css';
 
 export default function Articles() {
     return (
         <>
-            <h1>Articles page</h1>
-            <Navbar />
+            <Navbar/>
+            <div className='title'>Wellness Articles </div>
+            <ArticlesView/>
+            <div className="lines-container">
+                <div className="line"> </div>
+                <div className="line"> </div>
+                <div className="line"> </div>
+                <div className="line"> </div>
+                <div className="line"> </div>
+            </div>
         </>
     )
 }

@@ -1,0 +1,35 @@
+/* diary.css */
+
+body {
+    background-color: #D4E5D5 !important;
+}
+
+.diary{
+    margin-top: 3rem;
+}
+
+.diary-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.diary-entry {
+    width: 20rem;
+    background-color: white;
+}
+
+.date {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.content {
+    width: 20rem;
+    height: 90px; /* Adjust height as needed */
+    background-color: #f9f9f9;
+    vertical-align: top;
+    overflow-wrap: break-word; /* Wrap long words */
+    white-space: pre-wrap; /* Wrap text and preserve line breaks */
+}
+

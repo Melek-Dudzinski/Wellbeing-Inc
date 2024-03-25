@@ -1,0 +1,32 @@
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    height: 3.2rem;
+    padding-right: 1rem;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li:first-child {
+    margin-left: 0;
+}
+
+.nav-links li a:hover {
+    color: #a1e2d4;
+}
+
+.logo {
+    padding-top: 1%;
+    left: 5%;
+    width: 7rem;
+}
