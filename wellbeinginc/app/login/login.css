@@ -1,0 +1,56 @@
+/*General Form Styling*/
+/*a.asare@fdm.org.uk thisIS@P@ssW0rd*/
+form{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10rem 10rem 10rem 3rem;
+    background-color: #BDCCBE;
+    width: 55rem;
+    height: 35rem;
+    margin-top: 30%;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    color: grey;
+}
+#form-title{
+    grid-row: 1/1;
+    grid-column: 1 /span 2;
+    text-align: center;
+    font-size: 3.5rem;
+    height: 10rem;
+}
+
+/*Form Inputs Styling*/
+div{
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 /span 2;
+    font-size: 1.2rem;
+}
+label{
+    font-size: 1.5rem;
+}
+input{
+    border-radius: 0rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: white;
+    border-color: #D4E5D5;
+}
+#email-sec{
+    grid-row: 2/2;
+}
+#pword-sec{
+    grid-row: 3/3;
+}
+
+/*Form Button Styling*/
+.button{
+    grid-row: 4/4;
+    border-radius: 3.5rem;
+    background-color: #D4E5D5;
+    width: 15rem;
+    margin-left: 22.5%;
+    margin-bottom: 0.25rem;
+    font-size: 2rem;
+}
