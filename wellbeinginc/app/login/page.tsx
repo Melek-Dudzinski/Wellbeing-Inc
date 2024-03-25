@@ -3,31 +3,33 @@ import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
+import './login.css';
+import Navbar from "@/components/Navbar";
 
 export default function Login({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
+
+  {/*Sign In Authentication */}
   const signIn = async (formData: FormData) => {
     "use server";
 
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const supabase = createClient();
-
     const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+      email: email,
+      password: password,
     });
-
     if (error) {
-      return redirect("/login?message=Could not authenticate user");
+      return redirect("/login?message=Could not authenticate user. Please try again.");
     }
-
     return redirect("/protected");
   };
 
+  {/*Sign Up Account Creation*/}
   const signUp = async (formData: FormData) => {
     "use server";
 
@@ -35,7 +37,6 @@ export default function Login({
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const supabase = createClient();
-
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -52,8 +53,10 @@ export default function Login({
   };
 
   return (
-    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
-      <Link
+    <div>
+      <Navbar />
+      {/*Back Button on Page*/}
+      {/*<Link
         href="/"
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
       >
@@ -72,38 +75,47 @@ export default function Login({
           <polyline points="15 18 9 12 15 6" />
         </svg>{" "}
         Back
-      </Link>
+  </Link>*/}
+      
+      {/*Sign In Form Layout*/}
+      <form>
+        <p id = "form-title">
+          Sign in to the Wellbeing Portal
+        </p>
 
-      <form className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
-        <label className="text-md" htmlFor="email">
-          Email
-        </label>
-        <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
-          name="email"
-          placeholder="you@example.com"
-          required
-        />
-        <label className="text-md" htmlFor="password">
-          Password
-        </label>
-        <input
-          className="rounded-md px-4 py-2 bg-inherit border mb-6"
-          type="password"
-          name="password"
-          placeholder="••••••••"
-          required
-        />
-        <SubmitButton
+        <div id = "email-sec">
+          <label htmlFor="email">
+            Email
+          </label>
+          <input
+            name="email"
+            placeholder="you@example.com"
+            required
+          />
+        </div>
+
+        <div id = "pword-sec">
+          <label htmlFor="password">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        {/*Sign Up/Sign In Buttons*/}
+        <SubmitButton className="button"
           formAction={signIn}
-          className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
           pendingText="Signing In..."
         >
           Sign In
         </SubmitButton>
-        <SubmitButton
+
+        <SubmitButton className = "button"
           formAction={signUp}
-          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
           pendingText="Signing Up..."
         >
           Sign Up
