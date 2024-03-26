@@ -1,9 +1,21 @@
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 import DiaryCalendar from "@/components/DiaryCalendar"
 import DiaryEntry from "@/components/DiaryEntry"
 import './diary.css';
 
-export default function Diary() {
+export default async function Diary() {
+    const supabase = createClient();
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+  
+    if (!user) {
+      return redirect("/login");
+    }
+
     return (
         <>
             <Navbar/>

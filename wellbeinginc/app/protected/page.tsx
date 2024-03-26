@@ -21,6 +21,9 @@ export default async function ProtectedPage() {
     <>
       <Navbar />
       <AuthButton />
+      <HomeArticle />
+      <HomePlan />
+      <HomeProfile />
     </>
   );
 }
