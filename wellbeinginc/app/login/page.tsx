@@ -54,7 +54,7 @@ export default function Login({
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       {/*Back Button on Page*/}
       {/*<Link
         href="/"
