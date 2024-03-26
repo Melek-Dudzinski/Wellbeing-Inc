@@ -7,6 +7,8 @@ import HomePlan from "@/components/HomePlan"
 import HomeProfile from "@/components/HomeProfile"
 
 export default async function ProtectedPage() {
+  const activePage = 'home'
+
   const supabase = createClient();
 
   const {
@@ -19,7 +21,7 @@ export default async function ProtectedPage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar activePage={activePage}/>
       <AuthButton />
       <HomeArticle />
       <HomePlan />

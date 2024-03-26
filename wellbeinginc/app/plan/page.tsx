@@ -4,20 +4,22 @@ import Navbar from "@/components/Navbar"
 import PlanPlan from "@/components/PlanPlan"
 
 export default async function Plan() {
-    const supabase = createClient();
+  const activePage = 'plan'
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-  
-    if (!user) {
-      return redirect("/login");
-    }
+  const supabase = createClient();
 
-    return (
-        <>
-            <Navbar />
-            <PlanPlan />
-        </>
-    )
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  return (
+      <>
+          <Navbar activePage={activePage}/>
+          <PlanPlan />
+      </>
+  )
 }

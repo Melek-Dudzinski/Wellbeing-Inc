@@ -6,20 +6,22 @@ import ContactFeedback from '@/components/ContactFeedback'
 import ContactChampions from '@/components/ContactChampions'
 
 export default async function contact() {
+    const activePage = 'contact'
+
     const supabase = createClient();
 
     const {
-      data: { user },
+        data: { user },
     } = await supabase.auth.getUser();
-  
+
     if (!user) {
-      return redirect("/login");
+        return redirect("/login");
     }
 
     return (
         <>
             <div id="Navbar">
-                <Navbar />
+                <Navbar activePage={activePage}/>
             </div>
             <div id="Feedback">
                 <ContactFeedback />

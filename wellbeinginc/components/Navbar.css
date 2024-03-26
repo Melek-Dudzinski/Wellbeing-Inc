@@ -30,3 +30,8 @@
     left: 5%;
     width: 7rem;
 }
+
+.nav-links li.active a{
+    /* Modify this to change what selected looks like */
+  color: red;
+}

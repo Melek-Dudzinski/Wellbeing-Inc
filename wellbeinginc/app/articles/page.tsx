@@ -5,28 +5,30 @@ import {ArticlesView} from '@/components/ArticlesArticle';
 import './articles.css';
 
 export default async function Articles() {
-    const supabase = createClient();
+  const activePage = 'articles'
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-  
-    if (!user) {
-      return redirect("/login");
-    }
+  const supabase = createClient();
 
-    return (
-        <>
-            <Navbar/>
-            <div className='title'>Wellness Articles </div>
-            <ArticlesView/>
-            <div className="lines-container">
-                <div className="line"> </div>
-                <div className="line"> </div>
-                <div className="line"> </div>
-                <div className="line"> </div>
-                <div className="line"> </div>
-            </div>
-        </>
-    )
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  return (
+      <>
+          <Navbar activePage={activePage}/>
+          <div className='title'>Wellness Articles </div>
+          <ArticlesView/>
+          <div className="lines-container">
+              <div className="line"> </div>
+              <div className="line"> </div>
+              <div className="line"> </div>
+              <div className="line"> </div>
+              <div className="line"> </div>
+          </div>
+      </>
+  )
 }

@@ -6,23 +6,25 @@ import DiaryEntry from "@/components/DiaryEntry"
 import './diary.css';
 
 export default async function Diary() {
-    const supabase = createClient();
+  const activePage = 'diary'
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-  
-    if (!user) {
-      return redirect("/login");
-    }
+  const supabase = createClient();
 
-    return (
-        <>
-            <Navbar/>
-            <DiaryCalendar/>
-            <DiaryEntry/>
-            <DiaryEntry/>
-            <DiaryEntry/>
-        </>
-    )
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  return (
+      <>
+          <Navbar activePage={activePage}/>
+          <DiaryCalendar/>
+          <DiaryEntry/>
+          <DiaryEntry/>
+          <DiaryEntry/>
+      </>
+  )
 }
