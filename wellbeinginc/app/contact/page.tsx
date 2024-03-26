@@ -1,11 +1,34 @@
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
+import './contact.css'
 import Navbar from '@/components/Navbar'
 import ContactFeedback from '@/components/ContactFeedback'
 import ContactChampions from '@/components/ContactChampions'
 
-export default function contact() {
+export default async function contact() {
+    const activePage = 'contact'
+
+    const supabase = createClient();
+
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+        return redirect("/login");
+    }
+
     return (
         <>
-            <h1>Contact page</h1>
+            <div id="Navbar">
+                <Navbar activePage={activePage}/>
+            </div>
+            <div id="Feedback">
+                <ContactFeedback />
+            </div>
+            <div id="Information">
+                <ContactChampions />
+            </div>
         </>
     )
 }

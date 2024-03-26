@@ -1,9 +1,21 @@
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 
-export default function HealthTracker() {
+export default async function HealthTracker() {
+    const supabase = createClient();
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+  
+    if (!user) {
+      return redirect("/login");
+    }
+
     return (
         <>
-            <h1>Health Tracker pages</h1>
+            <Navbar />
         </>
     )
 }

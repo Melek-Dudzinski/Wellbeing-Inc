@@ -1,12 +1,27 @@
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 import ChangePlanCustom from "@/components/ChangePlanCustom"
 import ChangePlanPremade from "@/components/ChangePlanPremade"
 import ChangePlanFilter from "@/components/ChangePlanFilter"
 
-export default function ChangePlan() {
+export default async function ChangePlan() {
+    const supabase = createClient();
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+  
+    if (!user) {
+      return redirect("/login");
+    }
+
     return (
         <>
-            <h1>Change Plan page</h1>
+            <Navbar />
+            <ChangePlanCustom />
+            <ChangePlanPremade />
+            <ChangePlanFilter />
         </>
     )
 }
