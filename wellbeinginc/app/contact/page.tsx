@@ -1,3 +1,4 @@
+import './contact.css'
 import Navbar from '@/components/Navbar'
 import ContactFeedback from '@/components/ContactFeedback'
 import ContactChampions from '@/components/ContactChampions'
@@ -5,7 +6,15 @@ import ContactChampions from '@/components/ContactChampions'
 export default function contact() {
     return (
         <>
-            <h1>Contact page</h1>
+            <div id="Navbar">
+                <Navbar />
+            </div>
+            <div id="Feedback">
+                <ContactFeedback />
+            </div>
+            <div id="Information">
+                <ContactChampions />
+            </div>
         </>
     )
 }
