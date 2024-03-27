@@ -22,7 +22,6 @@ export default async function ProtectedPage() {
   return (
     <>
       <Navbar activePage={activePage}/>
-      <AuthButton />
       <HomeArticle />
       <HomePlan />
       <HomeProfile />
