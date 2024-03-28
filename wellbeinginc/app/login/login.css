@@ -1,3 +1,19 @@
+/*Page Banner Styling*/
+.banner{
+    height:5rem;
+    background-color: whitesmoke;
+    width: 100%;
+}
+.banner > #img{
+    width:10rem;
+    height:6rem;
+}
+p{
+    color: gray;
+    margin-top: 3rem;
+    font-size: 2rem;
+}
+
 /*General Form Styling*/
 /*a.asare@fdm.org.uk thisIS@P@ssW0rd*/
 form{
@@ -7,7 +23,7 @@ form{
     background-color: #BDCCBE;
     width: 55rem;
     height: 35rem;
-    margin-top: 30%;
+    margin-top: 7%;
     padding: 1.5rem;
     border-radius: 2rem;
     color: grey;
@@ -20,14 +36,14 @@ form{
     height: 10rem;
 }
 
-/*Form Inputs Styling*/
+/*Form Inputs/Outputs Styling*/
 div{
     display: flex;
     flex-direction: column;
     grid-column: 1 /span 2;
     font-size: 1.2rem;
 }
-label{
+label, #message{
     font-size: 1.5rem;
 }
 input{
@@ -43,6 +59,11 @@ input{
 #pword-sec{
     grid-row: 3/3;
 }
+#message{
+    margin-top: 3rem;
+    grid-column: 1 /span 2;
+}
+
 
 /*Form Button Styling*/
 .button{
