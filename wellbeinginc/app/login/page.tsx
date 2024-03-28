@@ -53,8 +53,6 @@ export default function Login({
   };
 
   return (
-
-    <div>
     <>
       {/* Page Banner */}
       <div className = "banner"><Image id="img" src={logo} alt="FDM Logo"/></div>
