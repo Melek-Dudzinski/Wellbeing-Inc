@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
+import Image from 'next/image';
+import logo from '@/components/images/logo.png';
 import './login.css';
-import Navbar from "@/components/Navbar";
 
 export default function Login({
   searchParams,
@@ -53,8 +53,12 @@ export default function Login({
   };
 
   return (
+
     <div>
-      {/* <Navbar /> */}
+    <>
+      {/* Page Banner */}
+      <div className = "banner"><Image id="img" src={logo} alt="FDM Logo"/></div>
+      
       {/*Back Button on Page*/}
       {/*<Link
         href="/"
@@ -75,8 +79,10 @@ export default function Login({
           <polyline points="15 18 9 12 15 6" />
         </svg>{" "}
         Back
-  </Link>*/}
+      </Link>*/}
       
+      <p>Welcome to your personal well-being portal, as part of your FDM experience.</p>
+
       {/*Sign In Form Layout*/}
       <form>
         <p id = "form-title">
@@ -121,11 +127,11 @@ export default function Login({
           Sign Up
         </SubmitButton>
         {searchParams?.message && (
-          <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
+          <p id ="message">
             {searchParams.message}
           </p>
         )}
       </form>
-    </div>
+    </>
   );
 }
