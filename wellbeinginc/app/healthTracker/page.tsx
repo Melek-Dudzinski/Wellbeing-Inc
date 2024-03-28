@@ -3,19 +3,21 @@ import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 
 export default async function HealthTracker() {
-    const supabase = createClient();
+  const activePage = 'health'
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-  
-    if (!user) {
-      return redirect("/login");
-    }
+  const supabase = createClient();
 
-    return (
-        <>
-            <Navbar />
-        </>
-    )
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  return (
+      <>
+          <Navbar activePage={activePage}/>
+      </>
+  )
 }
