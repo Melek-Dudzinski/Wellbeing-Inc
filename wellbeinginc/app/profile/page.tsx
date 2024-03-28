@@ -1,9 +1,21 @@
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 
-export default function Profile() {
+export default async function Profile() {
+    const supabase = createClient();
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+  
+    if (!user) {
+      return redirect("/login");
+    }
+
     return (
         <>
-            <h1>Profile page</h1>
+            <Navbar />
         </>
     )
 }

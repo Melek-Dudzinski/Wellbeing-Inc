@@ -53,15 +53,12 @@ export default function Login({
   };
 
   return (
-<<<<<<< Updated upstream
+
     <div>
-      <Navbar />
-=======
     <>
       {/* Page Banner */}
       <div className = "banner"><Image id="img" src={logo} alt="FDM Logo"/></div>
-
->>>>>>> Stashed changes
+      
       {/*Back Button on Page*/}
       {/*<Link
         href="/"

@@ -5,6 +5,7 @@
 /*Application background colour*/
 body{
   background-color: #D4E5D5 !important;
+  font-family: Arial, Helvetica, sans-serif;
 }
 @layer base {
   :root {
