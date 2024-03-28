@@ -20,13 +20,9 @@ export default async function contact() {
 
     return (
         <>
-            <div id="Navbar">
-                <Navbar activePage={activePage}/>
-            </div>
-            <div id="Feedback">
+            <Navbar activePage={activePage}/>
+            <div className="contactBody">
                 <ContactFeedback />
-            </div>
-            <div id="Information">
                 <ContactChampions />
             </div>
         </>

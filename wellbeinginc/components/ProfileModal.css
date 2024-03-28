@@ -46,12 +46,10 @@ input[type="file"] {
 .profilePicture {
     overflow: hidden;
     border-radius: 50px;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 }
 
-.transparent{
-    opacity: 0;
-    cursor: pointer;
-    pointer-events: auto;
+.hidden{
+    display: none;
 }

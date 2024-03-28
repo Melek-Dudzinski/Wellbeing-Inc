@@ -16,12 +16,12 @@ const Modal = (props : ProfileModalProps) => {
         <div className="modal-header">
           <button className="close-button" onClick={props.onClose}>X</button>
         </div>
-        <div className='profilePicture'>
             <form action="" method="">
-                <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
-                <input className="transparent" type="file" id="profile-picture" name="profile-picture"/>
+              <div className='profilePicture'>
+                  <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
+                </div>
+                <input className="hidden" type="file" id="profile-picture" name="profile-picture"/>
             </form>
-        </div>
         <div className="modal-content">
             <form action="" method="">
                 <label htmlFor="name">Name:</label>
