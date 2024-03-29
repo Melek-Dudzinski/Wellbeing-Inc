@@ -34,19 +34,20 @@ We have a premade login page with authentication, CSS needs to be modified to ma
 Componens are simple parts of the page for easier creation/modification. If component is multiple words (e.g HomeArticle) first word is what page the component relates to (exeptions: PlanTemplate which is smaller version of plan that can appear when you choose the plan or main page). Single word components appear on multiple pages.
 Components to do:
 - Activity
-- ArticlesArticle
+- ArticlesArticle - layout done
 - ChangePlanCustom
 - ChangeFilter
 - ChangePlanPremade
-- ContactChampions
-- DiaryCalendar
-- DiaryEntry
+- ContactChampions - layout done
+- ContactFeedback - layout done, has red issues
+- DiaryCalendar - layout done, has red issues
+- DiaryEntry - layout done
 - Header
 - HomeArticle
 - HomePlan
-- HomeProfile
+- HomeProfile - layout done
 - Menu
-- Navbar
+- Navbar - layout done
 - PlanPlan
 - PlanTemplate
 
