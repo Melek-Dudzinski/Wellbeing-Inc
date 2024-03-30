@@ -15,6 +15,7 @@ How to run:
 
 Only focus on 'app' and 'components' folders, ignore rest. Each folder in 'app' is a page, modify the page.tsx to modify the page. Page.tsx should be basic and call components.
 Pages to do:
+- login                   Dayo , CSS done
 - articles                Sana
 - changePlan
 - contact                 Rafay
@@ -39,7 +40,7 @@ Components to do:
 - ChangeFilter
 - ChangePlanPremade
 - ContactChampions - layout done
-- ContactFeedback - layout done, has red issues
+- ContactFeedback - layout done, linked to Supabase , has 1 red issue
 - DiaryCalendar - layout done, has red issues
 - DiaryEntry - layout done
 - Header
