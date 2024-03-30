@@ -2,8 +2,11 @@
 {
     display: grid;
     grid-template-columns: 70% 30%;
+    color: black;
 }
-
+#message{
+    color: black;
+}
 
 #Feedback
 {
