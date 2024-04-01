@@ -17,7 +17,7 @@ Only focus on 'app' and 'components' folders, ignore rest. Each folder in 'app' 
 Pages to do:
 - login                   Dayo , CSS done
 - articles                Sana
-- changePlan
+- changePlan              Melek
 - contact                 Rafay
 - diary
 - diaryEntry
