@@ -63,6 +63,7 @@ HTML - https://www.w3schools.com/html/
 Tailwind CSS - https://tailwindcss.com/docs/installation
 
 
+- Fix CSS for all
 - Create Account - redirect to health tracker for first entry
 - Home page
 - Plan - connect to db
