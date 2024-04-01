@@ -40,8 +40,8 @@ Components to do:
 - ChangeFilter
 - ChangePlanPremade
 - ContactChampions - layout done
-- ContactFeedback - layout done, linked to Supabase , has 1 red issue
-- DiaryCalendar - layout done, has red issues
+- ContactFeedback - layout done, linked to Supabase
+- DiaryCalendar - layout done, has compile issues
 - DiaryEntry - layout done
 - Header
 - HomeArticle
@@ -51,7 +51,7 @@ Components to do:
 - Navbar - layout done
 - PlanPlan
 - PlanTemplate
-
+- FeedbackLog
 These pages/componets are only a start, everything can be modified. If any page/component doesn't make sense, ask.
 
 Usefull webstes:
