@@ -1,10 +1,16 @@
 import Activity from "./Activity"
 import Menu from "./Menu"
 
-export default function PlanTemplate() {
+type PlanTemplateProps = {
+    name: string;
+    description: string;
+}
+
+export default function PlanTemplate(props : PlanTemplateProps) {
     return (
         <>
-            <h1>Plan Template</h1>
+            <p>{props.name}</p>
+            <p>{props.description}</p>
         </>
     )
 }

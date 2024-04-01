@@ -23,9 +23,9 @@ Pages to do:
 - diaryEntry
 - healthTracker
 - home (now called protected)  Newton & Vivek
-- plan
+- plan                    Melek
 - planCreate
-- profile
+- profile                 Melek
 - landing                 Melek
 
  - Supabase               Dayo and Ion

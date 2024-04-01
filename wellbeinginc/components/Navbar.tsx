@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import Link from 'next/link';
 
 type NavbarProps = {
-    activePage: String;
+    activePage: string;
 }
 
 export default async function Navbar(props : NavbarProps) {
