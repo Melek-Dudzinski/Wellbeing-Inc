@@ -1,0 +1,20 @@
+.prePlanTable, .custPlanTable, .filterPlanTable {
+    margin: 10px;
+    border-collapse: separate;
+    border-spacing: 20px;
+    border: 0;
+    background-color: #D4E5D5;
+}
+
+.prePlanTable td, .custPlanTable td, .filterPlanTable td {
+    border: 0;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.planName {
+    background-color: rgb(230, 224, 224);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5px;
+}

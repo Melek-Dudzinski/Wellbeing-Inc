@@ -16,7 +16,7 @@ const HomeProfile = () => {
     return (
         <>
             <div>
-                <button onClick={openModal}>Open Modal</button>
+                <button onClick={openModal}>Edit Profile</button>
                 <Modal isOpen={modalOpen} onClose={closeModal} />
             </div>
         </>

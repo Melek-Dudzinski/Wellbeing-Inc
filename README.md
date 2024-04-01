@@ -17,15 +17,15 @@ Only focus on 'app' and 'components' folders, ignore rest. Each folder in 'app' 
 Pages to do:
 - login                   Dayo , CSS done
 - articles                Sana
-- changePlan
+- changePlan              Melek
 - contact                 Rafay
 - diary
 - diaryEntry
 - healthTracker
 - home (now called protected)  Newton & Vivek
-- plan
-- planCreate
-- profile
+- plan                    Melek
+- planCreate              Melek
+- profile                 Melek
 - landing                 Melek
 
  - Supabase               Dayo and Ion
