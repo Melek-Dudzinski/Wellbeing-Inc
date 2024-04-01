@@ -23,7 +23,7 @@ export default async function contact() {
         <>
             <Navbar activePage={activePage}/>
             <div className="contactBody">
-                <ContactFeedback />
+                <ContactFeedback searchParams={{message: ""}} />
                 <ContactChampions />
                 <FeedbackLog />
             </div>

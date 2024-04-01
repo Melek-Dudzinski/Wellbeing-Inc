@@ -37,21 +37,19 @@ export default function FeedbackLog() {
     return (
         <>
         {/*Displaying Entries */}
-        <div className="feedback-log">
             {entries && (
-            <div className = "feedback-entry">
+            <div className = "feedback-log">
             {entries.map((d:any, index:any) => (
                 <div key={index}>
                     <p id = "feedbackNum">Feedback Number: {d.number}</p>
                     <p id="date">Date Issued: {d.date}</p>
                     <p id = "type">Feedback Type: {d.type}</p>
-                    <p id = "content">Feedback Content: {d.content}</p>
+                    <p id = "content">Feedback Content: "{d.content}"</p>
                     <button id = "del">Delete Entry</button>
                 </div>
             ))}
             </div>
             )}
-        </div>
         </>
     )
 }

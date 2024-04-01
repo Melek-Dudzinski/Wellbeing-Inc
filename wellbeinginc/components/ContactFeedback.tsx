@@ -24,7 +24,7 @@ export default function ContactFeedback({searchParams,}:{searchParams:{message:s
             return redirect("/contact?message=Unable to send feedback. Please try again.");
         }
         else{
-            return redirect("/contact?message=Feedback sent.");
+            return redirect("/contact");
         }
     };
 
