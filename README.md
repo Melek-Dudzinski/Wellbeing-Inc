@@ -28,7 +28,7 @@ Pages to do:
 - profile                 Melek
 - landing                 Melek
 
- - Supabase               Dayo and Ion
+- Supabase                Dayo and Ion
 
 We have a premade login page with authentication, CSS needs to be modified to match theme. Don't change code.
 
@@ -61,3 +61,21 @@ Typescript - https://react.dev/learn/typescript
 React - https://legacy.reactjs.org/tutorial/tutorial.html
 HTML - https://www.w3schools.com/html/
 Tailwind CSS - https://tailwindcss.com/docs/installation
+
+
+- Create Account - redirect to health tracker for first entry
+- Home page
+- Plan - connect to db
+- Diary connect to db, new entry button
+- Health tracker - combine with diary
+- Articles - connect to db
+- Chatbot
+
+Usecases:
+    Login/out
+    Tracker (Diary)
+    Edit profile
+    Edit article
+    Switch plan
+    Feedback
+    Chatbot
