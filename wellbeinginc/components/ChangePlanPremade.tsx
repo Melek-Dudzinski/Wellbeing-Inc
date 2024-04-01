@@ -3,6 +3,7 @@ import PlanTemplate from "./PlanTemplate"
 export default function ChangePlanPremade() {
     return (
         <>
+            <h1 className="planName">PREMADE PLAN</h1>
             <table className="prePlanTable">
                 <tbody>
                     <tr>

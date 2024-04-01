@@ -11,3 +11,10 @@
     background-color: white;
     border-radius: 10px;
 }
+
+.planName {
+    background-color: rgb(230, 224, 224);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5px;
+}

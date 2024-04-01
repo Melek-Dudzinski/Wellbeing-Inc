@@ -1,8 +1,26 @@
-import PlanTemplate from "./PlanTemplate"
+'use client'
+import { useState } from 'react';
+import Modal from './CreatePlanModal';
+import PlanTemplate from "./PlanTemplate";
 
-export default function ChangePlanCustom() {
+const ChangePlanCustom = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+      setModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setModalOpen(false);
+    };
+
     return (
         <>
+            <h1 className="planName">CUSTOM PLAN</h1>
+            <div>
+                <button onClick={openModal}>+</button>
+                <Modal isOpen={modalOpen} onClose={closeModal} />
+            </div>
             <table className="custPlanTable">
                 <tbody>
                     <tr>
@@ -16,3 +34,5 @@ export default function ChangePlanCustom() {
         </>
     )
 }
+
+export default ChangePlanCustom;
