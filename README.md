@@ -44,7 +44,7 @@ Components to do:
 - DiaryCalendar - layout done, has compile issues
 - DiaryEntry - layout done
 - Header
-- HomeArticle
+- HomeArticle - layout done but not connected to DB
 - HomePlan
 - HomeProfile - layout done
 - Menu
@@ -65,7 +65,7 @@ Tailwind CSS - https://tailwindcss.com/docs/installation
 
 - Fix CSS for all
 - Create Account - redirect to health tracker for first entry
-- Home page
+- Home page - home article and chatbot button design done but button does nothing
 - Plan - connect to db
 - Diary connect to db, new entry button
 - Health tracker - combine with diary
