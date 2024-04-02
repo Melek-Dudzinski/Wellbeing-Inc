@@ -1,12 +1,15 @@
 /*Page Imports*/
 //import AuthButton from "@/components/AuthButton";
+import Link from 'next/link';
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 import HomeArticle from "@/components/HomeArticle"
 import HomePlan from "@/components/HomePlan"
 import HomeProfile from "@/components/HomeProfile"
+
 import './protected.css';
+
 
 export default async function ProtectedPage() {
   const activePage = 'home'
@@ -27,9 +30,16 @@ export default async function ProtectedPage() {
       <div className="homepage-grid">
         <div className="profile-sect"><HomeProfile /></div>
         <div id="plan-sect"><HomePlan /></div>
-        <button id = "chat-button">REQUEST CONNECTION TO CHATBOT</button>
+        <div id ="top-bit-container">
+          <div id="home-chatbot-section"></div>
+          <h1>HELLO ANNA,</h1>
+          <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
+          <p>confidential support and guidance</p>
+          <button id = "chat-button">CONNECT</button>
+        </div>
         <div id="articles-sect">
           <HomeArticle />
+          <button id='see-more-button'><Link href="/articles">see more</Link></button>
         </div>
       </div>
     </>
