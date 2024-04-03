@@ -4,34 +4,34 @@ import image18 from './images/image18.png';
 import image19 from './images/image19.png';
 import image20 from './images/image20.png';
 
-export default function DiaryEntry() {
+export default function DiaryEntry({date,exerciseData, dietData, stepsData, sleepData}) {
     return (
         <div className="diary">
-            <div className="date">March 24, 2024</div>
+            <div className="date">{date}</div>
             <div className="diary-container">
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                         <Image src={image17} alt="Image 25" />
                     </div>
-                    <textarea className="content"></textarea>
+                    <textarea className="content" value={exerciseData}></textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image20} alt="Image 25" />
                     </div>
-                    <textarea className="content"></textarea>
+                    <textarea className="content" value={dietData}></textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image18} alt="Image 25" />
                     </div>
-                    <textarea className="content"></textarea>
+                    <textarea className="content" value={stepsData}></textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image19} alt="Image 25" />
                     </div>
-                    <textarea className="content"></textarea>
+                    <textarea className="content" value={sleepData}></textarea>
                 </div>
             </div>
         </div>

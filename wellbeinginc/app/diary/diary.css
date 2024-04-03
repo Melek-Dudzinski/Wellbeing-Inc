@@ -33,3 +33,7 @@ body {
     white-space: pre-wrap; /* Wrap text and preserve line breaks */
 }
 
+textarea{
+    resize: none;
+    color:black;
+}
