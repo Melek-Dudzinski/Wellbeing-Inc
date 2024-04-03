@@ -6,9 +6,42 @@ import image25 from './images/image25.png';
 import image27 from './images/image27.png';
 import image28 from './images/image28.png';
 import image31 from './images/image31.png';
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
+import { redirect } from "next/navigation";
 
 export const ArticlesView = () => {
+    const[articles,setArticles] = useState(null)
+
+    /*Fetching articles */
+    const getArticles = async () => {
+        const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+        const {data, error} = await supabase 
+            .from('ArticleEntries') 
+            .select ()
+
+        if (error){
+            return redirect("/articles?message=Unable to load articles. Please try again.");
+        }
+        /*Assigning articles to constant*/
+        if (data){
+            const articleEntries = data.map(a=>({
+                number: a.articleNo, 
+                title: a.title,
+                content: a.content,
+                date: a.date, 
+                fName: a.firstName,
+                lName: a.lastName,
+                
+            }))
+            setArticles(articleEntries)
+        }
+    }
+
+    useEffect(() => {
+        getArticles();
+    },[]);
+
     const [showArticle, setShowArticle] = useState(true);
     const [showArticle1, setShowArticle1] = useState(false);
     const [showArticle2, setShowArticle2] = useState(false);
@@ -89,81 +122,99 @@ export const ArticlesView = () => {
     };
     
     return (
-        <div className='article-bar'>
+        <>
+            {/*Displaying articles from database */}
+            {articles && (
+            <div className = "article-container">
+            {articles.map((a:any, index:any) => (
+                <div key={index}>
+                    <p className = "articleView-title">{a.title}</p>
+                    <p className = "article-body">{a.content}</p>
+                    <p className ="articleView-date">{a.date}</p>
+                    <p id = "author">Author: {a.fName} {a.lName}</p>
+                    <button id = "del">Delete Entry</button>
+                </div>
+            ))}
+            </div>
+            )}
+        {/* Commented out for now
+            <div className='article-bar'>
 
-        <div className='articleView-container'>
+            <div className='articleView-container'>
+                <div className='articleView-image'>
+                    <Image src={image30} alt="Image 30" width={65} layout="fixed" />
+                </div>
+                <div className='articleView-content'>
+                <button className='articleView-title' onClick={toggleArticle}>5 benefits of warm water for the face.</button>
+                    <div className='articleView-date'>March 22, 2024</div>
+                </div>
+            </div>
+
+            {showArticle && <Article />}
+
+            <div className='articleView-container1'>
             <div className='articleView-image'>
-                <Image src={image30} alt="Image 30" width={65} layout="fixed" />
+                <Image src={image26} alt="Image 26" width={65} layout="fixed" />
             </div>
             <div className='articleView-content'>
-            <button className='articleView-title' onClick={toggleArticle}>5 benefits of warm water for the face.</button>
-                <div className='articleView-date'>March 22, 2024</div>
+                <button className='articleView-title' onClick={toggleArticle1} >Good habits developed today will remain a lifetime.</button>
+                <div className='articleView-date'>March 20, 2024</div>
             </div>
-        </div>
-
-        {showArticle && <Article />}
-
-        <div className='articleView-container1'>
-        <div className='articleView-image'>
-            <Image src={image26} alt="Image 26" width={65} layout="fixed" />
-        </div>
-        <div className='articleView-content'>
-            <button className='articleView-title' onClick={toggleArticle1} >Good habits developed today will remain a lifetime.</button>
-            <div className='articleView-date'>March 20, 2024</div>
-        </div>
-        </div>
-
-        {showArticle1 && <Article1 />}
-
-        <div className='articleView-container2'>
-            <div className='articleView-image'>
-                <Image src={image27} alt="Image27 " width={65} layout="fixed" />
             </div>
-            <div className='articleView-content'>
-                <button className='articleView-title' onClick={toggleArticle2} >How good attitude is needed for success?</button>
-                <div className='articleView-date'>March 19, 2024</div>
-            </div>
-        </div>
 
-        {showArticle2 && <Article2 />}
+            {showArticle1 && <Article1 />}
 
-        <div className='articleView-container3'>
-            <div className='articleView-image'>
-                <Image src={image28} alt="Image 28" width={65} layout="fixed" />
+            <div className='articleView-container2'>
+                <div className='articleView-image'>
+                    <Image src={image27} alt="Image27 " width={65} layout="fixed" />
+                </div>
+                <div className='articleView-content'>
+                    <button className='articleView-title' onClick={toggleArticle2} >How good attitude is needed for success?</button>
+                    <div className='articleView-date'>March 19, 2024</div>
+                </div>
             </div>
-            <div className='articleView-content'>
-                <button className='articleView-title' onClick={toggleArticle3}> How to be kind to yourself. </button>
-                <div className='articleView-date'>March 16, 2024</div>
-            </div>
-        </div>
 
-        {showArticle3 && <Article3 />}
+            {showArticle2 && <Article2 />}
 
-        <div className='articleView-container4'>
-            <div className='articleView-image'>
-                <Image src={image25} alt="Image 25" width={65} layout="fixed" />
+            <div className='articleView-container3'>
+                <div className='articleView-image'>
+                    <Image src={image28} alt="Image 28" width={65} layout="fixed" />
+                </div>
+                <div className='articleView-content'>
+                    <button className='articleView-title' onClick={toggleArticle3}> How to be kind to yourself. </button>
+                    <div className='articleView-date'>March 16, 2024</div>
+                </div>
             </div>
-            <div className='articleView-content'>
-                <button className='articleView-title' onClick={toggleArticle4}> How loneliness alters your brain.</button>
-                <div className='articleView-date'>March 10, 2024</div>
-            </div>
-        </div>
 
-        {showArticle4 && <Article4 />}
+            {showArticle3 && <Article3 />}
 
-        <div className='articleView-container5'>
-            <div className='articleView-image'>
-                <Image src={image31} alt="Image 31" width={65} layout="fixed" />
+            <div className='articleView-container4'>
+                <div className='articleView-image'>
+                    <Image src={image25} alt="Image 25" width={65} layout="fixed" />
+                </div>
+                <div className='articleView-content'>
+                    <button className='articleView-title' onClick={toggleArticle4}> How loneliness alters your brain.</button>
+                    <div className='articleView-date'>March 10, 2024</div>
+                </div>
             </div>
-            <div className='articleView-content'>
-                <button className='articleView-title' onClick={toggleArticle5}>6 rarely known benefits of papaya seeds. </button>
-                <div className='articleView-date'>March 5, 2024</div>
-            </div>
-        </div>
 
-        {showArticle5 && <Article5 />}
-        
-        </div>
+            {showArticle4 && <Article4 />}
+
+            <div className='articleView-container5'>
+                <div className='articleView-image'>
+                    <Image src={image31} alt="Image 31" width={65} layout="fixed" />
+                </div>
+                <div className='articleView-content'>
+                    <button className='articleView-title' onClick={toggleArticle5}>6 rarely known benefits of papaya seeds. </button>
+                    <div className='articleView-date'>March 5, 2024</div>
+                </div>
+            </div>
+
+            {showArticle5 && <Article5 />}
+            
+            </div>
+            */}
+        </>
     );
 }
 
