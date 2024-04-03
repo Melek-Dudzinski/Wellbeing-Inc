@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar"
 
 export default async function DiaryEntry() {
     const supabase = createClient();
-
+    const activePage = 'diary'
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -15,7 +15,7 @@ export default async function DiaryEntry() {
 
     return (
         <>
-            <Navbar />
+            <Navbar activePage={activePage}/>
         </>
     )
 }
