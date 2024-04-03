@@ -36,3 +36,12 @@
     /* Modify this to change what selected looks like */
   color: red;
 }
+
+
+li button {
+    background-color: #a6d9a9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}

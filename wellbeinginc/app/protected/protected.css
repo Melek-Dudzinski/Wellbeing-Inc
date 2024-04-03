@@ -1,4 +1,9 @@
 /*General Page Styling*/
+body{
+    margin: 0;
+    padding: 0;
+}
+
 .homepage-grid{
     display:grid;
     height:100%;
@@ -48,7 +53,7 @@
 }
 
 #home-chatbot-section{
-    background-image: url("../../components/images/image\ 1.png");
+    background-image: url("../../components/images/imageee1.png");
     background-repeat:no-repeat;
     position: absolute;
     background-size: 100% 100%;

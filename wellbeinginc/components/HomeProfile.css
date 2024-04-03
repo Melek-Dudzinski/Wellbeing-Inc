@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.profile-photo {
+    flex: 1;
+    margin-right: 10px; /* Adjust spacing between elements */
+}
+
+.profile-photo img {
+    width: 100%; /* Ensure the image fills its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.details {
+    flex: 2;
+    margin: 0 10px; /* Adjust spacing between elements */
+}
+
+.edit-profile {
+    flex: 1;
+    margin-left: 10px; /* Adjust spacing between elements */
+}
+
+.edit-profile button {
+    width: 100%;
+    padding: 10px;
+    background-color: #a6d9a9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
