@@ -1,4 +1,5 @@
 table {
+    color: black;
     border: 1px solid;
     border-radius: 10px;
     overflow: hidden;
@@ -11,4 +12,5 @@ table {
 td {
     text-align: center;
     border: 1px solid;
+    height: 7rem;
 }
