@@ -65,7 +65,7 @@ Tailwind CSS - https://tailwindcss.com/docs/installation
 
 - Fix CSS for all
 - Create Account - redirect to health tracker for first entry
-- Home page - home article and chatbot button design done but button does nothing
+- Home page - home article and chatbot button design done but button does nothing ( home page mostly done)
 - Plan - connect to db
 - Diary connect to db, new entry button
 - Health tracker - combine with diary

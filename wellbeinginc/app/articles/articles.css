@@ -1,5 +1,13 @@
 /* articles.css */
 
+#add-article{
+    background-color: #6A6F6A;
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+    margin-top: 15rem;
+    float: right;
+}
+
 body {
     background-color: #D4E5D5 !important;
 }
@@ -22,7 +30,19 @@ body {
     flex-wrap: wrap;
     margin-left: 18rem;
     padding-inline: 2rem;
-    background-color: white
+    background-color: white;
+    padding: 0.5rem;
+    margin-bottom: 10rem;
+    width: 70%;
+}
+.article-container #del{
+    margin-top: 1.5rem;
+    float: right;
+    width: 10rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    color: white;
+    background-color: #8FB099;
 }
 
 .article-content {
@@ -45,7 +65,7 @@ body {
     margin-top: 1rem;
 }
 
-.article-body {
+.article-body, #author{
     color: #726969;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
@@ -53,11 +73,13 @@ body {
     font-weight: 400;
     line-height: 1.5rem; /* 120% */
     letter-spacing: -0.02375rem;
+    text-align: justify;
 }
 
 .article-body p {
     margin-bottom: 1.5em;
 }
+
 
 .articleView-container, 
 .articleView-container1, 
