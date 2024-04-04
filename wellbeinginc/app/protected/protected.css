@@ -2,10 +2,11 @@
 .homepage-grid{
     display:grid;
     height:100%;
-    width:100%;
-    grid-template-columns: 45% 55%;
+    width:99%;
+    grid-template-columns: 45% 54%;
     grid-template-rows: 50% 20% 30%;
     gap:1rem;
+    color: black;
     }
 .profile-sect, #plan-sect,#articles-sect{
 
@@ -103,10 +104,11 @@
 }
 
 .home-article-container{
-    text-align: left;
-    width: 100%;
-    height:fit-content;
-    background-color: #BDCCBE;
+    text-align: justify;
+    width: 75%;
+    height: 100%;
+    background-color: #8AA48E;
+    padding: 1rem;
 }
 
 .home-article-content{
@@ -130,7 +132,7 @@
 
 
 #see-more-button{
-    background-color: grey;
+    background-color: #8AA48E;
     border-radius: 5px;
     padding: 3px;
     width: 5rem;
