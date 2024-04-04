@@ -39,7 +39,7 @@ export default async function ProtectedPage() {
         </div>
         <div id="articles-sect">
           <HomeArticle />
-          <button id='see-more-button'><Link href="/articles">see more</Link></button>
+          <button id='see-more-button'><Link href="/articles">See More</Link></button>
         </div>
       </div>
     </>
