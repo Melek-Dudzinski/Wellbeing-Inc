@@ -2,6 +2,7 @@
 import { useState,useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import DiaryEntry from "./DiaryEntry";
+import AddDiaryEntry from "./AddDiaryEntry";
 import Link from 'next/link';
 import { redirect } from "next/navigation";
 
@@ -10,6 +11,15 @@ function DiaryEntries ({user}) {
     const [fetchError, setFetchError] = useState(null);
     const today = getTodayDate(new Date());
     const [canCreate, setCanCreate] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
+    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+
+    const openModal = () => {
+        setModalOpen(true)
+    }
+    const closeModal  = () =>{
+        setModalOpen(false)
+    }
 
     function getTodayDate(dateF = new Date()){
         const yyyy = dateF.toLocaleDateString([], {year:'numeric'})
@@ -21,7 +31,6 @@ function DiaryEntries ({user}) {
     //use effect hook, async
     useEffect(() => {
         const fetchEntries = async () => {
-            const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
             const{data, error} = await supabase.from('testDiaryEntry').select()
             .eq('employeeID', user)
             .order('date', {ascending:false})
@@ -48,13 +57,16 @@ function DiaryEntries ({user}) {
         <p>{today} {entries && entries[0].date} {}</p>
         {
         canCreate===true ? 
-            <Link className="add-DiaryEntry" href="addDiaryEntry">Add Entry</Link> 
+            <div>
+                <button className="add-DiaryEntry" onClick={() => openModal()}>Add Entry</button> 
+                <AddDiaryEntry isOpen={modalOpen} onDismiss={() => closeModal()} today={today} user={user}></AddDiaryEntry>
+            </div>
         : 
             <div className="add-DiaryEntry"> You're all done for today !</div>
         }
         {entries && entries.map((entry,id) => (
             <div key={id}>
-                <DiaryEntry date={entry.date} exerciseData = {entry.exerciseSection} dietData = {entry.dietSection} stepsData={entry.stepsSection} sleepData={entry.sleepSection}></DiaryEntry>
+                <DiaryEntry date={entry.date} exerciseData = {entry.exerciseSection} dietData = {entry.dietSection} stepsData={entry.stepsSection} sleepData={entry.sleepSection} user={user}></DiaryEntry>
             </div>
         ))}
         </>

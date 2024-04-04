@@ -24,7 +24,7 @@ body {
     margin-bottom: 10px;
 }
 
-.content {
+.ex-content, .di-content, .st-content, .sl-content {
     width: 20rem;
     height: 90px; /* Adjust height as needed */
     background-color: #f9f9f9;
@@ -36,4 +36,10 @@ body {
 textarea{
     resize: none;
     color:black;
+    
 }
+
+.edit-content{
+    display:flex;
+}
+
