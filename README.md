@@ -15,41 +15,43 @@ How to run:
 
 Only focus on 'app' and 'components' folders, ignore rest. Each folder in 'app' is a page, modify the page.tsx to modify the page. Page.tsx should be basic and call components.
 Pages to do:
+- login                   Dayo , CSS done
 - articles                Sana
-- changePlan
+- changePlan              Melek
 - contact                 Rafay
 - diary
 - diaryEntry
 - healthTracker
 - home (now called protected)  Newton & Vivek
-- plan
-- planCreate
-- profile
+- plan                    Melek
+- planCreate              Melek
+- profile                 Melek
 - landing                 Melek
 
- - Supabase               Dayo and Ion
+- Supabase                Dayo and Ion
 
 We have a premade login page with authentication, CSS needs to be modified to match theme. Don't change code.
 
 Componens are simple parts of the page for easier creation/modification. If component is multiple words (e.g HomeArticle) first word is what page the component relates to (exeptions: PlanTemplate which is smaller version of plan that can appear when you choose the plan or main page). Single word components appear on multiple pages.
 Components to do:
 - Activity
-- ArticlesArticle
+- ArticlesArticle - layout done, linked to Supabase
 - ChangePlanCustom
 - ChangeFilter
 - ChangePlanPremade
-- ContactChampions
-- DiaryCalendar
-- DiaryEntry
+- ContactChampions - layout done
+- ContactFeedback - layout done, linked to Supabase
+- DiaryCalendar - layout done, has compile issues
+- DiaryEntry - layout done
 - Header
-- HomeArticle
+- HomeArticle - layout done but not connected to DB
 - HomePlan
-- HomeProfile
+- HomeProfile - layout done
 - Menu
-- Navbar
+- Navbar - layout done
 - PlanPlan
 - PlanTemplate
-
+- FeedbackLog - layout done, linked to Supabase
 These pages/componets are only a start, everything can be modified. If any page/component doesn't make sense, ask.
 
 Usefull webstes:
@@ -59,3 +61,22 @@ Typescript - https://react.dev/learn/typescript
 React - https://legacy.reactjs.org/tutorial/tutorial.html
 HTML - https://www.w3schools.com/html/
 Tailwind CSS - https://tailwindcss.com/docs/installation
+
+
+- Fix CSS for all
+- Create Account - redirect to health tracker for first entry
+- Home page - home article and chatbot button design done but button does nothing ( home page mostly done)
+- Plan - connect to db
+- Diary connect to db, new entry button
+- Health tracker - combine with diary
+- Articles - connect to db
+- Chatbot
+
+Usecases:
+    Login/out
+    Tracker (Diary)
+    Edit profile
+    Edit article
+    Switch plan
+    Feedback
+    Chatbot
