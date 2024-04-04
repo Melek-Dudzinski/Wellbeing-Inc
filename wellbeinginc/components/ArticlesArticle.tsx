@@ -125,14 +125,16 @@ export const ArticlesView = () => {
         <>
             {/*Displaying articles from database */}
             {articles && (
-            <div className = "article-container">
+            <div>
             {articles.map((a:any, index:any) => (
                 <div key={index}>
-                    <p className = "articleView-title">{a.title}</p>
-                    <p className = "article-body">{a.content}</p>
-                    <p className ="articleView-date">{a.date}</p>
-                    <p id = "author">Author: {a.fName} {a.lName}</p>
-                    <button id = "del">Delete Entry</button>
+                    <div className = "article-container">
+                        <p className = "articleView-title">{a.title}</p>
+                        <p className = "article-body">{a.content}</p>
+                        <p className ="articleView-date">{a.date}</p>
+                        <p id = "author">Author: {a.fName} {a.lName}</p>
+                        <button id = "del">Delete Entry</button>
+                    </div>
                 </div>
             ))}
             </div>
