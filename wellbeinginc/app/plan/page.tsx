@@ -19,6 +19,13 @@ export default async function Plan() {
   return (
       <>
           <Navbar activePage={activePage}/>
+<<<<<<< Updated upstream
+=======
+          <div className="miniNav">
+            <button className="planButton"><Link href="changePlan">SWITCH PLAN</Link></button>
+            <button className="planButton">DOWNLOAD PLAN</button>
+          </div>
+>>>>>>> Stashed changes
           <PlanPlan />
       </>
   )

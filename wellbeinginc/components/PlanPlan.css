@@ -1,0 +1,16 @@
+table {
+    border: 1px solid;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 90%;
+    height: 80%;
+    background-color: white;
+    color: black;
+}
+
+
+td {
+    text-align: center;
+    border: 1px solid;
+    height: 7rem;
+}

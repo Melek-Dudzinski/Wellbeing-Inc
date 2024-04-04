@@ -1,4 +1,5 @@
 .section {
+    color:black;
     text-align: center;
     background-color: white;
     border-radius: 10px;
@@ -7,6 +8,7 @@
 }
 
 .center {
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
