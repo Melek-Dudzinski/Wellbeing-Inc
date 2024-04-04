@@ -80,3 +80,19 @@ Usecases:
     Switch plan
     Feedback
     Chatbot
+
+Still To Claim:
+
+-Switch Plan CSS
+-Linking Plan to Supabase database
+-Custom Plans
+-Downloading Plan
+-Basically, everything to do with Plan-
+
+-Creating Profile upon Account Creation
+-Linking user profile to homepage component
+-Edit profile CSS pop up on homepage
+
+-Hardcoding Menus into datatbase
+-Hardcoding Food Items into database
+Linking all related menu tables together
