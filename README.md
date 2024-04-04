@@ -84,7 +84,7 @@ Usecases:
 Still To Claim:
 
 -Switch Plan CSS
--Linking Plan to Supabase database
+-Linking Plan to Supabase database tables (incl.menu)
 -Custom Plans
 -Downloading Plan
 -Basically, everything to do with Plan-
@@ -93,6 +93,6 @@ Still To Claim:
 -Linking user profile to homepage component
 -Edit profile CSS pop up on homepage
 
--Hardcoding Menus into datatbase
--Hardcoding Food Items into database
-Linking all related menu tables together
+-Hardcoding Menus into datatbase (Dayo)
+-Hardcoding Food Items into database(Dayo)
+Linking all related menu tables together (Dayo)
