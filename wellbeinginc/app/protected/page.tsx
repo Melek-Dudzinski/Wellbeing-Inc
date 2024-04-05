@@ -15,7 +15,7 @@ import './protected.css';
 
 export default async function ProtectedPage() {
 
-  let profileSet = true;
+  let profileSet = false;
   const activePage = 'home'
 
   const supabase = createClient();
@@ -28,22 +28,22 @@ export default async function ProtectedPage() {
     return redirect("/login");
   }
 
-  const { data, error } = await supabase.from('TestUserProfile').select('*').eq('EmployeeNo', user.id);
-  console.log(user.id);
-  console.log(data)
+  const { data, error } = await supabase
+    .from('TestUserProfile')
+    .select('*')
+    .eq('EmployeeNo', user.id);
 
   if (error) {
     console.log("Error getting queue status");
   }
 
   if (data.length > 0) {
-    console.log("Profile exists")
     profileSet = true;
   }
 
   return (
     <>
-      {/* {profileSet ? ( */}
+      {profileSet ? (
         <div>
           <Navbar activePage={activePage}/>
           <div className="homepage-grid">
@@ -67,9 +67,9 @@ export default async function ProtectedPage() {
             <Chatbot userID={user.id}/>
           </div>
         </div>
-      {/* ) : (
-        <SetProfile />
-      )} */}
+       ) : (
+        <SetProfile userID={user.id}/>
+      )} 
     </>
   );
 }
