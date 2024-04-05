@@ -3,10 +3,13 @@
 import { createClient } from "@supabase/supabase-js"
 import { redirect } from "next/navigation";
 import { useState, useEffect } from "react";
-import './FeedbackLog.css';
+import Navbar from '@/components/Navbar'
+import Link from 'next/link';
+import './feedbackLog.css';
 
 export default function FeedbackLog() {
     const[entries,setEntries] = useState(null)
+    const activePage = 'contact'
 
     /*Fetching feedback entries */
     const getFeedback = async () => {
@@ -36,20 +39,27 @@ export default function FeedbackLog() {
 
     return (
         <>
-        {/*Displaying Entries */}
-            {entries && (
-            <div className = "feedback-log">
-            {entries.map((d:any, index:any) => (
-                <div key={index}>
-                    <p id = "feedbackNum">Feedback Number: {d.number}</p>
-                    <p id="date">Date Issued: {d.date}</p>
-                    <p id = "type">Feedback Type: {d.type}</p>
-                    <p id = "content">Feedback Content: "{d.content}"</p>
-                    <button id = "del">Delete Entry</button>
-                </div>
-            ))}
+            {/*<Navbar activePage={activePage}/>*/}
+            <div className = "log-header">
+                <h1>Feedback Log</h1>
+                <button id = "back"><Link href = "/contact">Back</Link></button>
             </div>
-            )}
+
+            {/*Displaying Entries */}
+                {entries && (
+                <div className = "feedback-log">
+                {entries.map((d:any, index:any) => (
+                    <div key={index}>
+                        <p id = "feedbackNum">Feedback Number: {d.number}</p>
+                        <p id="date">Date Issued: {d.date}</p>
+                        <p id = "type">Feedback Type: {d.type}</p>
+                        <p id = "content">Feedback Content: "{d.content}"</p>
+                        <button id = "del">Delete Entry</button>
+                    </div>
+                ))}
+                </div>
+                )}
+            <footer>End of Feedback.</footer>
         </>
     )
 }
