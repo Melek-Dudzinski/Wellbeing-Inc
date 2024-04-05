@@ -12,10 +12,10 @@ import { redirect } from "next/navigation";
 
 export const ArticlesView = () => {
     const[articles,setArticles] = useState(null)
+    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
 
     /*Fetching articles */
     const getArticles = async () => {
-        const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
         const {data, error} = await supabase 
             .from('ArticleEntries') 
             .select ()
@@ -41,6 +41,22 @@ export const ArticlesView = () => {
     useEffect(() => {
         getArticles();
     },[]);
+
+    /*Removing selected feedback entry from database */
+    const removeArticle= async (title: any) =>{
+        await title
+        const {data,error} = await supabase
+        .from ('ArticleEntries')
+        .delete()
+        .eq('title',title)
+
+        if (error){
+            return redirect("/feedbackLog?message=Unable to remove feedback. Please try again.");
+        }
+        if (data){
+            return getArticles();
+        }
+    }
 
     const [showArticle, setShowArticle] = useState(true);
     const [showArticle1, setShowArticle1] = useState(false);
@@ -133,7 +149,7 @@ export const ArticlesView = () => {
                         <p className = "article-body">{a.content}</p>
                         <p className ="articleView-date">{a.date}</p>
                         <p id = "author">Author: {a.fName} {a.lName}</p>
-                        <button id = "del">Delete Entry</button>
+                        <button id = "del" onClick = {()=> removeArticle(a.title)}>Delete Entry</button>
                     </div>
                 </div>
             ))}
