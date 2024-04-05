@@ -3,7 +3,7 @@ import { useState,useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import DiaryEntry from "./DiaryEntry";
 import AddDiaryEntry from "./AddDiaryEntry";
-import DiaryCalendar from "@/components/DiaryCalendar"
+import DiaryCalendar from "./DiaryCalendar"
 import React from "react";
 
 function DiaryEntries ({user}) {
