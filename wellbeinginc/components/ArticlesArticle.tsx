@@ -7,13 +7,13 @@ import { redirect } from "next/navigation";
 export const ArticlesView = () => {
     const [articles, setArticles] = useState(null);
     const [selectedArticle, setSelectedArticle] = useState(0); // Default to the first article
+    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
 
     /*Fetching articles */
     const getArticles = async () => {
-        const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
-        const { data, error } = await supabase
-            .from('ArticleEntries')
-            .select();
+        const {data, error} = await supabase 
+            .from('ArticleEntries') 
+            .select ()
 
         if (error) {
             return redirect("/articles?message=Unable to load articles. Please try again.");
@@ -31,13 +31,30 @@ export const ArticlesView = () => {
 
     useEffect(() => {
         getArticles();
-    }, []);
+    },[]);
 
     const handleArticleClick = (index) => {
         setSelectedArticle(index);
     };
-    
 
+    /*Removing selected feedback entry from database */
+    const removeArticle= async (title: any) =>{
+        await title
+        const {data,error} = await supabase
+        .from ('ArticleEntries')
+        .delete()
+        .eq('title',title)
+
+        if (error){
+            return redirect("/feedbackLog?message=Unable to remove feedback. Please try again.");
+        }
+        if (data){
+            return getArticles();
+        }
+    }
+
+    
+    
     return (
     <>
         {/* Displaying articles from database */}
