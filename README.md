@@ -80,3 +80,19 @@ Usecases:
     Switch plan
     Feedback
     Chatbot
+
+Still To Claim:
+
+-Switch Plan CSS (Newton)
+-Linking Plan to Supabase database tables (incl.menu)
+-Custom Plans
+-Downloading Plan
+-Basically, everything to do with Plan-
+
+-Creating Profile upon Account Creation (Newton)
+-Linking user profile to homepage component 
+-Edit profile CSS pop up on homepage
+
+-Hardcoding Menus into datatbase (Dayo)
+-Hardcoding Food Items into database(Dayo)
+Linking all related menu tables together (Dayo)
