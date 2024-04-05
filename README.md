@@ -84,8 +84,8 @@ Usecases:
 Still To Claim:
 
 -Switch Plan CSS (Newton)
--Linking Plan to Supabase database tables (incl.menu)
--Custom Plans
+-Linking Plan to Supabase database tables (incl.menu) - Ion
+-Custom Plans - Ion
 -Downloading Plan
 -Basically, everything to do with Plan-
 
