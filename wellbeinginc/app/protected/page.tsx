@@ -9,8 +9,8 @@ import HomePlan from "@/components/HomePlan"
 import HomeProfile from "@/components/HomeProfile"
 
 import './protected.css';
-//testing again, will delete later
-// testing 
+
+
 export default async function ProtectedPage() {
   const activePage = 'home'
 
@@ -28,18 +28,22 @@ export default async function ProtectedPage() {
     <>
       <Navbar activePage={activePage}/>
       <div className="homepage-grid">
-        <div className="profile-sect"><HomeProfile /></div>
-        <div id="plan-sect"><HomePlan /></div>
-        <div id ="top-bit-container">
-          <div id="home-chatbot-section"></div>
-          <h1>HELLO ANNA,</h1>
-          <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
-          <p>confidential support and guidance</p>
-          <button id = "chat-button">CONNECT</button>
+        <div className ="top-section">
+            <div id="home-chatbot-section"></div>
+            <h1>HELLO ANNA,</h1>
+            <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
+            <p>confidential support and guidance</p>
+            <button id = "chat-button">CONNECT</button>
+          </div>
+        <div className='left-section-below-top'>
+            <div id="profile-sect"><HomeProfile /></div>
+            <div id="plan-sect"><HomePlan /></div>
         </div>
-        <div id="articles-sect">
-          <HomeArticle />
-          <button id='see-more-button'><Link href="/articles">See More</Link></button>
+        <div className='right-section-below-top'>
+              <HomeArticle />
+              <section className='button-article'> 
+                <button id='see-more-button'><Link href="/articles">See More</Link></button>
+              </section>
         </div>
       </div>
     </>
