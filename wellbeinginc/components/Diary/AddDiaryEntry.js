@@ -27,7 +27,7 @@ const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
         {
             setCreateMessage('Error! Could not create new entry');
         }
-        else redirect("/")
+        else redirect("/diary")
     }
 
     if (!isOpen) return null;
@@ -43,13 +43,13 @@ const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
                 </div>
                 <form method="dialog">
                     <label>Exercise Section</label>
-                    <input type="text" name="exercise"></input>
+                    <input type="text" name="exercise" required minlength="1" maxLength="300"></input>
                     <label>Diet Section</label>
-                    <input type="text" name="diet"></input>
+                    <input type="text" name="diet" required minlength="1" maxLength="300"></input>
                     <label>Steps Section</label>
-                    <input type="number" name="steps"></input>
+                    <input type="number" name="steps" required minlength="1" maxLength="7"></input>
                     <label>Sleep Section</label>
-                    <input type="text" name="sleep"></input>
+                    <input type="text" name="sleep" required minlength="1" maxLength="300"></input>
                     <button type="submit" formAction={createEntry}>Create</button>
                 </form>
             </div>

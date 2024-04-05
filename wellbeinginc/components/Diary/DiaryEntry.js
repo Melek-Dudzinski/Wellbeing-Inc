@@ -1,14 +1,13 @@
 import Image from 'next/image';
-import { redirect } from "next/navigation";
 import image17 from '../images/image17.png';
 import image18 from '../images/image18.png';
 import image19 from '../images/image19.png';
 import image20 from '../images/image20.png';
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 
-export default function DiaryEntry({date,exerciseData, dietData, stepsData, sleepData,user}) {
+export default function DiaryEntry({date,exerciseData, dietData, stepsData, sleepData,user, canEditStyle}) {
 
     const [exerciseContent,setExerciseContent] = useState(exerciseData)
     const [dietContent,setDietContent] = useState(dietData)
@@ -20,10 +19,11 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
 
     //update an entry
     const updateEntry = async () => {
+        //error message if wrong numerical input
 
         if (!exerciseContent || !dietContent || !stepsContent || !sleepContent)
         {
-            console.log("error, no input type")
+            setEditMessage('Error! One of the fields may be empty or have a wrong input type!')
         }
         //UPDATE exerciseSection, dietSection, stepsSection, sleepSection FROM DiaryEntry WHERE DATE = date AND EmployeeID = user;
         const {data, error} = await supabase.from('testDiaryEntry')
@@ -33,12 +33,21 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
         if (error)
         {
             setEditMessage('Update Error!')
-            
         }
         else if (data)
         {
             setEditMessage('Succesfully updated entry!')
         }
+    }
+
+    const changeStepsValue = (ev) =>{
+        if (!Number(ev.target.value))
+            setEditMessage("Error! The step count contains non numerical inputs!")
+        else{
+            setStepsContent(Number(ev.target.value))
+            setEditMessage(null)
+        }
+            
     }
 
     return (
@@ -50,28 +59,28 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
                     <div style={{ width: '40px', height: 'auto' }}>
                         <Image src={image17} alt="Image 25" />
                     </div>
-                    <textarea className="ex-content" onChange={(ev) => setExerciseContent(ev.target.value)}>{exerciseData}</textarea>
+                    <textarea readOnly={canEditStyle.textAreaReadOnly} minlength="1" maxLength="300" className="content" onChange={(ev) => setExerciseContent(ev.target.value)}>{exerciseData}</textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image20} alt="Image 25" />
                     </div>
-                    <textarea className="di-content" onChange={(ev) => setDietContent(ev.target.value)}>{dietData}</textarea>
+                    <textarea readOnly={canEditStyle.textAreaReadOnly} minlength="1" maxLength="300" className="content" onChange={(ev) => setDietContent(ev.target.value)}>{dietData}</textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image18} alt="Image 25" />
                     </div>
-                    <textarea className="st-content" onChange={(ev) => setStepsContent(Number(ev.target.value))}>{stepsData.toString()}</textarea>
+                    <textarea readOnly={canEditStyle.textAreaReadOnly} minlength="1" maxLength="7" className="content" onChange={(ev) => changeStepsValue(ev)}>{stepsData.toString()}</textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image19} alt="Image 25" />
                     </div>
-                    <textarea className="sl-content" onChange={(ev) => setSleepContent(ev.target.value)}>{sleepData}</textarea>
+                    <textarea readOnly={canEditStyle.textAreaReadOnly} minlength="1" maxLength="300" className="content" onChange={(ev) => setSleepContent(ev.target.value)}>{sleepData}</textarea>
                 </div>
                 <div className="edit-container">
-                    <button className="edit-button" onClick={() => updateEntry()}>Submit changes</button>
+                    <button className={canEditStyle.button} onClick={() => updateEntry()}>Submit changes</button>
                 </div>
             </div>
         </div>

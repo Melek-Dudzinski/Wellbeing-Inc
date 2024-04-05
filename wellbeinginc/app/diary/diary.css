@@ -24,7 +24,16 @@ body {
     margin-bottom: 10px;
 }
 
-.ex-content, .di-content, .st-content, .sl-content {
+.content {
+    width: 20rem;
+    height: 90px; /* Adjust height as needed */
+    background-color: #f9f9f9;
+    vertical-align: top;
+    overflow-wrap: break-word; /* Wrap long words */
+    white-space: pre-wrap; /* Wrap text and preserve line breaks */
+}
+
+.content-no-edit {
     width: 20rem;
     height: 90px; /* Adjust height as needed */
     background-color: #f9f9f9;
@@ -36,10 +45,25 @@ body {
 textarea{
     resize: none;
     color:black;
-    
 }
 
 .edit-content{
     display:flex;
 }
 
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-button-disabled{
+    display:none;
+}
+
+.edit-button{
+    display:flex;
+}
+
+.Edit-Message{
+    color:red
+}
