@@ -7,7 +7,7 @@ const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
 
     const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
     const [createMessage,setCreateMessage] = useState(null)
-
+    
     const createEntry = async (formData) => {
         const ex = formData.get("exercise");
         const di = formData.get("diet");
@@ -43,13 +43,13 @@ const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
                 </div>
                 <form method="dialog">
                     <label>Exercise Section</label>
-                    <input type="text" name="exercise" required minlength="1" maxLength="300"></input>
+                    <input type="text" name="exercise" required minLength="1" maxLength="300"></input>
                     <label>Diet Section</label>
-                    <input type="text" name="diet" required minlength="1" maxLength="300"></input>
+                    <input type="text" name="diet" required minLength="1" maxLength="300"></input>
                     <label>Steps Section</label>
-                    <input type="number" name="steps" required minlength="1" maxLength="7"></input>
+                    <input type="number" name="steps" required minLength="1" maxLength="7"></input>
                     <label>Sleep Section</label>
-                    <input type="text" name="sleep" required minlength="1" maxLength="300"></input>
+                    <input type="text" name="sleep" required minLength="1" maxLength="300"></input>
                     <button type="submit" formAction={createEntry}>Create</button>
                 </form>
             </div>

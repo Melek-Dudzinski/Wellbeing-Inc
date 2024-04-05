@@ -1,8 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
-import DiaryCalendar from "@/components/DiaryCalendar"
-import DiaryEntry from "@/components/Diary/DiaryEntry"
 import DiaryEntries from "@/components/Diary/DiaryEntries";
 import './diary.css';
 
@@ -23,7 +21,6 @@ export default async function Diary() {
   return (
       <>
           <Navbar activePage={activePage}/>
-          <DiaryCalendar/>
           <DiaryEntries user={user.id}></DiaryEntries>
       </>
   )

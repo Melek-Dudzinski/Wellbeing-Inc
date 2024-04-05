@@ -16,7 +16,6 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
     const [EditMessage, setEditMessage] = useState(null)
     const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
 
-
     //update an entry
     const updateEntry = async () => {
         //error message if wrong numerical input
@@ -59,25 +58,25 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
                     <div style={{ width: '40px', height: 'auto' }}>
                         <Image src={image17} alt="Image 25" />
                     </div>
-                    <textarea readOnly={canEditStyle.textAreaReadOnly} minlength="1" maxLength="300" className="content" onChange={(ev) => setExerciseContent(ev.target.value)}>{exerciseData}</textarea>
+                    <textarea readOnly={canEditStyle.textAreaReadOnly} minLength="1" maxLength="300" className="content" onChange={(ev) => setExerciseContent(ev.target.value)}>{exerciseData}</textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image20} alt="Image 25" />
                     </div>
-                    <textarea readOnly={canEditStyle.textAreaReadOnly} minlength="1" maxLength="300" className="content" onChange={(ev) => setDietContent(ev.target.value)}>{dietData}</textarea>
+                    <textarea readOnly={canEditStyle.textAreaReadOnly} minLength="1" maxLength="300" className="content" onChange={(ev) => setDietContent(ev.target.value)}>{dietData}</textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image18} alt="Image 25" />
                     </div>
-                    <textarea readOnly={canEditStyle.textAreaReadOnly} minlength="1" maxLength="7" className="content" onChange={(ev) => changeStepsValue(ev)}>{stepsData.toString()}</textarea>
+                    <textarea readOnly={canEditStyle.textAreaReadOnly} minLength="1" maxLength="7" className="content" onChange={(ev) => changeStepsValue(ev)}>{stepsData.toString()}</textarea>
                 </div>
                 <div className="diary-entry">
                     <div style={{ width: '40px', height: 'auto' }}>
                     <Image src={image19} alt="Image 25" />
                     </div>
-                    <textarea readOnly={canEditStyle.textAreaReadOnly} minlength="1" maxLength="300" className="content" onChange={(ev) => setSleepContent(ev.target.value)}>{sleepData}</textarea>
+                    <textarea readOnly={canEditStyle.textAreaReadOnly} minLength="1" maxLength="300" className="content" onChange={(ev) => setSleepContent(ev.target.value)}>{sleepData}</textarea>
                 </div>
                 <div className="edit-container">
                     <button className={canEditStyle.button} onClick={() => updateEntry()}>Submit changes</button>
