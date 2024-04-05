@@ -10,7 +10,7 @@ import HomeProfile from "@/components/HomeProfile"
 
 import './protected.css';
 
-
+// testing 
 export default async function ProtectedPage() {
   const activePage = 'home'
 
