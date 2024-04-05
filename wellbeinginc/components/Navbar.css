@@ -23,7 +23,7 @@
 }
 
 .nav-links li a:hover {
-    color: #a1e2d4;
+    color:#17B169;
 }
 
 .logo {
@@ -35,4 +35,19 @@
 .nav-links li.active a{
     /* Modify this to change what selected looks like */
   color: red;
+}
+
+
+li button {
+    background-color: #17B169;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0 1rem;
+    border-radius: 2rem;
+}
+
+li button:hover {
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px grey;
 }

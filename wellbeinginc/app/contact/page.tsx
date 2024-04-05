@@ -4,7 +4,7 @@ import './contact.css'
 import Navbar from '@/components/Navbar'
 import ContactFeedback from '@/components/ContactFeedback'
 import ContactChampions from '@/components/ContactChampions'
-import FeedbackLog from "@/components/FeedbackLog";
+import Link from 'next/link';
 
 export default async function contact() {
     const activePage = 'contact'
@@ -25,7 +25,7 @@ export default async function contact() {
             <div className="contactBody">
                 <ContactFeedback searchParams={{message: ""}} />
                 <ContactChampions />
-                <FeedbackLog />
+                <button id = "view-log"><Link href="feedbackLog">View Feedback</Link></button>
             </div>
         </>
     )

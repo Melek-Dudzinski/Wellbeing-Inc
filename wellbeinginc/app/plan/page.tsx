@@ -22,8 +22,8 @@ export default async function Plan() {
       <>
           <Navbar activePage={activePage}/>
           <div className="miniNav">
-            <button><Link href="changePlan">SWITCH PLAN</Link></button>
-            <button>DOWNLOAD PLAN</button>
+            <button className = "planButton"><Link href="changePlan">SWITCH PLAN</Link></button>
+            <button className = "planButton">DOWNLOAD PLAN</button>
           </div>
           <PlanPlan />
       </>
