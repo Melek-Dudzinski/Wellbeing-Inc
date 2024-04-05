@@ -47,22 +47,25 @@ export default async function ProtectedPage() {
       <div>
         <Navbar activePage={activePage}/>
         <div className="homepage-grid">
-          <div className="profile-sect"><HomeProfile /></div>
-          <div id="plan-sect"><HomePlan /></div>
-          <div id ="top-bit-container">
+          <div className ="top-section">
             <div id="home-chatbot-section"></div>
             <h1>HELLO ANNA,</h1>
             <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
             <p>confidential support and guidance</p>
             <button id = "chat-button">CONNECT</button>
           </div>
-          <div id="articles-sect">
+          <div className='left-section-below-top'>
+            <div id="profile-sect"><HomeProfile /></div>
+            <div id="plan-sect"><HomePlan /></div>
+          </div>
+          <div className='right-section-below-top'>
             <HomeArticle />
-            <button id='see-more-button'><Link href="/articles">See More</Link></button>
+            <section className='button-article'> 
+              <button id='see-more-button'><Link href="/articles">See More</Link></button>
+            </section>
           </div>
           <Chatbot userID={user.id}/>
-        </div>
-      </div>
+       </div>
     ) : (
       <SetProfile />
     )}

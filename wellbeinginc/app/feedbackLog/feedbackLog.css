@@ -1,0 +1,57 @@
+/*Page Header*/
+.log-header{
+    display: flex;
+    margin-bottom: 3rem;
+    margin-top: 2.5rem;
+}
+.log-header #back{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+    color: white;
+
+    text-align: center;
+    border: none;
+    border-radius: 2.5rem;
+    width: 10rem;
+    height: 4rem;
+    background-color:#8FB099;
+}
+.log-header h1{
+    color: black;
+    font-size: 3rem;
+    font-weight: 300;
+    margin-right: 7.5rem;
+}
+
+/*Entry Display*/
+.feedback-log{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+}
+.feedback-log div{
+    margin:1rem;
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: #8AA48E;
+}
+
+/*Delete Button*/
+.feedback-log #del{
+    margin-top: 1.5rem;
+    float: right;
+    width: 10rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    color: white;
+    background-color: #8FB099;
+}
+
+/*Footer*/
+footer{
+    color: black;
+    font-size: 1.5rem;
+}

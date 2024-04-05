@@ -23,7 +23,7 @@
 }
 
 .nav-links li a:hover {
-    color: #a1e2d4;
+    color:#17B169;
 }
 
 .logo {
@@ -39,9 +39,15 @@
 
 
 li button {
-    background-color: #a6d9a9;
+    background-color: #17B169;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    padding: 0 1rem;
+    border-radius: 2rem;
+}
+
+li button:hover {
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px grey;
 }

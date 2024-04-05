@@ -12,8 +12,9 @@
 }
 
 .profile-photo img {
-    width: 100%; /* Ensure the image fills its container */
+    width: 80%; /* Ensure the image fills its container */
     height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the image circular */
 }
 
 .details {
@@ -29,11 +30,16 @@
 .edit-profile button {
     width: 100%;
     padding: 10px;
-    background-color: #a6d9a9;
+    background-color: #17B169;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 2rem;
+}
+
+.edit-profile button:hover {
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px grey;
 }
 
 
