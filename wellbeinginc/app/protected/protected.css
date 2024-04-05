@@ -1,148 +1,131 @@
-/*General Page Styling*/
-body{
-    margin: 0;
-    padding: 0;
-}
-
-.homepage-grid{
-    display:grid;
-    height:100%;
-    width:99%;
-    grid-template-columns: 45% 54%;
-    grid-template-rows: 50% 20% 30%;
-    gap:1rem;
+.homepage-grid {
     color: black;
-    }
-.profile-sect, #plan-sect,#articles-sect{
+    display: grid;
+    grid-template-areas:
+      'top-section top-section top-section top-section top-section'
+      'left-section-below-top left-section-below-top right-section-below-top right-section-below-top right-section-below-top';
+    grid-gap: 1rem; 
+    padding: 1rem; /* Add padding to overall grid */
+  }
 
+  .top-section {
+    grid-area: top-section;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 30rem;
+    
+    border-radius: 10px;
+  }
+  .top-section h1 {
+    font-size: 4rem; /* Larger title size */
+    font-weight: bold; /* Space between title and subtitle */
+    color: #F9629F;
+  }
+
+  .top-section p{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color:  #720e9e;
+  }
+
+  #home-chatbot-section{
+    background-image: url("../../components/images/imageee1.png");
+    background-repeat:no-repeat;
+    position: absolute;
+    background-size: 100% 100%;
+    width: 98%;
+    height: 68%;
+    opacity: 0.55; 
+    z-index: -1;  
+}
+  
+  .left-section-below-top {
+    grid-area: left-section-below-top;
+    display: flex; /* Allow profile and plan to sit side-by-side */
+    flex-direction: column; 
+  }
+  
+  .right-section-below-top {
+    grid-area: right-section-below-top;
+    background-color: #BDCCBE; /* Example background color */
+    padding: 1.5rem 0;
+    border-radius: 10px;
+    max-height: 97%;
+  }
+  
+  /* Profile and Plan Sections */
+  #profile-sect,
+  #plan-sect {
     background-color: #BDCCBE;
-}
-.profile-sect, #plan-sect{
-    grid-column:1/1;
-    height: 28rem;
-    width: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem; /* Space between profile and plan */
+  }
+  
+
+  /* ... add styles for elements within each section as needed */
+#see-more-button{
+    background-color:#17B169;
+    border-radius: 2rem;
+    padding: 3px;
+    width: 5rem;
+    align-self: center;
+    color: white;
 }
 
-/*Left Side of Homepage*/
-.profile-sect{
-    grid-row: 2;
-    grid-column: 1;
-}
-#plan-sect{
-    grid-row: 3;
-    grid-column: 1;
+.button-article{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+
+.home-article-container:hover,#see-more-button:hover, #chat-button:hover{
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px grey;
 }
 
-/*chat bot connect button css*/
 #chat-button{    
-    background-color: white;
+    background-color: #17B169;
     padding: 5px;
     margin-top: 50px;
     width: 10rem;
     height: 3rem;
     font-size: 25px;
+    color: white;
+    border-radius: 2rem;
 }
 
-#top-bit-container{
-    grid-row:1;
-    grid-column: 1/span2;
+
+  /* place 2 articles side by side */
+  .Article-column {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-#home-chatbot-section{
-    background-image: url("../../components/images/imageee1.png");
-    background-repeat:no-repeat;
-    position: absolute;
-    background-size: 100% 100%;
-    width: 100%;
-    height: 100%;
-    opacity: 0.55; 
-    z-index: -1; 
-    
-}
-
-#top-bit-container > h1{
-    font-size: 80px;
-    font-weight: bold;
-}
-
-#top-bit-container > p{
-    font-size: 19px;
-}
-
-
-#chat-button:hover{
-    background-color: lightgray;
-    color:black;
-    box-shadow: 2px 2px 5px grey;
-}
-
-/*Right Side of Homepage*/
-#articles-sect{
-    grid-row: 2/ span 2;
-    grid-column:2/2;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    
-}
-
-/*css for the articles*/
-
-.home-article-container:hover,#see-more-button:hover{
-    transform: scale(1.01);
-    box-shadow: 2px 2px 5px grey;
-}
-
-.home-article{
-    text-align: left;
-}
-
-.Article-column{
-    display: flex;
-}
-
-.home-article-container{
+    justify-content: space-between;
+  }
+  
+  .home-article-container {
     text-align: justify;
-    width: 75%;
+    width: 400px;
     height: 100%;
     background-color: #8AA48E;
-    padding: 1rem;
-}
-
-.home-article-content{
-    padding: 20px;
-}
-
-.img-container{
-    display: flex;
-    justify-content: center;
-}
-.home-img{
-    height: 20rem;
-    width:20rem;
-}
-
-.home-article-title{
-    padding: 20px;
+    margin: 0 1.5rem;
+    padding: 1.5rem; 
+    border-radius: 10px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); 
+  }
+  
+ 
+  
+  .home-article-title {
     font-weight: bold;
-    text-align: center;
-}
-
-
-#see-more-button{
-    background-color: #8AA48E;
-    border-radius: 5px;
-    padding: 3px;
-    width: 5rem;
-    align-self: center;
-}
-
-
+    font-size: 1.15em; /* Larger title size */
+  }
+  
+  .home-article-body {
+    margin-top: 10px; /* Additional spacing */
+    line-height: 1.5; /* Improved line spacing */
+  }
+  
 
