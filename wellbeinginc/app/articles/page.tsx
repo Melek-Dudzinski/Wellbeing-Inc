@@ -28,7 +28,9 @@ export default async function Articles() {
         <div className="line"> </div>
         <div className="line"> </div>
       </div>
+
       <button id = "add-article"><Link href="addArticles">Add New Article</Link></button>
+      
     </>
   )
 }

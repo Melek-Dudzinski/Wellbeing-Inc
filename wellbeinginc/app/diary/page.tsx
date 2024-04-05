@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 import DiaryCalendar from "@/components/DiaryCalendar"
 import DiaryEntry from "@/components/DiaryEntry"
+import DiaryForm from "@/components/DiaryForm";
 import './diary.css';
 
 export default async function Diary() {
@@ -25,6 +26,7 @@ export default async function Diary() {
           <DiaryEntry/>
           <DiaryEntry/>
           <DiaryEntry/>
+          <DiaryForm />
       </>
   )
 }

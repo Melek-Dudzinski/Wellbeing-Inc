@@ -1,11 +1,13 @@
 /* articles.css */
 
 #add-article{
+    position: absolute;
     background-color: #6A6F6A;
     padding: 0.75rem;
     border-radius: 1.5rem;
-    margin-top: 15rem;
+    bottom: 3%;
     float: right;
+    left: 3%;
 }
 
 body {
@@ -26,15 +28,18 @@ body {
 
 
 .article-container {
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 18rem;
+    margin-left: 15rem;
     padding-inline: 2rem;
     background-color: white;
     padding: 0.5rem;
-    margin-bottom: 10rem;
+    margin-top: 2rem;
     width: 70%;
+    top: 14%;
 }
+
 .article-container #del{
     margin-top: 1.5rem;
     float: right;
@@ -50,7 +55,7 @@ body {
     margin-top: 2rem;
     column-count: 3;
     column-gap: 2rem;
-    height: 42rem;
+    height: 38rem;
 }
 
 .article-title {
@@ -80,56 +85,13 @@ body {
     margin-bottom: 1.5em;
 }
 
-
-.articleView-container, 
-.articleView-container1, 
-.articleView-container2,
-.articleView-container3,
-.articleView-container4,
-.articleView-container5 {
-    display: flex;
-    align-items: center; 
-    margin-bottom: 20px;
-    position: absolute;
-    left: 5%;
-}
-
-.articleView-container{
-    top: 32%;
-}
-
-.articleView-container1{
-    top: 18%;
-}
-
-.articleView-container2{
-    top: 44%;
-}
-
-.articleView-container3{
-    top: 56%;
-}
-
-.articleView-container4{
-    top: 68%;
-}
-
-.articleView-container5{
-    top: 80%;
-}
-
-
-.articleView-image {
-    margin-right: 20px;
-}
-
 .articleView-title {
     color: #000;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    line-height: 1.5rem;
-    width: 12rem;
+    line-height: 1.1rem;
+    width: 11.6rem;
     text-align: left;
 }
 
@@ -143,6 +105,17 @@ body {
     font-size: 1rem;
 }
 
+.article-bar{
+    margin-right: 63rem;
+    margin-top: 1rem;
+    
+}
+
+.article-wrapper {
+    margin-top: 4.5%;
+    margin-bottom: -2.5%;
+}
+
 .line {
     position: absolute;
     left: 3%;
@@ -151,10 +124,26 @@ body {
     background-color: black; 
   }
 
+
   .line:nth-child(1) { top: 30%; }
   .line:nth-child(2) { top: 42%; }
   .line:nth-child(3) { top: 54%; }
   .line:nth-child(4) { top: 66%; }
   .line:nth-child(5) { top: 78%; }
 
+/*  
+
+.articleView-image {
+  margin-right: 20px; /* Add spacing between image and content 
+}
+
+.articleView-content {
+  flex-grow: 1; /* Allow content to take remaining space 
+}
+
+.articleView-image {
+    margin-right: 20px;
+}
+
+*/
 
