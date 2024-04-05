@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar"
 import HomeArticle from "@/components/HomeArticle"
 import HomePlan from "@/components/HomePlan"
 import HomeProfile from "@/components/HomeProfile"
-
+import Chatbot from "@/components/Chatbot";
 import './protected.css';
 
 
@@ -41,6 +41,7 @@ export default async function ProtectedPage() {
           <HomeArticle />
           <button id='see-more-button'><Link href="/articles">See More</Link></button>
         </div>
+        <Chatbot userID={user.id}/>
       </div>
     </>
   );
