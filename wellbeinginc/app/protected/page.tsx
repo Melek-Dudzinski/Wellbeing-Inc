@@ -1,8 +1,9 @@
 /*Page Imports*/
-//import AuthButton from "@/components/AuthButton";
+
 import Link from 'next/link';
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+import React, { useState } from 'react';
 import Navbar from "@/components/Navbar"
 import HomeArticle from "@/components/HomeArticle"
 import HomePlan from "@/components/HomePlan"
@@ -12,6 +13,8 @@ import './protected.css';
 
 
 export default async function ProtectedPage() {
+
+  let profileSet = false;
   const activePage = 'home'
 
   const supabase = createClient();
@@ -22,6 +25,16 @@ export default async function ProtectedPage() {
 
   if (!user) {
     return redirect("/login");
+  }
+
+  const { data, error } = await supabase.from('TestUserProfile').select().eq('EmployeeNo', user.id);
+
+  if (error) {
+    console.log("Error getting queue status");
+  }
+
+  if (data.length > 0) {
+    profileSet = true;
   }
 
   return (
