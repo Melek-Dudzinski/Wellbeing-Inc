@@ -76,6 +76,17 @@
     color: white;
 }
 
+#view-log{
+    background-color: #6A6F6A;
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+    margin-top: 12rem;
+    margin-bottom: 3rem;
+    width: 18rem;
+    font-size: 2rem;
+    color: white;
+}
+
 
 
 #Information
