@@ -9,7 +9,7 @@ import HomePlan from "@/components/HomePlan"
 import HomeProfile from "@/components/HomeProfile"
 
 import './protected.css';
-
+//testing again, will delete later
 // testing 
 export default async function ProtectedPage() {
   const activePage = 'home'
