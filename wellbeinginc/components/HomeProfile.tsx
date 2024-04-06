@@ -3,9 +3,16 @@ import { useState } from 'react';
 import Modal from './ProfileModal';
 import Image from 'next/image'
 import blank from './images/Blank Profile Picture.jpg'
+import HomeProifleDetails from '@/components/HomeProfileDetails';
 import './HomeProfile.css'
 
-const HomeProfile = () => {
+type HomeProfileProps = {
+  userName: string;
+  userEmail: string;
+  userRole: string;
+}
+
+const HomeProfile = (props: HomeProfileProps) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
@@ -23,9 +30,7 @@ const HomeProfile = () => {
                 <Image src={blank} alt="Blank" height="100" width="100"/>
               </div>
               <div className='details'>
-                  <h3>Name: Anna Perker</h3>
-                  <p>Email: annaperker@gmail.com</p>
-                  <p>Status: FDM Employee</p>
+                  <HomeProifleDetails userName={props.userName} userEmail={props.userEmail} userRole={props.userRole}/>
               </div>
               <div className='edit-profile'>
                   <button onClick={openModal}>Edit Profile</button>

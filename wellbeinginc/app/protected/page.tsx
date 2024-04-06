@@ -1,5 +1,5 @@
 /*Page Imports*/
-
+'use cleint'
 import Link from 'next/link';
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
@@ -14,6 +14,8 @@ import './protected.css';
 
 
 export default async function ProtectedPage() {
+
+  const [userDetails, setUserDetails] = useState([]);
 
   let profileSet = false;
   const activePage = 'home'
@@ -55,7 +57,7 @@ export default async function ProtectedPage() {
               <button id = "chat-button">CONNECT</button>
             </div>
             <div className='left-section-below-top'>
-              <div id="profile-sect"><HomeProfile /></div>
+              <div id="profile-sect"><HomeProfile userName={data.FirstName} userEmail={user.email} userStatus={data.Role}/></div>
               <div id="plan-sect"><HomePlan /></div>
             </div>
             <div className='right-section-below-top'>
