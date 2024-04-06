@@ -94,7 +94,7 @@ const Chatbot = (props: ChatbotProps) => {
     const { data, error } = await supabase
       .from('ChatbotMessages')
       .select()
-      .or(`(sender_id.eq.${senderID}.and.receiver_id.eq.${receiverID})`, `(sender_id.eq.${receiverID}.and.receiver_id.eq.${senderID})`);
+      .or(`(sender_id.eq.${senderID}.and.receiver_id.eq.${receiverID}), (sender_id.eq.${receiverID}.and.receiver_id.eq.${senderID})`);
 
     if (error) {
       console.error('Error fethcing messages:', error.message);
@@ -192,7 +192,7 @@ const Chatbot = (props: ChatbotProps) => {
       <div className="chatbot-window">
         <div className='messages'>
           {messages.map(message => (
-            <div key={message.message_id} className={`message ${message.receiver_id === receiverID ? 'receiverStyle' : 'senderStyle'}`}>
+            <div key={message.message_id} className={`message ${message.receiver_id === senderID ? 'receiverStyle' : 'senderStyle'}`}>
               <p>{message.content}</p>
             </div>
           ))}
