@@ -89,8 +89,8 @@ Still To Claim:
 -Downloading Plan
 -Basically, everything to do with Plan-
 
--Creating Profile upon Account Creation (Newton)
--Linking user profile to homepage component 
+-Creating Profile upon Account Creation (Melek)
+-Linking user profile to homepage component (Melek)
 -Edit profile CSS pop up on homepage
 
 -Hardcoding Menus into datatbase (Dayo)
