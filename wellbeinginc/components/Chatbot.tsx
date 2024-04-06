@@ -64,6 +64,7 @@ const Chatbot = (props: ChatbotProps) => {
 
         if (payload.receiver_id = senderID) {
           setReceiverID(payload.sender_id)
+          checkQueue();
         }
       }
     ).subscribe()
@@ -94,7 +95,8 @@ const Chatbot = (props: ChatbotProps) => {
     const { data, error } = await supabase
       .from('ChatbotMessages')
       .select()
-      .or(`(sender_id.eq.${senderID}.and.receiver_id.eq.${receiverID}), (sender_id.eq.${receiverID}.and.receiver_id.eq.${senderID})`);
+      .or(`sender_id.eq.${senderID}, sender_id.eq.${receiverID}`)
+      .or(`receiver_id.eq.${receiverID}, receiver_id.eq.${senderID}`);
 
     if (error) {
       console.error('Error fethcing messages:', error.message);
@@ -104,21 +106,27 @@ const Chatbot = (props: ChatbotProps) => {
   };
 
   const handleSendMessage = async () => {
-    const { data, error } = await supabase.from('ChatbotMessages').insert([
-      {
-        sender_id: senderID,
-        receiver_id: receiverID,
-        content: newMessage,
-        timestamp: new Date().toISOString(),
-    },
-    ]);
 
-    if (error) {
-      console.error('Error sending message:', error.message);
+    if (receiverID) {
+      const { data, error } = await supabase.from('ChatbotMessages').insert([
+        {
+          sender_id: senderID,
+          receiver_id: receiverID,
+          content: newMessage,
+          timestamp: new Date().toISOString(),
+      },
+      ]);
+  
+      if (error) {
+        console.error('Error sending message:', error.message);
+      } else {
+        setNewMessage("");
+        fetchMessage();
+      }
     } else {
-      setNewMessage("");
-      fetchMessage();
+      console.log("no connection")
     }
+    
   }
 
   const joinQueue = async () => {
@@ -156,16 +164,15 @@ const Chatbot = (props: ChatbotProps) => {
       if (data.length > 0) {
         setQueueStatus(true);
   
-        const { data: posInQueue, error: posInQueueError } = await supabase
+        const { data: posInQueue, error: posInQueueError, count } = await supabase
           .from('ChatbotQueue')
-          .select('*', { count: 'exact', head: true })
+          .select('queue_id', { count: 'exact' })
           .lt('queue_id', data[0].queue_id);
   
         if (posInQueueError) {
           console.log("Error getting queue position")
         } else {
-          console.log(posInQueue + " test")
-          setQueuePos(posInQueue);
+          setQueuePos(count + 1);
         }
       } else {
         setQueueStatus(false);
@@ -183,6 +190,8 @@ const Chatbot = (props: ChatbotProps) => {
     }
     setReceiverID(data[0].user_id);
   }
+
+  checkQueue();
 
   return (
     <div className={`chatbot ${isOpen ? 'open' : ''}`} style={{ left: position.x, top: position.y}} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
