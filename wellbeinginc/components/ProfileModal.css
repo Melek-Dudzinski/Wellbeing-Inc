@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
   }
+ 
   
 .modal {
     background-color: white;
@@ -20,6 +21,7 @@
 .modal-header {
     position: relative;
 }
+
 
 .close-button {
     background: none;

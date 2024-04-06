@@ -1,4 +1,4 @@
-import './ProfileModal.css'
+import './ProfileModal2.css'
 import profilePicture from './images/Blank Profile Picture.jpg'
 import Image from 'next/image'
 
@@ -13,13 +13,13 @@ const Modal = (props : ProfileModalProps) => {
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <div className="modal-header">
-          <button className="close-button" onClick={props.onClose}>X</button>
+        <div id="modal-header">
+          <button id="close-button" onClick={props.onClose}>X</button>
         </div>
             <form action="" method="">
               <div className='profilePicture'>
                   <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
-                </div>
+              </div>
                 <input className="hidden" type="file" id="profile-picture" name="profile-picture"/>
             </form>
         <div className="modal-content">
@@ -36,8 +36,10 @@ const Modal = (props : ProfileModalProps) => {
                     <label><input type="checkbox" name="allergies" value="dairy"/> Dairy</label><br/>
                     <label><input type="checkbox" name="allergies" value="gluten"/> Gluten</label><br/>
                 </div>
-
-                <button type="submit">Save Changes</button>
+                <div id='modal-save-button'>
+                  <button type="submit">Save Changes</button>
+                </div>
+                
             </form>
         </div>
       </div>

@@ -4,60 +4,63 @@
     background-color: whitesmoke;
     width: 100%;
 }
-.banner > #img{
+.banner  #img{
     width:10rem;
     height:6rem;
 }
-p{
+.banner p{
     color: gray;
-    margin-top: 3rem;
+    margin-top: 1rem;
     font-size: 2rem;
+    text-align: center;
 }
 
 /*General Form Styling*/
-form{
+.sign-in-form form{
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 10rem 10rem 10rem 3rem;
     background-color: #BDCCBE;
-    width: 55rem;
-    height: 35rem;
-    margin-top: 7%;
+    width: 45rem;
+    height: 25rem;
+    margin-top: 20%;
     padding: 1.5rem;
     border-radius: 2rem;
     color: grey;
 }
+
+
 #form-title{
     grid-row: 1/1;
     grid-column: 1 /span 2;
     text-align: center;
-    font-size: 3.5rem;
-    height: 10rem;
+    font-size: 2.9rem;
 }
 
 /*Form Inputs/Outputs Styling*/
-div{
+.sign-in-form div{
     display: flex;
     flex-direction: column;
     grid-column: 1 /span 2;
     font-size: 1.2rem;
 }
-label, #message{
+
+.sign-in-input label{
     font-size: 1.5rem;
 }
-input{
+
+.sign-in-input input{
     border-radius: 0rem;
     height: 2.5rem;
     font-size: 1rem;
-    background-color: white;
-    border-color: #D4E5D5;
+    padding: 0 .8rem;
+    background-color: azure;
 }
-#email-sec{
-    grid-row: 2/2;
+
+.sign-in-input input:focus{
+    outline: none;
+    border: 1px solid #17B169;
 }
-#pword-sec{
-    grid-row: 3/3;
-}
+
+
 #message{
     margin-top: 3rem;
     grid-column: 1 /span 2;
@@ -66,11 +69,32 @@ input{
 
 /*Form Button Styling*/
 .button{
-    grid-row: 4/4;
-    border-radius: 3.5rem;
-    background-color: #D4E5D5;
-    width: 15rem;
+    width: 12rem;
     margin-left: 22.5%;
     margin-bottom: 0.25rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    background-color: #17B169;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0 1rem ;
+    border-radius: 2rem;
+}
+
+.button:hover{
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px grey;
+}
+
+.app-name{
+    color: #009999;
+}
+.form-header-part1{
+    color: #ff1ac6;
+}
+.form-header-part2{
+    color:#ff8000;
+}
+.form-header-part3{
+    color: #3366cc;
 }

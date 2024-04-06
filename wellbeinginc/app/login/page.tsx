@@ -55,58 +55,62 @@ export default function Login({
   return (
     <>
       {/* Page Banner */}
-      <div className = "banner"><Image id="img" src={logo} alt="FDM Logo"/></div>
-      <p>Welcome to your personal well-being portal, as part of your FDM experience.</p>
+      <div className="banner">
+        <Image id="img" src={logo} alt="FDM Logo"/>
+        <p>Welcome to your personal well-being portal, as part of your FDM experience.</p>
+      </div>
 
       {/*Sign In Form Layout*/}
-      <form>
-        <p id = "form-title">
-          Sign in to the Wellbeing Portal
-        </p>
-
-        <div id = "email-sec">
-          <label htmlFor="email">
-            Email
-          </label>
-          <input
-            name="email"
-            placeholder="you@example.com"
-            required
-          />
-        </div>
-
-        <div id = "pword-sec">
-          <label htmlFor="password">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            placeholder="••••••••"
-            required
-          />
-        </div>
-
-        {/*Sign Up/Sign In Buttons*/}
-        <SubmitButton className="button"
-          formAction={signIn}
-          pendingText="Signing In..."
-        >
-          Sign In
-        </SubmitButton>
-
-        <SubmitButton className = "button"
-          formAction={signUp}
-          pendingText="Signing Up..."
-        >
-          Sign Up
-        </SubmitButton>
-        {searchParams?.message && (
-          <p id ="message">
-            {searchParams.message}
+      <div className="sign-in-form">
+        <form>
+          <p id = "form-title">
+            <span className="form-header-part1">Sign</span> <span className="form-header-part2">in</span> <span className="form-header-part3">to</span> <span className="app-name">WellbeingInc.</span>
           </p>
-        )}
-      </form>
+
+          <div id = "email-sec" className="sign-in-input">
+            <label htmlFor="email">
+              Email
+            </label>
+            <input
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div id = "pword-sec" className="sign-in-input">
+            <label htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+
+          {/*Sign Up/Sign In Buttons*/}
+          <SubmitButton className="button"
+            formAction={signIn}
+            pendingText="Signing In..."
+          >
+            Sign In
+          </SubmitButton>
+
+          <SubmitButton className = "button"
+            formAction={signUp}
+            pendingText="Signing Up..."
+          >
+            Sign Up
+          </SubmitButton>
+          {searchParams?.message && (
+            <p id ="message">
+              {searchParams.message}
+            </p>
+          )}
+        </form>
+      </div>
     </>
   );
 }
