@@ -64,6 +64,7 @@ export const ArticlesView = () => {
                     <div key={index} className='article-wrapper'>
                         <div className='article-bar'>
                             <div className='articleView-content'>
+                                <img src={article.image_url} style={{ maxWidth: '80px', maxHeight: '80px', position: 'absolute', left: '3%', }} />
                                 <div className="articleView-title" onClick={() => handleArticleClick(index)}>{article.title}</div>
                                 <div className="articleView-date">{article.date}</div>
                             </div>
@@ -71,9 +72,10 @@ export const ArticlesView = () => {
                         {selectedArticle === index && (
                             <div className="article-container">
                                 <div className='article-content'>
+                                    <img src={article.image_url} style={{ maxWidth: '290px', maxHeight: '290px', left: '3%', }} /> 
                                     <div className="article-title" >{article.title}</div>
-                                    <div className="article-body">{article.content}</div>
-                                    <button id="del">Delete Entry</button>
+                                    <div className="article-body" dangerouslySetInnerHTML={{ __html: article.content }} />
+                                    <button id = "del" onClick = {()=> removeArticle(article.title)}>Delete Entry</button>
                                 </div>
                             </div>
                         )}

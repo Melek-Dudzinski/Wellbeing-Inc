@@ -112,7 +112,7 @@ body {
 }
 
 .article-wrapper {
-    margin-top: 4.5%;
+    margin-top: 5.5%;
     margin-bottom: -2.5%;
 }
 
@@ -125,11 +125,13 @@ body {
   }
 
 
-  .line:nth-child(1) { top: 30%; }
-  .line:nth-child(2) { top: 42%; }
-  .line:nth-child(3) { top: 54%; }
-  .line:nth-child(4) { top: 66%; }
-  .line:nth-child(5) { top: 78%; }
+.line:nth-child(1) { top: 30%; }
+.line:nth-child(2) { top: 42%; }
+.line:nth-child(3) { top: 54%; }
+.line:nth-child(4) { top: 66%; }
+.line:nth-child(5) { top: 78%; }
+
+
 
 /*  
 

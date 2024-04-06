@@ -17,7 +17,8 @@ export default function  ArticlesForm ({searchParams,}:{searchParams:{message:st
         const content = formData.get("Content") as string;
         const firstName = formData.get("FName") as string;
         const lastName = formData.get("LName") as string;
-        if (!title || !summary || !content || !firstName || !lastName){
+        const image_url = formData.get("image_url") as string;
+        if (!title || !summary || !content || !firstName || !lastName || !image_url){
             return redirect("/articles?message=Please ensure all sections are filled.");
         }
         
@@ -25,7 +26,7 @@ export default function  ArticlesForm ({searchParams,}:{searchParams:{message:st
         const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko')
         const {error} = await supabase 
             .from('ArticleEntries') 
-            .insert ({title: title, summary: summary, content: content, firstName: firstName, lastName: lastName,})
+            .insert ({title: title, summary: summary, content: content, firstName: firstName, lastName: lastName, image_url: image_url})
         if (error){
             return redirect("/articles?message=Unable to add article. Please try again.");
         }
@@ -51,6 +52,8 @@ export default function  ArticlesForm ({searchParams,}:{searchParams:{message:st
                         <textarea name="FName"></textarea>
                     <label>Author Last Name:</label>
                         <textarea name="LName"></textarea>
+                    <label>Image URL:</label>
+                        <textarea name="image_url"></textarea>
 
                     <div id = "buttons">
                         <SubmitButton className="submit-button" formAction={articleSubmit} pendingText="Sending...">Add Article</SubmitButton>
