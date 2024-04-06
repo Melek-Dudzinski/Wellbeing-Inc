@@ -55,8 +55,9 @@ const HomeProfile = (props: HomeProfileProps) => {
               ))}
             </div>
             <div className='edit-profile'>
+                {/* Passing Props to Edit Profile Modal */}
                 <button onClick={openModal}>Edit Profile</button>
-                <Modal isOpen={modalOpen} onClose={closeModal} />
+                <Modal isOpen={modalOpen} onClose={closeModal} userID = {props.userID}/>
             </div>
         </div>
       </>
