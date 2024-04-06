@@ -1,5 +1,3 @@
-/*Page Imports*/
-'use cleint'
 import Link from 'next/link';
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
@@ -10,13 +8,11 @@ import HomePlan from "@/components/HomePlan"
 import HomeProfile from "@/components/HomeProfile"
 import Chatbot from "@/components/Chatbot";
 import SetProfile from '@/components/SetProfileModal';
+import HomeChatbot from '@/components/HomeChatbot';
 import './protected.css';
 
 
 export default async function ProtectedPage() {
-
-  const [userDetails, setUserDetails] = useState([]);
-
   let profileSet = false;
   const activePage = 'home'
 
@@ -29,7 +25,8 @@ export default async function ProtectedPage() {
   if (!user) {
     return redirect("/login");
   }
-
+  
+  
   const { data, error } = await supabase
     .from('TestUserProfile')
     .select('*')
@@ -43,6 +40,7 @@ export default async function ProtectedPage() {
     profileSet = true;
   }
 
+
   return (
     <>
       {profileSet ? (
@@ -51,13 +49,14 @@ export default async function ProtectedPage() {
           <div className="homepage-grid">
             <div className ="top-section">
               <div id="home-chatbot-section"></div>
-              <h1>HELLO ANNA,</h1>
+              {/* <h1>HELLO , ANNA</h1>
               <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
               <p>confidential support and guidance</p>
-              <button id = "chat-button">CONNECT</button>
+              <button id = "chat-button">CONNECT</button> */}
+              <HomeChatbot userID={user.id} />
             </div>
             <div className='left-section-below-top'>
-              <div id="profile-sect"><HomeProfile userName={data.FirstName} userEmail={user.email} userStatus={data.Role}/></div>
+              <div id="profile-sect"><HomeProfile  userEmail={user.email} userID={user.id}/></div>
               <div id="plan-sect"><HomePlan /></div>
             </div>
             <div className='right-section-below-top'>
