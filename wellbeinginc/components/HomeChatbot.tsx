@@ -1,0 +1,45 @@
+'use client'
+import { useState } from 'react';
+import { createClient } from "@supabase/supabase-js"
+import './HomeProfile.css'
+
+type HomeProfileProps = {
+  userID: string;
+}
+
+const HomeProfile = (props: HomeProfileProps) => {
+  const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+  const [userName, setUserName] = useState([]);
+
+  const fetchUserName = async () => {
+    const { data, error } = await supabase
+    .from('TestUserProfile')
+    .select('*')
+    .eq('EmployeeNo', props.userID);
+
+    if (error) {
+      console.log("Error getting queue status");
+    } else {
+        setUserName(data)
+    }
+  }
+
+  fetchUserName();
+
+  return (
+      <>
+        <div>
+            {userName.map(name => (
+                <div key={name.EmployeeNo}>
+                    <h1>HELLO {name.FirstName}</h1>
+                </div>
+            ))}
+            <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
+            <p>confidential support and guidance</p>
+            <button id = "chat-button">CONNECT</button>
+        </div>
+      </>
+    )
+}
+
+export default HomeProfile;
