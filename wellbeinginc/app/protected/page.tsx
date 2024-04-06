@@ -63,7 +63,7 @@ export default async function ProtectedPage() {
           </div>
         </div>
        ) : (
-        <SetProfile userID={user.id}/>
+        <SetProfile userID={user.id} userEmail={user.email}/>
       )} 
     </>
   );

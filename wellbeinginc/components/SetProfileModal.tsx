@@ -1,4 +1,4 @@
-import './ProfileModal.css'
+import './ProfileModal2.css'
 import profilePicture from './images/Blank Profile Picture.jpg'
 import Image from 'next/image'
 import { createClient } from "@supabase/supabase-js"
@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 
 type SetProfileProps = {
   userID: string;
+  userEmail: string;
 }
 
 const Modal = (props: SetProfileProps) => {
@@ -24,6 +25,7 @@ const Modal = (props: SetProfileProps) => {
     const { data, error } = await supabase.from('TestUserProfile').insert([
       {
         EmployeeNo: props.userID,
+        Email: props.userEmail,
         FirstName: name,
         LastName: surname,
         initialWeight: weight,
@@ -41,13 +43,6 @@ const Modal = (props: SetProfileProps) => {
   return (
     <div className="modal-overlay">
       <div className="modal">
-        {/* <form action="" method="">
-          <div className='profilePicture'>
-            <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
-          </div>
-          <input className="hidden" type="file" id="profile-picture" name="profile-picture"/>
-          <input type="text" id="profile-picture" name="profile-picture"/>
-        </form> */}
         <div className="modal-content">
           <form action={saveChanges} method="">
             <div className='profilePicture'>
