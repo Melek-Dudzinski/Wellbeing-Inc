@@ -4,7 +4,7 @@ export default function ChangePlanFilter() {
             <table className="filterPlanTable">
                 <tbody>
                     <tr>
-                        <td>
+                        <td className="filterField">
                             <p>Filter by Menu</p>
                             <form action="" method="">
                                 <label>Allergies:</label>
@@ -15,7 +15,7 @@ export default function ChangePlanFilter() {
                                 </div>
                             </form>
                         </td>
-                        <td>
+                        <td className="filterField">
                             <p>Filter by Activity</p>
                             <form action="" method="">
                                 <label>Activity:</label>
