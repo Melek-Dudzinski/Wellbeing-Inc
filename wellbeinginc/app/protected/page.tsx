@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar"
 import HomeArticle from "@/components/HomeArticle"
 import HomePlan from "@/components/HomePlan"
 import HomeProfile from "@/components/HomeProfile"
-import Chatbot from "@/components/Chatbot";
 import SetProfile from '@/components/SetProfileModal';
 import HomeChatbot from '@/components/HomeChatbot';
 import './protected.css';
@@ -49,10 +48,6 @@ export default async function ProtectedPage() {
           <div className="homepage-grid">
             <div className ="top-section">
               <div id="home-chatbot-section"></div>
-              {/* <h1>HELLO , ANNA</h1>
-              <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
-              <p>confidential support and guidance</p>
-              <button id = "chat-button">CONNECT</button> */}
               <HomeChatbot userID={user.id} />
             </div>
             <div className='left-section-below-top'>
@@ -65,7 +60,6 @@ export default async function ProtectedPage() {
                 <button id='see-more-button'><Link href="/articles">See More</Link></button>
               </section>
             </div>
-            <Chatbot userID={user.id}/>
           </div>
         </div>
        ) : (

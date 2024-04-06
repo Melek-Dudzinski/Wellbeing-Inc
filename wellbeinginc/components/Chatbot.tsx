@@ -5,6 +5,7 @@ import './Chatbot.css';
 
 type ChatbotProps = {
   userID: string;
+  userRole: string;
 }
 
 const Chatbot = (props: ChatbotProps) => {
@@ -18,7 +19,8 @@ const Chatbot = (props: ChatbotProps) => {
   const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const [queueStatus, setQueueStatus] =useState(false);
+  const [queueStatus, setQueueStatus] = useState(false);
+  const [queuePos, setQueuePos] = useState();
 
   const senderID = props.userID;
   const [receiverID, setReceiverID] = useState();
@@ -50,28 +52,49 @@ const Chatbot = (props: ChatbotProps) => {
   useEffect(() => {
     fetchMessage();
 
-    const channel = supabase.channel('ChatbotMessages').on(
+    const messageChannel = supabase.channel('ChatbotMessages').on(
       'postgres_changes',
       {
         event: 'INSERT',
         schema: 'public',
       },
-      () => {
+      (payload) => {
         fetchMessage();
+        console.log("Fetching")
+
+        if (payload.receiver_id = senderID) {
+          setReceiverID(payload.sender_id)
+        }
       }
     ).subscribe()
 
     return () => {
-      supabase.removeChannel(channel);
+      supabase.removeChannel(messageChannel);
     };
   }, []);
+
+  useEffect(() => {
+    const queueChannel = supabase.channel('ChatbotQueue').on(
+      'postgres_changes',
+      {
+        event: '*',
+        schema: 'public',
+      },
+      () => {
+        checkQueue();
+      }
+    ).subscribe()
+
+    return () => {
+      supabase.removeChannel(queueChannel);
+    }
+  })
 
   const fetchMessage = async () => {
     const { data, error } = await supabase
       .from('ChatbotMessages')
-      .select();
-      // .eq('sender_id', senderID);
-      // .eq('receiver_id', receiverID);
+      .select()
+      .or(`(sender_id.eq.${senderID}.and.receiver_id.eq.${receiverID})`, `(sender_id.eq.${receiverID}.and.receiver_id.eq.${senderID})`);
 
     if (error) {
       console.error('Error fethcing messages:', error.message);
@@ -110,6 +133,8 @@ const Chatbot = (props: ChatbotProps) => {
       console.error('Error adding to queue');
       setQueueStatus(false);
     }
+
+    checkQueue();
   }
 
   const leaveQueue = async () => {
@@ -127,12 +152,24 @@ const Chatbot = (props: ChatbotProps) => {
 
     if (error) {
       console.log("Error getting queue status");
-    }
-
-    if (data.length > 0) {
-      setQueueStatus(true);
     } else {
-      setQueueStatus(false);
+      if (data.length > 0) {
+        setQueueStatus(true);
+  
+        const { data: posInQueue, error: posInQueueError } = await supabase
+          .from('ChatbotQueue')
+          .select('*', { count: 'exact', head: true })
+          .lt('queue_id', data[0].queue_id);
+  
+        if (posInQueueError) {
+          console.log("Error getting queue position")
+        } else {
+          console.log(posInQueue + " test")
+          setQueuePos(posInQueue);
+        }
+      } else {
+        setQueueStatus(false);
+      }
     }
   }
 
@@ -146,8 +183,6 @@ const Chatbot = (props: ChatbotProps) => {
     }
     setReceiverID(data[0].user_id);
   }
-
-  checkQueue();
 
   return (
     <div className={`chatbot ${isOpen ? 'open' : ''}`} style={{ left: position.x, top: position.y}} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
@@ -166,11 +201,16 @@ const Chatbot = (props: ChatbotProps) => {
           <input type="text" placeholder='Type your message...' value={newMessage} onChange={e => setNewMessage(e.target.value)} />
           <button onClick={handleSendMessage} >Send</button>
           {queueStatus ? (
-            <button onClick={leaveQueue} >Leave</button>
+            <div>
+              <button onClick={leaveQueue} >Leave</button>
+              <p>Position in queue {queuePos}</p>
+            </div>
           ) : (
             <button onClick={joinQueue} >Join</button>
           )}
-          <button onClick={acceptConnection}>Accept</button>
+          {props.userRole !== "Regular" ? (
+            <button onClick={acceptConnection}>Accept</button>
+          ):(<p></p>)}
         </div>
       </div>
     </div>
