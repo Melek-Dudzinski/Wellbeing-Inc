@@ -64,7 +64,7 @@ export default function Login({
       <div className="sign-in-form">
         <form>
           <p id = "form-title">
-            <span className="form-header-part1">Sign</span> <span className="form-header-part2">in</span> <span className="form-header-part3">to</span> <span className="app-name">WellbeingInc.</span>
+            <span className="form-header">Sign</span> <span className="form-header">in</span> <span className="form-header">to</span> <span className="app-name">WellbeingInc.</span>
           </p>
 
           <div id = "email-sec" className="sign-in-input">

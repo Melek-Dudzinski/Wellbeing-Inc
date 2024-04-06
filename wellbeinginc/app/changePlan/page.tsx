@@ -26,9 +26,11 @@ export default async function ChangePlan() {
           <div className="miniNav">
             <button><Link href="/plan">Back</Link></button>
           </div>
-          <ChangePlanPremade />
-          <ChangePlanCustom />
-          <ChangePlanFilter />
+          <div className="changePlanContainer">
+            <ChangePlanPremade />
+            <ChangePlanCustom />
+            <ChangePlanFilter />
+          </div>
       </>
   )
 }
