@@ -85,16 +85,16 @@ Still To Claim:
 
 -Switch Plan CSS (Newton)
 -Linking Plan to Supabase database tables (incl.menu) - Ion
+-Hardcoding Menus into datatbase
+-Hardcoding Food Items into database
+-Linking all related menu tables together
 -Custom Plans - Ion
 -Downloading Plan
 -Basically, everything to do with Plan-
 
 -Creating Profile upon Account Creation (Melek)
 -Linking user profile to homepage component (Melek)
--Edit profile CSS pop up on homepage
+-Edit profile CSS pop up on homepage(Melek)
+-Linking Edit Profile to db(Dayo)
 
--Hardcoding Menus into datatbase (Dayo)
--Hardcoding Food Items into database(Dayo)
-Linking all related menu tables together (Dayo)
-
-healthtracker - Vivek
+-Healthtracker component & Page removal- Vivek
