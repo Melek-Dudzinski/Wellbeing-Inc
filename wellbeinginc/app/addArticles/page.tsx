@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { SubmitButton } from "@/app/login/submit-button";
 import Navbar from '@/components/Navbar'
 import Link from 'next/link';
+import SupabaseClient from '@/components/Supabase';
 import './addArticles.css'
 
 export default function  ArticlesForm ({searchParams,}:{searchParams:{message:string};}) {
@@ -23,8 +24,8 @@ export default function  ArticlesForm ({searchParams,}:{searchParams:{message:st
         }
         
         {/*Sending form data*/}
-        const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko')
-        const {error} = await supabase 
+        // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko')
+        const {error} = await SupabaseClient() 
             .from('ArticleEntries') 
             .insert ({title: title, summary: summary, content: content, firstName: firstName, lastName: lastName, image_url: image_url})
         if (error){

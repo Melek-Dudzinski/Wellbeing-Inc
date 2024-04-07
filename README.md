@@ -4,6 +4,7 @@ How to run:
 1. Clone newest version of main
 2. Open terminal, and make sure you are in 'wellbeinginc' folder (cd wellbeinginc)
 3. Run 'npm install'
+4. 'npm install @supabase/ssr
 4. Create a new file in 'wellbeinginc' called '.env.local' and paste:
     NEXT_PUBLIC_SUPABASE_URL=https://nwysqtnfikxauolsknzt.supabase.co
     NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko

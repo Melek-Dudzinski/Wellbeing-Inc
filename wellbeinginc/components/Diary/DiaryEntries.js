@@ -5,6 +5,7 @@ import DiaryEntry from "./DiaryEntry";
 import AddDiaryEntry from "./AddDiaryEntry";
 import DiaryCalendar from "./DiaryCalendar"
 import React from "react";
+import SupabaseClient from '@/components/Supabase';
 
 function DiaryEntries ({user}) {
     const [entries, setEntries] = useState(null);
