@@ -56,24 +56,20 @@ const Chatbot = (props: ChatbotProps) => {
 
   const handleReceiverID = async () => {
     if (props.userRole == "Regular") {
-      console.log("in receiver")
       const { data: connectionData, error} = await SupabaseClient()
         .from('ChatbotConnections')
         .select()
-        .eq('regular_id', senderID);
+        .eq('Regular_id', senderID);
 
       if (error) {
         console.log("Error checking regular connection")
       } else {
-        console.log("got data")
         if (connectionData.length == 1) {
-          console.log("connection found")
-          setReceiverID(connectionData[0].champion_id);
+          setReceiverID(connectionData.Champion_id);
         } else {
-          console.log("connection not")
           if (possibleReceiverID.receiver_id = senderID) {
-            console.log("setting connection")
             setReceiverID(possibleReceiverID.sender_id);
+            checkQueue();
           }
         }
       }
@@ -81,8 +77,8 @@ const Chatbot = (props: ChatbotProps) => {
   }
 
   useEffect(() => {
-    // checkConnection();
-    // fetchMessage();
+    checkConnection();
+    fetchMessage();
 
     const messageChannel = SupabaseClient().channel('ChatbotMessages').on(
       'postgres_changes',
@@ -93,7 +89,7 @@ const Chatbot = (props: ChatbotProps) => {
       },
       (payload) => {
         setPossibleReceiverID(payload);
-        // handleReceiverID();
+        handleReceiverID();
         fetchMessage();
         console.log("Fetching")
       }
@@ -113,9 +109,7 @@ const Chatbot = (props: ChatbotProps) => {
         table: 'ChatbotQueue',
       },
       () => {
-        console.log("test")
         checkQueue();
-        checkConnection();
       }
     ).subscribe()
 
@@ -207,7 +201,7 @@ const Chatbot = (props: ChatbotProps) => {
       console.log("Error getting queue status");
     } else {
       if (data.length > 0) {
-        console.log("data found in queue")
+        console.log("data")
         setQueueStatus(true);
   
         const { data: posInQueue, error: posInQueueError, count } = await SupabaseClient()
@@ -291,10 +285,9 @@ const Chatbot = (props: ChatbotProps) => {
         console.log("Error getting regular connection");
       } else {
         if (data.length > 0) {
+          console.log("connected")
           setConnected(true);
           handleReceiverID();
-          console.log("connected regular")
-          console.log(receiverID)
         }
       }
     } else {
@@ -307,7 +300,7 @@ const Chatbot = (props: ChatbotProps) => {
         console.log("Error getting Champion connection");
       } else {
         if (data.length > 0) {
-          console.log("connected champion")
+          console.log("connected")
           setConnected(true);
           handleReceiverID();
         }
