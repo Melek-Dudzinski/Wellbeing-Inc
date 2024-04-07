@@ -48,8 +48,8 @@ export const ArticlesView = () => {
         if (error){
             return redirect("/feedbackLog?message=Unable to remove feedback. Please try again.");
         }
-        if (data){
-            return getArticles();
+        else{
+            getArticles()
         }
     }
 
