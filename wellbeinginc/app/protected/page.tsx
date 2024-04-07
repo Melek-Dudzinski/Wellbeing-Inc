@@ -26,20 +26,20 @@ export default async function ProtectedPage() {
     return redirect("/login");
   }
   
-  
-  const { data, error } = await SupabaseClient()
+  if (!profileSet) {
+    const { data, error } = await SupabaseClient()
     .from('TestUserProfile')
     .select('*')
     .eq('EmployeeNo', user.id);
 
-  if (error) {
-    console.log("Error getting queue status");
-  }
+    if (error) {
+      console.log("Error getting queue status");
+    }
 
-  if (data.length > 0) {
-    profileSet = true;
+    if (data.length > 0) {
+      profileSet = true;
+    }
   }
-
 
   return (
     <>

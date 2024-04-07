@@ -269,6 +269,8 @@ const Chatbot = (props: ChatbotProps) => {
 
     if (error) {
       console.error('Error leaving connections');
+    } else {
+      setReceiverID("");
     }
   }
 
@@ -277,28 +279,30 @@ const Chatbot = (props: ChatbotProps) => {
       const { data, error } = await SupabaseClient()
       .from('ChatbotConnections')
       .select()
-      .eq('Regular_id', senderID);
+      .eq('regular_id', senderID);
 
       if (error) {
-        console.log("Error getting queue status");
+        console.log("Error getting regular connection");
       } else {
         if (data.length > 0) {
           console.log("connected")
           setConnected(true);
+          handleReceiverID();
         }
       }
     } else {
       const { data, error } = await SupabaseClient()
         .from('ChatbotConnections')
         .select()
-        .eq('Champion_id', senderID);
+        .eq('champion_id', senderID);
 
       if (error) {
-        console.log("Error getting queue status");
+        console.log("Error getting Champion connection");
       } else {
         if (data.length > 0) {
           console.log("connected")
           setConnected(true);
+          handleReceiverID();
         }
       }
     }
