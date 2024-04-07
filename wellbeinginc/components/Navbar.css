@@ -14,12 +14,9 @@
     display: flex;
 }
 
-.nav-links li, form {
-    margin-left: 20px;
-}
-
-.nav-links li:first-child {
-    margin-left: 0;
+.nav-links li {
+    list-style: none;
+    padding: 0 0.6rem;
 }
 
 .nav-links li a:hover {
@@ -43,7 +40,6 @@ li button {
     color: black;
     border: none;
     cursor: pointer;
-    padding: 0 1rem;
     border-radius: 2rem;
 }
 
