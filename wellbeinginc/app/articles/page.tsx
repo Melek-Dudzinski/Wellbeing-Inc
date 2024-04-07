@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import Navbar from '@/components/Navbar'
 import {ArticlesView} from '@/components/ArticlesArticle';
 import Link from 'next/link';
-
 import './articles.css';
 
 export default async function Articles() {
