@@ -1,4 +1,4 @@
-.modal-overlay {
+.plan-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,25 +10,44 @@
     align-items: center;
   }
   
-.modal {
+.plan-modal {
     background-color: white;
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
     }
 
-.modal-header {
+.plan-modal-header {
     position: relative;
 }
 
-.close-button {
-    background: none;
+#plan-close-button {
+    background-color: #17B169;
+    color: white;
     border: none;
     cursor: pointer;
-    font-size: 20px;
-    position: absolute;
-    top: 1px;
-    right: 1px;
+    position: relative;
+    
+    left: 90%;
+
+    width: fit-content;
+    padding: .1rem .7rem;
+    height: fit-content;
+    border-radius: .2rem;
+}
+
+#plan-submit-button{
+    background-color: #17B169;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 2rem;
+    width: fit-content;
+    height: fit-content;
+    margin: 1rem 0rem ;
+    position: relative;
+    left: 50%;
 }
 
 label {
@@ -39,17 +58,11 @@ input[type="text"] {
     width: 100%;
     margin-bottom: 10px;
 }
-input[type="file"] {
-    margin-bottom: 10px;
-}
 
-.profilePicture {
-    overflow: hidden;
-    border-radius: 50px;
-    width: 80px;
-    height: 80px;
-}
 
-.hidden{
-    display: none;
+
+
+l#plan-submit-button, #plan-close-button:hover {
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px grey;
 }
