@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { createClient } from "@supabase/supabase-js"
 import Chatbot from "@/components/Chatbot";
+import SupabaseClient from '@/components/Supabase';
 import '@/app/protected/protected.css'
 
 type HomeChatbotProps = {
@@ -9,11 +10,11 @@ type HomeChatbotProps = {
 }
 
 const HomeProfile = (props: HomeChatbotProps) => {
-  const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+  // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
   const [userName, setUserName] = useState([]);
 
   const fetchUserName = async () => {
-    const { data, error } = await supabase
+    const { data, error } = await SupabaseClient()
     .from('TestUserProfile')
     .select('*')
     .eq('EmployeeNo', props.userID);
