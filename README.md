@@ -4,6 +4,7 @@ How to run:
 1. Clone newest version of main
 2. Open terminal, and make sure you are in 'wellbeinginc' folder (cd wellbeinginc)
 3. Run 'npm install'
+4. 'npm install @supabase/ssr
 4. Create a new file in 'wellbeinginc' called '.env.local' and paste:
     NEXT_PUBLIC_SUPABASE_URL=https://nwysqtnfikxauolsknzt.supabase.co
     NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko
@@ -83,18 +84,18 @@ Usecases:
 
 Still To Claim:
 
--Switch Plan CSS (Newton)
--Linking Plan to Supabase database tables (incl.menu) - Ion
--Hardcoding Menus into datatbase
--Hardcoding Food Items into database
--Linking all related menu tables together
--Custom Plans - Ion
--Downloading Plan
--Basically, everything to do with Plan-
-
--Creating Profile upon Account Creation (Melek)
--Linking user profile to homepage component (Melek)
--Edit profile CSS pop up on homepage(Melek)
--Linking Edit Profile to db(Dayo)
-
--Healthtracker component & Page removal- Vivek
+-article CSS (dayo)
+-formatting site buttons (dayo)
+-adding role access to buttons (melek/ion)
+-diary CSS (newton)
+-initial profile creation (melek)
+-redirect option to homepage when already logged in on landing page (dayo)
+-slides (sana/rafay)
+-home page plan linking (ion)
+-finishing chatbot(melek)
+-finishing healthtracker component (vivek)
+-browse food items (dayo)
+-browse plans ()
+-if time, create food item
+-organise the components (weds)
+-acceptance testing(everyone)
