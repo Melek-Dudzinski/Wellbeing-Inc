@@ -1,11 +1,14 @@
-'use client'
-import PlanTemplate from "./PlanTemplate"
-import Modal from './CreatePlanModal';
-import { useState } from 'react';
+'use client';
+import PlanTemplate from "../PlanTemplate"
+import Modal from '../CreatePlanModal';
+import { useState,useEffect } from 'react';
+import { createClient } from "@supabase/supabase-js";
 
-export default function ChangePlanPremade() {
+function ChangePlanPremade({user,role}) {
     const [modalOpen, setModalOpen] = useState(false);
-
+    const isAdmin = () => {
+            return (role[0].Role.match(/Admin.*/))};
+    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
     const openModal = () => {
       setModalOpen(true);
     };
@@ -13,6 +16,8 @@ export default function ChangePlanPremade() {
     const closeModal = () => {
       setModalOpen(false);
     };
+    
+
     return (
         <>
             <h1 className="planName">PREMADE PLAN</h1>
@@ -61,12 +66,18 @@ export default function ChangePlanPremade() {
                         <p></p>
                     </button>
                 </div>
-                <div className='planField'>
-                    <button onClick={openModal}>+</button>
-                    <Modal isOpen={modalOpen} onClose={closeModal} />
-                </div>
+                {isAdmin() ? 
+                    (<div className='planField'>
+                        <button onClick={openModal}>+</button>
+                        <Modal isOpen={modalOpen} onClose={closeModal} />
+                    </div>)
+                :
+                    (<div></div>) 
+                }
             </div>
 
         </>
     )
 }
+
+export default ChangePlanPremade;

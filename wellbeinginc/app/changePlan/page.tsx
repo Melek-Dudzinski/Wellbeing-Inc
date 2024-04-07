@@ -4,12 +4,12 @@ import Link from 'next/link';
 import './changePlan.css'
 import Navbar from "@/components/Navbar"
 import ChangePlanCustom from "@/components/ChangePlanCustom"
-import ChangePlanPremade from "@/components/ChangePlanPremade"
+import ChangePlanPremade from "@/components/Plan/ChangePlanPremade"
 import ChangePlanFilter from "@/components/ChangePlanFilter"
 
 export default async function ChangePlan() {
   const activePage = 'plan'
-
+  let role;
   const supabase = createClient();
 
   const {
@@ -20,6 +20,14 @@ export default async function ChangePlan() {
     return redirect("/login");
   }
 
+  const { data, error } = await supabase
+  .from('TestUserProfile')
+  .select('Role')
+  .eq('EmployeeNo', user.id);
+  if (error) {
+    console.log("Error!, a fetching error has occured!");
+  }
+
   return (
       <>
           <Navbar activePage={activePage}/>
@@ -27,7 +35,7 @@ export default async function ChangePlan() {
             <button><Link href="/plan">Back</Link></button>
           </div>
           <div className="changePlanContainer">
-            <ChangePlanPremade />
+            {data && <ChangePlanPremade user={user.id} role={data}/>}
             <ChangePlanCustom />
             <ChangePlanFilter />
           </div>
