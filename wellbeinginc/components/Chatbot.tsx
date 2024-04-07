@@ -22,9 +22,13 @@ const Chatbot = (props: ChatbotProps) => {
   const [newMessage, setNewMessage] = useState("");
   const [queueStatus, setQueueStatus] = useState(false);
   const [queuePos, setQueuePos] = useState();
+  const [connected, setConnected] = useState(false);
 
   const senderID = props.userID;
   const [receiverID, setReceiverID] = useState();
+  const [possibleReceiverID, setPossibleReceiverID] = useState([]);
+
+  const [firstLoad, setLoad] = useState(false);
 
   const toggleChatbot = () => {
     const duration = endTime - startTime;
@@ -50,6 +54,28 @@ const Chatbot = (props: ChatbotProps) => {
     }
   };
 
+  const handleReceiverID = async () => {
+    if (props.userRole == "Regular") {
+      const { data: connectionData, error} = await SupabaseClient()
+        .from('ChatbotConnections')
+        .select()
+        .eq('Regular_id', senderID);
+
+      if (error) {
+        console.log("Error checking regular connection")
+      } else {
+        if (connectionData.length == 1) {
+          setReceiverID(connectionData.Champion_id);
+        } else {
+          if (possibleReceiverID.receiver_id = senderID) {
+            setReceiverID(possibleReceiverID.sender_id);
+            checkQueue();
+          }
+        }
+      }
+    }
+  }
+
   useEffect(() => {
     fetchMessage();
 
@@ -58,15 +84,13 @@ const Chatbot = (props: ChatbotProps) => {
       {
         event: 'INSERT',
         schema: 'public',
+        table: "ChatbotMessages",
       },
       (payload) => {
+        setPossibleReceiverID(payload);
+        handleReceiverID();
         fetchMessage();
         console.log("Fetching")
-
-        if (payload.receiver_id = senderID) {
-          setReceiverID(payload.sender_id)
-          checkQueue();
-        }
       }
     ).subscribe()
 
@@ -81,6 +105,7 @@ const Chatbot = (props: ChatbotProps) => {
       {
         event: '*',
         schema: 'public',
+        table: 'ChatbotQueue',
       },
       () => {
         checkQueue();
@@ -90,10 +115,11 @@ const Chatbot = (props: ChatbotProps) => {
     return () => {
       SupabaseClient().removeChannel(queueChannel);
     }
-  })
+  }, [])
 
   const fetchMessage = async () => {
-    const { data, error } = await SupabaseClient()
+    if (receiverID) {
+      const { data, error } = await SupabaseClient()
       .from('ChatbotMessages')
       .select()
       .or(`sender_id.eq.${senderID}, sender_id.eq.${receiverID}`)
@@ -104,19 +130,22 @@ const Chatbot = (props: ChatbotProps) => {
     } else {
       setMessages(data);
     }
+    }
   };
 
   const handleSendMessage = async () => {
 
     if (receiverID) {
-      const { data, error } = await SupabaseClient().from('ChatbotMessages').insert([
+      const { data, error } = await SupabaseClient()
+        .from('ChatbotMessages')
+        .insert([
         {
           sender_id: senderID,
           receiver_id: receiverID,
           content: newMessage,
           timestamp: new Date().toISOString(),
-      },
-      ]);
+        },
+        ]);
   
       if (error) {
         console.error('Error sending message:', error.message);
@@ -131,7 +160,9 @@ const Chatbot = (props: ChatbotProps) => {
   }
 
   const joinQueue = async () => {
-    const { data, error } = await SupabaseClient().from('ChatbotQueue').insert([
+    const { data, error } = await SupabaseClient()
+      .from('ChatbotQueue')
+      .insert([
       {
         user_id: senderID,
       }
@@ -147,7 +178,10 @@ const Chatbot = (props: ChatbotProps) => {
   }
 
   const leaveQueue = async () => {
-    const { data, error } = await SupabaseClient().from('ChatbotQueue').delete().eq('user_id', senderID);
+    const { data, error } = await SupabaseClient()
+      .from('ChatbotQueue')
+      .delete()
+      .eq('user_id', senderID);
     setQueueStatus(false);
 
     if (error) {
@@ -157,12 +191,16 @@ const Chatbot = (props: ChatbotProps) => {
   }
 
   const checkQueue = async () => {
-    const { data, error } = await SupabaseClient().from('ChatbotQueue').select().eq('user_id', senderID);
+    const { data, error } = await SupabaseClient()
+      .from('ChatbotQueue')
+      .select()
+      .eq('user_id', senderID);
 
     if (error) {
       console.log("Error getting queue status");
     } else {
       if (data.length > 0) {
+        console.log("data")
         setQueueStatus(true);
   
         const { data: posInQueue, error: posInQueueError, count } = await SupabaseClient()
@@ -176,23 +214,100 @@ const Chatbot = (props: ChatbotProps) => {
           setQueuePos(count + 1);
         }
       } else {
+        console.log("no data")
         setQueueStatus(false);
       }
     }
   }
 
   const acceptConnection = async () => {
-    const { data, error } = await SupabaseClient().from('ChatbotQueue').select('*').limit(1);
+    const { data, error } = await SupabaseClient()
+    .from('ChatbotQueue')
+    .select('*')
+    .limit(1);
 
     if (error) {
       console.log("Error selecting from queue")
     } else {
-      const { error:deleteError } = await SupabaseClient().from('ChatbotQueue').delete().eq('user_id', data[0].user_id);
+      const { error:deleteError } = await SupabaseClient()
+      .from('ChatbotQueue')
+      .delete()
+      .eq('user_id', data[0].user_id);
+      setReceiverID(data[0].user_id);
+
+      if (!connected) {
+        const { data: connecting, error } = await SupabaseClient()
+        .from('ChatbotConnections')
+        .insert([
+          {
+            champion_id: senderID,
+            regular_id: data[0].user_id,
+          }
+        ]);
+  
+        if (error) {
+          console.error('Error adding to connections');
+        }
+      } else {
+        const { data: updating, error } = await SupabaseClient()
+          .from('ChatbotConnections')
+          .update({ regular_id: data[0].user_id});
+  
+        if (error) {
+          console.error('Error updating connections');
+        }
+      }
     }
-    setReceiverID(data[0].user_id);
   }
 
-  checkQueue();
+  const leaveConnection = async () => {
+    const { data: leaving, error } = await SupabaseClient().
+      from('ChatbotConnections')
+      .delete()
+      .eq('champion_id', senderID);
+
+    if (error) {
+      console.error('Error leaving connections');
+    }
+  }
+
+  const checkConnection = async () => {
+    if (props.userRole == "Regular") {
+      const { data, error } = await SupabaseClient()
+      .from('ChatbotConnections')
+      .select()
+      .eq('Regular_id', senderID);
+
+      if (error) {
+        console.log("Error getting queue status");
+      } else {
+        if (data.length > 0) {
+          console.log("connected")
+          setConnected(true);
+        }
+      }
+    } else {
+      const { data, error } = await SupabaseClient()
+        .from('ChatbotConnections')
+        .select()
+        .eq('Champion_id', senderID);
+
+      if (error) {
+        console.log("Error getting queue status");
+      } else {
+        if (data.length > 0) {
+          console.log("connected")
+          setConnected(true);
+        }
+      }
+    }
+  }
+
+  if (!queueStatus && !firstLoad) {
+    setLoad(true);
+    checkQueue();
+    checkConnection();
+  }
 
   return (
     <div className={`chatbot ${isOpen ? 'open' : ''}`} style={{ left: position.x, top: position.y}} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
@@ -219,7 +334,10 @@ const Chatbot = (props: ChatbotProps) => {
             <button onClick={joinQueue} >Join</button>
           )}
           {props.userRole !== "Regular" ? (
-            <button onClick={acceptConnection}>Accept</button>
+            <div>
+              <button onClick={acceptConnection}>Accept</button>
+              <button onClick={leaveConnection}>Leave</button>
+            </div>
           ):(<p></p>)}
         </div>
       </div>
