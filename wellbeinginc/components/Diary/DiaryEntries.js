@@ -65,6 +65,7 @@ function DiaryEntries ({user}) {
             }
             else if(data){
                 setFetchError('');
+                console.log(data);
                 setEntries(data.map((entry) => ({date: entry.date, exerciseData : entry.exerciseSection, dietData : entry.dietSection, stepsData:entry.stepsSection, sleepData:entry.sleepSection})));
                 //check if the user has made an entry today
                 console.log(entries)
