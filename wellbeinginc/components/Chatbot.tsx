@@ -77,6 +77,7 @@ const Chatbot = (props: ChatbotProps) => {
   }
 
   useEffect(() => {
+    checkConnection();
     fetchMessage();
 
     const messageChannel = SupabaseClient().channel('ChatbotMessages').on(
