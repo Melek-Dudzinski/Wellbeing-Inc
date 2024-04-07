@@ -1,6 +1,18 @@
+'use client'
 import PlanTemplate from "./PlanTemplate"
+import Modal from './CreatePlanModal';
+import { useState } from 'react';
 
 export default function ChangePlanPremade() {
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+      setModalOpen(true);
+    };
+  
+    const closeModal = () => {
+      setModalOpen(false);
+    };
     return (
         <>
             <h1 className="planName">PREMADE PLAN</h1>
@@ -48,6 +60,10 @@ export default function ChangePlanPremade() {
                     <button>
                         <p></p>
                     </button>
+                </div>
+                <div className='planField'>
+                    <button onClick={openModal}>+</button>
+                    <Modal isOpen={modalOpen} onClose={closeModal} />
                 </div>
             </div>
 
