@@ -1,6 +1,6 @@
 'use client';
 import PlanTemplate from "../PlanTemplate"
-import Modal from '../CreatePlanModal';
+import Modal from './CreatePlanModal';
 import { useState,useEffect } from 'react';
 import { createClient } from "@supabase/supabase-js";
 
@@ -9,6 +9,7 @@ function ChangePlanPremade({user,role}) {
     const isAdmin = () => {
             return (role[0].Role.match(/Admin.*/))};
     const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+    
     const openModal = () => {
       setModalOpen(true);
     };

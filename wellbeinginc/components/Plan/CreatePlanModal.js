@@ -1,11 +1,6 @@
 import './CreatePlanModal.css'
-import profilePicture from './images/Blank Profile Picture.jpg'
+import profilePicture from '../images/Blank Profile Picture.jpg'
 import Image from 'next/image'
-
-type CreatePlanModalProps = {
-    isOpen: boolean;
-    onClose: () => void;
-}
 
 const mealPlans = {
   Balanced: { 
@@ -53,14 +48,14 @@ const mealPlans = {
   // ... Other plans (WeightGain, WeightLoss, Vegan)
 };
 
-const Modal = (props : CreatePlanModalProps) => {
-  if (!props.isOpen) return null;
+const Modal = ({isOpen, OnClose}) => {
+  if (!isOpen) return null;
 
   return (
           <div className="plan-modal-overlay">
                 <div className="plan-modal">
                   <div id="plan-modal-header">
-                    <button id="plan-close-button" onClick={props.onClose}>X</button>
+                    <button id="plan-close-button" onClick={onClose}>X</button>
                   </div>
                   <form>
                     <fieldset className="day-options">
