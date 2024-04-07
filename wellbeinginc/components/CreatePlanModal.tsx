@@ -9,46 +9,22 @@ type CreatePlanModalProps = {
 
 const mealPlans = {
   Balanced: { 
-    breakfast: "Toast with avocado and egg",
-    lunch: "Chicken salad sandwich",
-    snack: "Apple slices with peanut butter",
-    dinner: "Baked salmon with brown rice and roasted vegetables",
-    exercise: "Brisk walk(45 minutes)"
+    description: "Breakfast: Toast with avocado and egg. Lunch: Chicken salad sandwich. Snack: Apple slices with peanut butter. Dinner: Baked salmon with brown rice and roasted vegetables. Exercise: Brisk walk (45 minutes)",
   },
   PowerDiet: { 
-    breakfast: "Protein smoothie with oats, banana, peanut butter",
-    lunch: "Turkey burger on a  bun with a side salad",
-    snack: "Trail mix",
-    dinner: "Steak with sweet potatoes",
-    exercise: " Weightlifting(60 minutes)"
+    description:"Breakfast: Protein smoothie with oats, banana, peanut butter Lunch: Turkey burger on a  bun with a side salad Snack: Trail mix Dinner: Steak with sweet potatoes Exercise: Weightlifting(60 minutes)",
    },
   LightFitness: { 
-    breakfast: "Greek yogurt with berries",
-    lunch: "Lentil soup with a side salad ",
-    snack: "Vegetable sticks with hummus",
-    dinner: "Grilled chicken breast with quinoa and steamed vegetables ",
-    exercise: "Yoga(30 minutes)"
+   description: "Breakfast: Greek yogurt with berries Lunch: Lentil soup with a side salad Snack: Vegetable sticks with hummus Dinner: Grilled chicken breast with quinoa and steamed vegetables Exercise: Yoga(30 minutes)",
   },
   WeightGain: { 
-    breakfast: "Large bowl of oatmeal with milk and dried fruit",
-    lunch: " Pasta with chicken and marinara sauce",
-    snack: "Protein shake",
-    dinner: " Beef stir-fry with rice and vegetables",
-    exercise: "Strength training(45 minutes)"
+    description:"Breakfast: Large bowl of oatmeal with milk and dried fruit Lunch: Pasta with chicken and marinara sauce Snack: Protein shake Dinner: Beef stir-fry with rice and vegetables Exercise: Strength training(45 minutes)",
    },
   WeightLoss: { 
-    breakfast: "Egg white omelet with spinach and tomatoes",
-    lunch: "Turkey wrap with vegetables",
-    snack: "Almonds",
-    dinner: "Grilled fish with mixed green salad",
-    exercise: "Cardio workout(40 minutes)"
+    description: "Breakfast: Egg white omelet with spinach and tomatoes Lunch: Turkey wrap with vegetables Snack: Almonds Dinner: Grilled fish with mixed green salad Exercise: Cardio workout(40 minutes)",
    },
   Vegan: { 
-    breakfast: " Tofu scramble with spinach ",
-    lunch: " Lentil soup with whole-grain crackers",
-    snack: " Fruit salad with nuts",
-    dinner: "Black bean burger on a whole-wheat bun, with a side salad",
-    exercise: "Yoga(45 minutes)"
+    description: "Breakfast: Tofu scramble with spinach Lunch: Lentil soup with whole-grain crackers Snack: Fruit salad with nuts Dinner: Black bean burger on a whole-wheat bun, with a side salad Exercise: Yoga(45 minutes)",
    }
   // ... Other plans (WeightGain, WeightLoss, Vegan)
 };
@@ -72,7 +48,7 @@ const Modal = (props : CreatePlanModalProps) => {
                             <option value="" disabled="">Choose plan for the day</option>
                             {Object.keys(mealPlans).map((planName) => (
                               <option key={planName} value={planName}>
-                                {planName} 
+                                {mealPlans[planName].description}
                               </option>
                             ))}
                           </select>
