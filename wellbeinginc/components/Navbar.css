@@ -39,8 +39,8 @@
 
 
 li button {
-    background-color: #17B169;
-    color: white;
+    background-color: none;
+    color: black;
     border: none;
     cursor: pointer;
     padding: 0 1rem;

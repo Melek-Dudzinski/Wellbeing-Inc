@@ -3,17 +3,17 @@
 import { createClient } from "@supabase/supabase-js"
 import { redirect } from "next/navigation";
 import { useState, useEffect } from "react";
-import Navbar from '@/components/Navbar'
+//import Navbar from '@/components/Navbar'
 import Link from 'next/link';
 import './feedbackLog.css';
 
 export default function FeedbackLog() {
     const[entries,setEntries] = useState(null)
-    const activePage = 'contact'
+    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+    //const activePage = 'contact'
 
     /*Fetching feedback entries */
     const getFeedback = async () => {
-        const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
         const {data, error} = await supabase 
             .from('testFeedback') 
             .select ()
@@ -30,6 +30,22 @@ export default function FeedbackLog() {
                 content: d.content,
             }))
             setEntries(feedbackEntries)
+        }
+    }
+
+    /*Removing selected feedback entry from database */
+    const removeFeedback= async (number: any) =>{
+        await number
+        const {data,error} = await supabase
+        .from ('testFeedback')
+        .delete()
+        .eq('issueNo',number)
+
+        if (error){
+            return redirect("/feedbackLog?message=Unable to remove feedback. Please try again.");
+        }
+        else{
+            getFeedback()
         }
     }
 
@@ -54,7 +70,7 @@ export default function FeedbackLog() {
                         <p id="date">Date Issued: {d.date}</p>
                         <p id = "type">Feedback Type: {d.type}</p>
                         <p id = "content">Feedback Content: "{d.content}"</p>
-                        <button id = "del">Delete Entry</button>
+                        <button id = "del" onClick = {()=> removeFeedback(d.number)}>Delete Entry</button>
                     </div>
                 ))}
                 </div>
