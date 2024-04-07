@@ -84,18 +84,18 @@ Usecases:
 
 Still To Claim:
 
--Switch Plan CSS (Newton)
--Linking Plan to Supabase database tables (incl.menu) - Ion
--Hardcoding Menus into datatbase
--Hardcoding Food Items into database
--Linking all related menu tables together
--Custom Plans - Ion
--Downloading Plan
--Basically, everything to do with Plan-
-
--Creating Profile upon Account Creation (Melek)
--Linking user profile to homepage component (Melek)
--Edit profile CSS pop up on homepage(Melek)
--Linking Edit Profile to db(Dayo)
-
--Healthtracker component & Page removal- Vivek
+-article CSS (dayo)
+-formatting site buttons (dayo)
+-adding role access to buttons (melek/ion)
+-diary CSS (newton)
+-initial profile creation (melek)
+-redirect option to homepage when already logged in on landing page (dayo)
+-slides (sana/rafay)
+-home page plan linking (ion)
+-finishing chatbot(melek)
+-finishing healthtracker component (vivek)
+-browse food items (dayo)
+-browse plans ()
+-if time, create food item
+-organise the components (weds)
+-acceptance testing(everyone)

@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import Modal from './CreatePlanModal2';
+import Modal from './CreatePlanModal';
 import PlanTemplate from "./PlanTemplate";
 
 const ChangePlanCustom = () => {
