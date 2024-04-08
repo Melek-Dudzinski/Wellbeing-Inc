@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import Link from 'next/link';
 import './changePlan.css'
 import Navbar from "@/components/Navbar"
-import ChangePlanCustom from "@/components/ChangePlanCustom"
+import ChangePlanCustom from "@/components/Plan/ChangePlanCustom"
 import ChangePlanPremade from "@/components/Plan/ChangePlanPremade"
 import ChangePlanFilter from "@/components/ChangePlanFilter"
 
@@ -36,7 +36,7 @@ export default async function ChangePlan() {
           </div>
           <div className="changePlanContainer">
             {data && <ChangePlanPremade user={user.id} role={data}/>}
-            <ChangePlanCustom />
+            <ChangePlanCustom user={user.id}/>
             <ChangePlanFilter />
           </div>
       </>

@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react';
-import Modal from './Plan/CreatePlanModal2';
-import PlanTemplate from "./PlanTemplate";
+import Modal from './CreatePlanModal';
+import PlanTemplate from "../PlanTemplate";
 
-const ChangePlanCustom = () => {
+const ChangePlanCustom = ({user}) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
@@ -63,7 +63,7 @@ const ChangePlanCustom = () => {
             </div>
             <div className='planField'>
                 <button onClick={openModal}>+</button>
-                <Modal isOpen={modalOpen} onClose={closeModal} />
+                <Modal isOpen={modalOpen} onClose={closeModal} user={user} type='Custom'/>
             </div>
         </div>
         </>
