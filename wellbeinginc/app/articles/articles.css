@@ -1,45 +1,35 @@
-/* articles.css */
-
-#add-article{
-    position: absolute;
-    background-color: #6A6F6A;
-    padding: 0.75rem;
-    border-radius: 1.5rem;
-    bottom: 3%;
-    float: right;
-    left: 3%;
-}
-
+/* General Page Styling*/
 body {
     background-color: #D4E5D5 !important;
 }
-
 .title {
     color: #6A6F6A;
     font-family: 'Inter', sans-serif;
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-style: normal;
     font-weight: bold;
     line-height: 2rem; /* 106.667% */
     letter-spacing: -0.03563rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
 }
 
-
+/* Articles Layout*/
 .article-container {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 15rem;
+    /*margin-left: 25%;*/
+    position:absolute;
+    top: 14%;
+    left: 25%;
+    right: 20%;
     padding-inline: 2rem;
     background-color: white;
-    padding: 0.5rem;
+    padding: 1.2rem;
     margin-top: 2rem;
-    width: 70%;
-    top: 14%;
+    width: auto;
 }
-
 .article-container #del{
     margin-top: 1.5rem;
     float: right;
@@ -47,17 +37,15 @@ body {
     padding: 0.5rem;
     border-radius: 2rem;
     color: white;
-    background-color: #8FB099;
+    background-color: #6A6F6A;
 }
-
 .article-content {
-    width: 55rem;
+    width: max-content;
     margin-top: 2rem;
     column-count: 3;
     column-gap: 2rem;
     height: 38rem;
 }
-
 .article-title {
     color: #000;
     font-family: 'Inter', sans-serif;
@@ -69,22 +57,42 @@ body {
     height: 3.375rem;
     margin-top: 1rem;
 }
-
 .article-body, #author{
     color: #726969;
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5rem; /* 120% */
     letter-spacing: -0.02375rem;
     text-align: justify;
 }
-
 .article-body p {
     margin-bottom: 1.5em;
 }
 
+/* Add Article Button */
+#add-article{
+    position: absolute;
+    background-color: #6A6F6A;
+    padding: 0.75rem;
+    border-radius: 1.5rem;
+    bottom: 3%;
+    float: right;
+    left: 3%;
+}
+
+/* Article Page Sidebar */
+.article-bar{
+    margin-right: 63rem;
+    margin-top: 1rem;
+    
+}
+.article-wrapper {
+    margin-top: 5.5%;
+    margin-bottom: -2.5%;
+    margin-left: -25%;
+}
 .articleView-title {
     color: #000;
     font-family: 'Inter', sans-serif;
@@ -94,29 +102,16 @@ body {
     width: 11.6rem;
     text-align: left;
 }
-
 .articleView-title:hover {
     color: #658b7b;
 }
-
 .articleView-date {
     color: #6A6F6A;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
 }
 
-.article-bar{
-    margin-right: 63rem;
-    margin-top: 1rem;
-    
-}
-
-.article-wrapper {
-    margin-top: 5.5%;
-    margin-bottom: -2.5%;
-}
-
-.line {
+/*.line {
     position: absolute;
     left: 3%;
     width: 18rem; 
