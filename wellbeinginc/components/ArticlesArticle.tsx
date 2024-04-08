@@ -1,7 +1,7 @@
 'use client' 
-import Image from 'next/image';
+//import Image from 'next/image';
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
+//import { createClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import SupabaseClient from '@/components/Supabase';
 

@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding: 1rem;
 }
 
 .profile-photo {
@@ -18,18 +18,18 @@
 }
 
 .details {
-    flex: 2;
+    flex: 4;
     margin: 0 10px; /* Adjust spacing between elements */
 }
 
 .edit-profile {
-    flex: 1;
+    flex: 2;
     margin-left: 10px; /* Adjust spacing between elements */
 }
 
 .edit-profile button {
     width: 100%;
-    padding: 10px;
+    padding: .4rem .3rem;
     background-color: #17B169;
     color: white;
     border: none;

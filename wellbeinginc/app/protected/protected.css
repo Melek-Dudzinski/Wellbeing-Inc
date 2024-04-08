@@ -61,7 +61,7 @@
     background-color: #BDCCBE;
     padding: 1.5rem 2rem;
     border-radius: 10px;
-    margin-bottom: 1rem; /* Space between profile and plan */
+    margin-bottom:  1rem; /* Space between profile and plan */
   }
   
 
@@ -69,10 +69,11 @@
 #see-more-button{
     background-color:#17B169;
     border-radius: 2rem;
-    padding: 3px;
-    width: 5rem;
-    align-self: center;
+    padding: .3rem 1rem;
+    width: fit-content;
+    
     color: white;
+    
 }
 
 .button-article{
@@ -115,17 +116,24 @@
     border-radius: 10px; 
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); 
   }
-  
- 
-  
-  .home-article-title {
-    font-weight: bold;
-    font-size: 1.15em; /* Larger title size */
-  }
-  
   .home-article-body {
     margin-top: 10px; /* Additional spacing */
     line-height: 1.5; /* Improved line spacing */
   }
+
+  /*Image and title for article*/
+  .home-img-and-title{
+    display: flex;
+    flex-direction: row;
+  }
+  .home-img-and-title img{
+    margin-right: 0.5rem;
+  }
+  #home-article-title {
+    font-weight: bold;
+    font-size: 1.15em; /* Larger title size */
+  }
+  
+  
   
 

@@ -24,6 +24,7 @@ export default function HomeArticle() {
             const articlesPrev = data.map(a=>({
                 title: a.title,
                 summary: a.summary,
+                imgs: a.image_url,
                 
             }))
             setHomeArticles(articlesPrev)
@@ -43,10 +44,11 @@ export default function HomeArticle() {
                         {homeArticles.map((a:any, index:any) => (
                             <div key={index}>
                                 <button className='home-article-container'>
-                                    
-                                        <p className = "home-article-title">{a.title}</p>
-                                        <p className = "home-article-body">{a.summary}</p>
-                                    
+                                    <div className="home-img-and-title">
+                                        <img src={a.imgs} style={{ maxWidth: '10rem', maxHeight: '10rem'}} />
+                                        <p id = "home-article-title">{a.title}</p>
+                                    </div>
+                                    <p className = "home-article-body">{a.summary}</p>
                                 </button>
                             </div>
                         ))}
