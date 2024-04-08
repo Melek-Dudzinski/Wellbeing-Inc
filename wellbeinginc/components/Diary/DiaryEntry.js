@@ -79,7 +79,7 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
                     <textarea readOnly={canEditStyle.textAreaReadOnly} minLength="1" maxLength="300" className="content" onChange={(ev) => setSleepContent(ev.target.value)}>{sleepData}</textarea>
                 </div>
                 <div className="edit-container">
-                    <button className={canEditStyle.button} onClick={() => updateEntry()}>Submit changes</button>
+                    <button id='edit-submit-button' className={canEditStyle.button} onClick={() => updateEntry()}>Submit</button>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 
+
 export default function App({dateState, setDateState}) {
   const [showCalendar, setShowCalendar] = useState(false);
 
@@ -32,7 +33,7 @@ export default function App({dateState, setDateState}) {
             <p>Selected Date: <b>{moment(dateState).format('MMMM Do YYYY')}</b></p>
           }
         </button>
-        {dateState && <button onClick={nullifyDate}>Deselect Date</button>}
+        {dateState && <button id="deselect-date-button" onClick={nullifyDate}>Deselect Date</button>}
       </div>
       <></>
       {showCalendar && (
@@ -40,7 +41,7 @@ export default function App({dateState, setDateState}) {
           <div className="calendar-container">
             <Calendar 
               value={dateState}
-              onChange={handleDateChange}
+              onChange={handleDateChange} 
             />
           </div>
         </div>

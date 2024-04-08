@@ -83,7 +83,7 @@ function DiaryEntries ({user}) {
         <>
         <DiaryCalendar dateState={selectDate} setDateState={setSelectDate}></DiaryCalendar>
         <div className="buttons-container">
-            <div id="container-buttons">
+        <div id="container-buttons">
                 <div id ="buttons-width">
                 <div>
                     <button className="turn-edit" onClick={toggleEdit}> Edit </button>
@@ -95,7 +95,7 @@ function DiaryEntries ({user}) {
                         <AddDiaryEntry isOpen={modalOpen} onDismiss={() => closeModal()} today={today} user={user}></AddDiaryEntry>
                     </div>
                 : 
-                    <p className="add-DiaryEntry"> You're all done for today !</p>
+                    <p className="entered-entry"> You're all done for today !</p>
                 }
                 </div>
             </div>
