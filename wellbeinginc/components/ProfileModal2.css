@@ -31,15 +31,7 @@
     }
   
   
-  #modal-header button{
-    
-    width: fit-content;
-    background-color: #17B169;
-    border: none;
-    cursor: pointer;
-    border-radius: .2rem;
-    padding: 0.1rem .7rem;
-  } 
+
   
   /* Modal Content */
   .modal-content {
@@ -86,6 +78,16 @@
     display: flex;
     justify-content: center;
   }
+
+  #modal-header button{
+    
+    width: fit-content;
+    background-color: #17B169;
+    border: none;
+    cursor: pointer;
+    border-radius: .2rem;
+    padding: 0rem .5rem;
+  } 
   
   #modal-save-button button {
     background-color: #17B169; /* Example color, change as needed */
@@ -94,6 +96,6 @@
     border: none;
     border-radius: 2rem;
     cursor: pointer;
-    
+    padding: .2rem 1rem;
   }
   
