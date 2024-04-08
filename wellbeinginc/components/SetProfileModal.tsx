@@ -20,6 +20,10 @@ const Modal = (props: SetProfileProps) => {
     const surname = formData.get("surname") as string;
     const height = formData.get("height") as string;
     const weight = formData.get("weight") as string;
+    const allergy1 = formData.get("allergies1") as string;
+    const allergy2 = formData.get("allergies2") as string;
+    const allergy3 = formData.get("allergies3") as string;
+    const allergies = [allergy1,allergy2,allergy3]
 
     // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
 
@@ -31,6 +35,7 @@ const Modal = (props: SetProfileProps) => {
         LastName: surname,
         initialWeight: weight,
         height: height,
+        allergies: allergies,
       },
     ]);
 
@@ -50,7 +55,7 @@ const Modal = (props: SetProfileProps) => {
               <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
             </div>
             {/* <input className="hidden" type="file" id="profile-picture" name="profile-picture"/> */}
-            <input type="text" id="profile-picture" name="profile-picture"/>
+            {/* <input type="text" id="profile-picture" name="profile-picture"/> */}
 
             <label htmlFor="name">First Name:</label>
             <input type="text" id="name" name="name" placeholder='Your Name' required/>
@@ -66,9 +71,9 @@ const Modal = (props: SetProfileProps) => {
 
             <label>Allergies:</label>
             <div>
-              <label><input type="checkbox" name="allergies" value="peanut"/> Peanut</label><br/>
-              <label><input type="checkbox" name="allergies" value="dairy"/> Dairy</label><br/>
-              <label><input type="checkbox" name="allergies" value="gluten"/> Gluten</label><br/>
+              <label><input type="checkbox" name="allergies1" value="peanut"/> Peanut</label><br/>
+              <label><input type="checkbox" name="allergies2" value="dairy"/> Dairy</label><br/>
+              <label><input type="checkbox" name="allergies3" value="gluten"/> Gluten</label><br/>
             </div>
 
             <button>Save Changes</button>
