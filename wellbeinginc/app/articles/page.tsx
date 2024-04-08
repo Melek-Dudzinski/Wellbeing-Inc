@@ -30,13 +30,13 @@ export default async function Articles() {
       <Navbar activePage={activePage}/>
       <div className='title'>Wellness Articles </div>
       <ArticlesView/>
-      <div className="lines-container">
+      {/*<div className="lines-container">
         <div className="line"> </div>
         <div className="line"> </div>
         <div className="line"> </div>
         <div className="line"> </div>
         <div className="line"> </div>
-      </div>
+      </div>*/}
 
       <button id = "add-article"><Link href="addArticles">Add New Article</Link></button>
       
