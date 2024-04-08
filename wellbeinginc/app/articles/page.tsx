@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import Navbar from '@/components/Navbar'
 import {ArticlesView} from '@/components/ArticlesArticle';
 import Link from 'next/link';
+import SupabaseClient from '@/components/Supabase';
 import './articles.css';
 
 export default async function Articles() {
@@ -16,20 +17,29 @@ export default async function Articles() {
   }
 
  /*Retrieving User Role */
- const{data,error} = await supabase .from('TestUserProfile').select('Role').eq('EmployeeNo',user.id);
- if (error){
-  return redirect("/articles?message=Unable to validate your user status.")
- }
+//  const{data,error} = await supabase .from('TestUserProfile').select('Role').eq('EmployeeNo',user.id);
+//  if (error){
+//   return redirect("/articles?message=Unable to validate your user status.")
+//  }
  /*if(data.Role != 'Mental Health Champion' || data.Role != 'Admin Mental Health Champion'){
   return redirect("/articles")
  }*/
  
 
+  const { data, error } = await SupabaseClient()
+        .from('TestUserProfile')
+        .select('Role')
+        .eq('EmployeeNo', user.id);
+    
+    if (error) {
+        console.log("Error getting user role for contact")
+    }
+
   return (
     <>
       <Navbar activePage={activePage}/>
       <div className='title'>Wellness Articles </div>
-      <ArticlesView/>
+      <ArticlesView userRole={data[0].Role}/>
       <div className="lines-container">
         <div className="line"> </div>
         <div className="line"> </div>
@@ -37,9 +47,9 @@ export default async function Articles() {
         <div className="line"> </div>
         <div className="line"> </div>
       </div>
-
-      <button id = "add-article"><Link href="addArticles">Add New Article</Link></button>
-      
+      {data[0].Role !== "Regular" ? (
+        <button id = "add-article"><Link href="addArticles">Add New Article</Link></button>
+      ):(<p></p>)}      
     </>
   )
 }
