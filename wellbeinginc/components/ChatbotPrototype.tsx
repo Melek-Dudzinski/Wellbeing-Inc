@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { createClient } from "@supabase/supabase-js"
 import SupabaseClient from '@/components/Supabase';
 import './Chatbot.css';
 
@@ -17,16 +16,13 @@ const Chatbot = (props: ChatbotProps) => {
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(0);
 
-  // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [queueStatus, setQueueStatus] = useState(false);
   const [queuePos, setQueuePos] = useState();
-  const [connected, setConnected] = useState(false);
 
   const senderID = props.userID;
   const [receiverID, setReceiverID] = useState();
-  const [possibleReceiverID, setPossibleReceiverID] = useState([]);
 
   const [firstLoad, setLoad] = useState(false);
 
@@ -54,40 +50,20 @@ const Chatbot = (props: ChatbotProps) => {
     }
   };
 
-  const handleReceiverID = async () => {
-    if (props.userRole == "Regular") {
-      const { data: connectionData, error} = await SupabaseClient()
-        .from('ChatbotConnections')
-        .select()
-        .eq('regular_id', senderID);
-
-      if (error) {
-        console.log("Error getting regular connection")
-      } else {
-        if (connectionData.length == 1) {
-          setReceiverID(connectionData.champion_id);
-        } else {
-          if (possibleReceiverID.receiver_id === senderID) {
-            setReceiverID(possibleReceiverID.sender_id);
-          }
-        }
-      }
-    }
-  }
-
   useEffect(() => {
-    handleReceiverID();
+    console.log("2")
     fetchMessage();
-    console.log("Fetching")
-  }, [receiverID, possibleReceiverID])
+  }, [receiverID]);
+  
 
   useEffect(() => {
-    const messageChannel = ChatbotMessagesUpdates(setPossibleReceiverID, handleReceiverID, fetchMessage)
+    const messageChannel = blah(senderID, receiverID, setReceiverID, fetchMessage)
+    console.log("in receierv")
 
     return () => {
       SupabaseClient().removeChannel(messageChannel);
     };
-  }, [receiverID, possibleReceiverID]);
+  }, [receiverID]);
 
   useEffect(() => {
     const queueChannel = SupabaseClient().channel('ChatbotQueue').on(
@@ -223,99 +199,14 @@ const Chatbot = (props: ChatbotProps) => {
       .from('ChatbotQueue')
       .delete()
       .eq('user_id', data[0].user_id);
-      setReceiverID(data[0].user_id);
-
-      if (!connected) {
-        const { data: connecting, error } = await SupabaseClient()
-        .from('ChatbotConnections')
-        .insert([
-          {
-            champion_id: senderID,
-            regular_id: data[0].user_id,
-          }
-        ]);
-  
-        if (error) {
-          console.error('Error adding to connections');
-        }
-      } else {
-        const { data: updating, error } = await SupabaseClient()
-          .from('ChatbotConnections')
-          .update({ regular_id: data[0].user_id});
-  
-        if (error) {
-          console.error('Error updating connections');
-        }
-      }
     }
+    setReceiverID(data[0].user_id);
   }
 
-  const leaveConnection = async () => {
-    const { data: leaving, error } = await SupabaseClient().
-      from('ChatbotConnections')
-      .delete()
-      .eq('champion_id', senderID);
-
-    if (error) {
-      console.error('Error leaving connections');
-    } else {
-      setReceiverID("");
-    }
-  }
-
-  const checkConnection = async () => {
-    if (props.userRole == "Regular") {
-      console.log("regular")
-      const { data, error } = await SupabaseClient()
-        .from('ChatbotConnections')
-        .select()
-        .eq('regular_id', senderID);
-
-      if (error) {
-        console.log("Error getting regular connection");
-      } else {
-        if (data.length > 0) {
-          console.log("connected")
-          setConnected(true);
-          handleReceiverID();
-        }
-      }
-    } else {
-      const { data, error } = await SupabaseClient()
-        .from('ChatbotConnections')
-        .select()
-        .eq('champion_id', senderID);
-
-      if (error) {
-        console.log("Error getting Champion connection");
-      } else {
-        if (data.length > 0) {
-          console.log("connected")
-          setConnected(true);
-          handleReceiverID();
-        }
-      }
-    }
-  }
-
-  function ChatbotMessagesUpdates(setPossibleReceiverID: React.Dispatch<React.SetStateAction<never[]>>, handleReceiverID: () => Promise<void>, fetchMessage: () => Promise<void>) {
-    return SupabaseClient().channel('ChatbotMessages').on(
-      'postgres_changes',
-      {
-        event: 'INSERT',
-        schema: 'public',
-        table: "ChatbotMessages",
-      },
-      (payload) => {
-        setPossibleReceiverID(payload.new);
-      }
-    ).subscribe();
-  }
 
   if (!queueStatus && !firstLoad) {
     setLoad(true);
     checkQueue();
-    checkConnection();
   }
 
   return (
@@ -345,7 +236,6 @@ const Chatbot = (props: ChatbotProps) => {
           {props.userRole !== "Regular" ? (
             <div>
               <button onClick={acceptConnection}>Accept</button>
-              <button onClick={leaveConnection}>Leave</button>
             </div>
           ):(<p></p>)}
         </div>
@@ -355,3 +245,24 @@ const Chatbot = (props: ChatbotProps) => {
 };
 
 export default Chatbot;
+
+function blah(senderID: string, receiverID: undefined, setReceiverID: React.Dispatch<React.SetStateAction<undefined>>, fetchMessage: () => Promise<void>) {
+    return SupabaseClient().channel('ChatbotMessages').on(
+        'postgres_changes',
+        {
+            event: 'INSERT',
+            schema: 'public',
+            table: "ChatbotMessages",
+        },
+        (payload) => {
+            console.log(payload.new.receiver_id, senderID, receiverID)
+            if (payload.new.receiver_id === senderID && !receiverID) {
+                console.log("1");
+                setReceiverID(payload.new.sender_id);
+            } else {
+                fetchMessage();
+                console.log("Fetching");
+            }
+        }
+    ).subscribe();
+}
