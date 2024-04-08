@@ -1,4 +1,4 @@
-import './ProfileModal2.css'
+import './SetProfileModal.css'
 import profilePicture from './images/Blank Profile Picture.jpg'
 import Image from 'next/image'
 import { createClient } from "@supabase/supabase-js"
@@ -47,15 +47,18 @@ const Modal = (props: SetProfileProps) => {
   }
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <div className="modal-content">
+    <div className="create-profile-modal-overlay">
+      <div className="create-profile-modal">
+        
+        <form action="" method="">
+              <div className='create-profile-profilePicture'>
+                  <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
+              </div>
+             {/* <input className="hidden" type="file" id="profile-picture" name="profile-picture"/> */}
+             {/* <input type="text" id="profile-picture" name="profile-picture"/> */}
+        </form>
+        <div className="create-profile-modal-content">
           <form action={saveChanges} method="">
-            <div className='profilePicture'>
-              <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
-            </div>
-            {/* <input className="hidden" type="file" id="profile-picture" name="profile-picture"/> */}
-            {/* <input type="text" id="profile-picture" name="profile-picture"/> */}
 
             <label htmlFor="name">First Name:</label>
             <input type="text" id="name" name="name" placeholder='Your Name' required/>
@@ -70,13 +73,15 @@ const Modal = (props: SetProfileProps) => {
             <input type="text" id="weight" name="weight" placeholder='Your Weight' required/>
 
             <label>Allergies:</label>
-            <div>
+            <div id='allergies'>
               <label><input type="checkbox" name="allergies1" value="peanut"/> Peanut</label><br/>
               <label><input type="checkbox" name="allergies2" value="dairy"/> Dairy</label><br/>
               <label><input type="checkbox" name="allergies3" value="gluten"/> Gluten</label><br/>
             </div>
-
-            <button>Save Changes</button>
+            <div id='create-profile-modal-save-button'>
+              <button type="submit">Save</button>
+            </div>
+            
           </form>
         </div>
       </div>

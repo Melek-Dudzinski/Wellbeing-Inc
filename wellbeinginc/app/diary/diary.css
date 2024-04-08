@@ -1,8 +1,5 @@
 /* diary.css */
 
-body {
-    background-color: #D4E5D5 !important;
-}
 
 .diary{
     margin-top: 3rem;
@@ -42,23 +39,37 @@ body {
     white-space: pre-wrap; /* Wrap text and preserve line breaks */
 }
 
-textarea{
+.diary-entry textarea {
     resize: none;
     color:black;
 }
 
 .buttons-container{
     display: flex;
+    justify-content: center;
     flex-direction: column;
 }
 
-button.add-DiaryEntry, .turn-edit{
-    color:mediumspringgreen;
-    font-size: 2rem;
-    border: solid black;
-    margin-bottom: 1rem;
-    background-color: white;
-    border-radius: 1rem;
+
+
+.add-DiaryEntry, .turn-edit, #edit-submit-button{
+
+
+    background-color: #17B169;
+    padding: .4rem .8rem;
+    margin: 0 0 .6rem 2.5rem;
+    width: fit-content;
+    color: white;
+    border-radius: 2rem;
+}
+
+#edit-submit-button{
+    background-color: #17B169;
+    padding: .4rem .8rem;
+    margin-bottom: .6rem;
+    width: fit-content;
+    color: white;
+    border-radius: 2rem;
 }
 
 p.add-DiaryEntry{
@@ -70,8 +81,18 @@ p.add-DiaryEntry{
     border-radius: 1rem;
 }
 
-button.add-DiaryEntry:hover, .turn-edit:hover{
-    color:aquamarine;
+button.add-DiaryEntry:hover, .turn-edit:hover,.calendar-buttons button:hover,  #edit-submit-button:hover{
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px grey;
+}
+
+
+.calendar-buttons button{
+    padding: .4rem .8rem;
+    margin-bottom: .2rem;
+    width: fit-content;
+    color: #17B169;
+    
 }
 
 .edit-content{
@@ -90,20 +111,30 @@ button.add-DiaryEntry:hover, .turn-edit:hover{
     color:red
 }
 
-.calendar-buttons{
-    display:flex;
-    flex-direction: column;
+
+
+.calendar-buttons {
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+
+  }
+#deselect-date-button{
+    border-left: 1px solid black;
 }
 
-.calendar-buttons button:hover{
-    color:coral;
-}
+
 
 .not-found{
     color:red;
-    font-size: 5rem;
+    font-size: 2rem;
     border: solid black;
     background-color: white;
+    width: fit-content;
     border-radius: 1rem;
-    padding:2rem;
+    padding:1rem;
+}
+
+.calendar-view{
+    color: black;
 }

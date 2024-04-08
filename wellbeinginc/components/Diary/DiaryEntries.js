@@ -82,15 +82,15 @@ function DiaryEntries ({user}) {
         <>
         <DiaryCalendar dateState={selectDate} setDateState={setSelectDate}></DiaryCalendar>
         <div className="buttons-container">
-            <button className="turn-edit" onClick={toggleEdit}> Edit </button>
+            <button className="turn-edit" onClick={toggleEdit}> Edit Entry</button>
             {
             canCreate===true ? 
                 <div>
-                    <button className="add-DiaryEntry" onClick={() => openModal()}>Add Entry</button> 
+                    <button  className="add-DiaryEntry" onClick={() => openModal()}>Add Entry</button> 
                     <AddDiaryEntry isOpen={modalOpen} onDismiss={() => closeModal()} today={today} user={user}></AddDiaryEntry>
                 </div>
             : 
-                <p className="add-DiaryEntry"> You're all done for today !</p>
+                <p className="entered-entry"> You're all done for today !</p>
             }
         </div>
         {entries && 
