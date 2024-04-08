@@ -116,17 +116,24 @@
     border-radius: 10px; 
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); 
   }
-  
- 
-  
-  .home-article-title {
-    font-weight: bold;
-    font-size: 1.15em; /* Larger title size */
-  }
-  
   .home-article-body {
     margin-top: 10px; /* Additional spacing */
     line-height: 1.5; /* Improved line spacing */
   }
+
+  /*Image and title for article*/
+  .home-img-and-title{
+    display: flex;
+    flex-direction: row;
+  }
+  .home-img-and-title img{
+    margin-right: 0.5rem;
+  }
+  #home-article-title {
+    font-weight: bold;
+    font-size: 1.15em; /* Larger title size */
+  }
+  
+  
   
 
