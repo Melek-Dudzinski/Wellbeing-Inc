@@ -23,7 +23,7 @@ export default async function ChangePlan() {
   return (
       <>
           <Navbar activePage={activePage}/>
-          <div className="miniNav">
+          <div className="backToPlan">
             <button><Link href="/plan">Back</Link></button>
           </div>
           <div className="changePlanContainer">

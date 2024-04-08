@@ -55,16 +55,17 @@
     text-align: center;
   } 
 
-  .miniNav button{
+  .backToPlan button{
     background-color: #17B169;
+    padding: .2rem 1rem;
+    margin: 1rem 0;
+    width: fit-content;
+    
     color: white;
-    border: none;
-    cursor: pointer;
-    padding: 0 1rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
   }
 
-    .miniNav button:hover {
+    .backToPlan button:hover {
         transform: scale(1.01);
         box-shadow: 2px 2px 5px grey;
     }

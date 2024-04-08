@@ -1,7 +1,19 @@
-.planButton{
-    width: 15rem;
-    height: 4rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
-    color: black;
+#miniNav button{
+    background-color: #17B169;
+    padding: .4rem .8rem;
+    margin: 1rem 0.5rem;
+    width: fit-content;
+    
+    color: white;
+    border-radius: 2rem;
 }
+
+#miniNav button:hover{
+    transform: scale(1.01);
+    box-shadow: 2px 2px 5px grey;
+}
+
+#switchButton{
+    padding: .4rem 1.5rem !important;
+}
+ 

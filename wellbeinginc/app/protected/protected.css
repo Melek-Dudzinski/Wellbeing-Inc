@@ -61,7 +61,7 @@
     background-color: #BDCCBE;
     padding: 1.5rem 2rem;
     border-radius: 10px;
-    margin-bottom: 1rem; /* Space between profile and plan */
+    margin-bottom:  1rem; /* Space between profile and plan */
   }
   
 
@@ -69,10 +69,11 @@
 #see-more-button{
     background-color:#17B169;
     border-radius: 2rem;
-    padding: 3px;
-    width: 5rem;
-    align-self: center;
+    padding: .3rem 1rem;
+    width: fit-content;
+    
     color: white;
+    
 }
 
 .button-article{

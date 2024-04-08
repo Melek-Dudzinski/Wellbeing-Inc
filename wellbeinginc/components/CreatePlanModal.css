@@ -59,10 +59,9 @@ input[type="text"] {
     margin-bottom: 10px;
 }
 
-
-
-
-l#plan-submit-button, #plan-close-button:hover {
+#plan-submit-button:hover, #plan-close-button:hover{
     transform: scale(1.01);
     box-shadow: 2px 2px 5px grey;
 }
+
+
