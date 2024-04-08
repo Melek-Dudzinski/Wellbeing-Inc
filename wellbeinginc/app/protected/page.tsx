@@ -34,7 +34,7 @@ export default async function ProtectedPage() {
 
     
     if (error) {
-      console.log("Error getting set profile");
+      console.log("Error getting queue status");
     }
 
     if (data.length > 0) {

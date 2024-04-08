@@ -59,16 +59,17 @@ const Chatbot = (props: ChatbotProps) => {
       const { data: connectionData, error} = await SupabaseClient()
         .from('ChatbotConnections')
         .select()
-        .eq('regular_id', senderID);
+        .eq('Regular_id', senderID);
 
       if (error) {
-        console.log("Error getting regular connection")
+        console.log("Error checking regular connection")
       } else {
         if (connectionData.length == 1) {
-          setReceiverID(connectionData.champion_id);
+          setReceiverID(connectionData.Champion_id);
         } else {
-          if (possibleReceiverID.receiver_id === senderID) {
+          if (possibleReceiverID.receiver_id = senderID) {
             setReceiverID(possibleReceiverID.sender_id);
+            checkQueue();
           }
         }
       }
@@ -76,18 +77,28 @@ const Chatbot = (props: ChatbotProps) => {
   }
 
   useEffect(() => {
-    handleReceiverID();
+    checkConnection();
     fetchMessage();
-    console.log("Fetching")
-  }, [receiverID, possibleReceiverID])
 
-  useEffect(() => {
-    const messageChannel = ChatbotMessagesUpdates(setPossibleReceiverID, handleReceiverID, fetchMessage)
+    const messageChannel = SupabaseClient().channel('ChatbotMessages').on(
+      'postgres_changes',
+      {
+        event: 'INSERT',
+        schema: 'public',
+        table: "ChatbotMessages",
+      },
+      (payload) => {
+        setPossibleReceiverID(payload);
+        handleReceiverID();
+        fetchMessage();
+        console.log("Fetching")
+      }
+    ).subscribe()
 
     return () => {
       SupabaseClient().removeChannel(messageChannel);
     };
-  }, [receiverID, possibleReceiverID]);
+  }, []);
 
   useEffect(() => {
     const queueChannel = SupabaseClient().channel('ChatbotQueue').on(
@@ -265,11 +276,10 @@ const Chatbot = (props: ChatbotProps) => {
 
   const checkConnection = async () => {
     if (props.userRole == "Regular") {
-      console.log("regular")
       const { data, error } = await SupabaseClient()
-        .from('ChatbotConnections')
-        .select()
-        .eq('regular_id', senderID);
+      .from('ChatbotConnections')
+      .select()
+      .eq('regular_id', senderID);
 
       if (error) {
         console.log("Error getting regular connection");
@@ -296,20 +306,6 @@ const Chatbot = (props: ChatbotProps) => {
         }
       }
     }
-  }
-
-  function ChatbotMessagesUpdates(setPossibleReceiverID: React.Dispatch<React.SetStateAction<never[]>>, handleReceiverID: () => Promise<void>, fetchMessage: () => Promise<void>) {
-    return SupabaseClient().channel('ChatbotMessages').on(
-      'postgres_changes',
-      {
-        event: 'INSERT',
-        schema: 'public',
-        table: "ChatbotMessages",
-      },
-      (payload) => {
-        setPossibleReceiverID(payload.new);
-      }
-    ).subscribe();
   }
 
   if (!queueStatus && !firstLoad) {
