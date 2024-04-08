@@ -1,6 +1,6 @@
 import './PlanPlan.css'; 
-import Activity from "./Activity"
-import Menu from "./Menu"
+import Activity from "../Activity"
+import Menu from "../Menu"
 
 export default function PlanPlan() {
     return (
