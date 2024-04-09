@@ -88,7 +88,7 @@ export default function ActivePlan({user}) {
     const downloadPDF = async() => {
         const blob = await pdf((
             <PlanPDF 
-             title={plan.name}
+             plan={plan}
              meals={meals}
              activities={activities}
              dow={dow}
