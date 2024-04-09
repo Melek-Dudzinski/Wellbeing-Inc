@@ -1,8 +1,9 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
-import PlanPlan from "@/components/PlanPlan"
+import ActivePlan from "@/components/Plan/ActivePlan"
 import Link from 'next/link'
+import { Suspense } from "react";
 import './plan.css'
 
 export default async function Plan() {
@@ -25,7 +26,9 @@ export default async function Plan() {
             <button id="switchButton"><Link href="changePlan">Switch Plan</Link></button>
             <button >Download Plan</button>
           </div>
-          <PlanPlan />
+          <Suspense fallback='Loading...'>
+            <ActivePlan user={user.id}/>
+          </Suspense>
       </>
   )
 }

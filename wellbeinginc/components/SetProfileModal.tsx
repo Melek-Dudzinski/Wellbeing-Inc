@@ -1,7 +1,6 @@
 import './SetProfileModal.css'
 import profilePicture from './images/Blank Profile Picture.jpg'
 import Image from 'next/image'
-import { createClient } from "@supabase/supabase-js"
 import { redirect } from "next/navigation";
 import SupabaseClient from '@/components/Supabase';
 
@@ -24,8 +23,6 @@ const Modal = (props: SetProfileProps) => {
     const allergy2 = formData.get("allergies2") as string;
     const allergy3 = formData.get("allergies3") as string;
     const allergies = [allergy1,allergy2,allergy3]
-
-    // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
 
     const { data, error } = await SupabaseClient().from('TestUserProfile').insert([
       {

@@ -7,6 +7,14 @@ import DiaryCalendar from "./DiaryCalendar"
 import React from "react";
 import SupabaseClient from '@/components/Supabase';
 
+
+export function getDateDBFormat(dateF){
+    const yyyy = dateF.toLocaleDateString([], {year:'numeric'})
+    const mm = dateF.toLocaleDateString([], {month:'2-digit'})
+    const dd = dateF.toLocaleDateString([], {day:'2-digit'})
+    return[yyyy,mm,dd].join('-')
+};
+
 function DiaryEntries ({user}) {
     const [entries, setEntries] = useState(null);
     const [fetchError, setFetchError] = useState(null);
@@ -24,13 +32,6 @@ function DiaryEntries ({user}) {
     const closeModal  = () =>{
         setModalOpen(false)
     }
-
-    function getDateDBFormat(dateF){
-        const yyyy = dateF.toLocaleDateString([], {year:'numeric'})
-        const mm = dateF.toLocaleDateString([], {month:'2-digit'})
-        const dd = dateF.toLocaleDateString([], {day:'2-digit'})
-        return[yyyy,mm,dd].join('-')
-    };
 
     function toggleEdit() {
         if (turnEdit.button == "edit-button")

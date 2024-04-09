@@ -6,41 +6,31 @@ import './Chatbot.css';
 type ChatbotProps = {
   userID: string;
   userRole: string;
+  isOpen: boolean;  
 }
 
 const Chatbot = (props: ChatbotProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [position, setPosition] = useState({ x : window.innerWidth - 150, y: window.innerHeight - 100 });
+  const [position, setPosition] = useState({ x : window.innerWidth / 2 - 150, y: window.innerHeight / 2 - 200 });
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0});
-  const [startTime, setStartTime] = useState(0);
-  const [endTime, setEndTime] = useState(0);
 
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [queueStatus, setQueueStatus] = useState(false);
   const [queuePos, setQueuePos] = useState();
+  const [queueTotal, setQueueTotal] = useState();
 
   const senderID = props.userID;
   const [receiverID, setReceiverID] = useState();
 
   const [firstLoad, setLoad] = useState(false);
 
-  const toggleChatbot = () => {
-    const duration = endTime - startTime;
-    if (duration < 100) {
-      setIsOpen((prevIsOpen) => !prevIsOpen);
-    }
-  };
-
   const handleMouseDown = e => {
-    setStartTime(Date.now());
     setIsDragging(true);
     setOffset({x: e.clientX - position.x, y: e.clientY - position.y});
   };
 
   const handleMouseUp = () => {
-    setEndTime(Date.now());
     setIsDragging(false);
   };
 
@@ -51,14 +41,12 @@ const Chatbot = (props: ChatbotProps) => {
   };
 
   useEffect(() => {
-    console.log("2")
     fetchMessage();
   }, [receiverID]);
   
 
   useEffect(() => {
-    const messageChannel = blah(senderID, receiverID, setReceiverID, fetchMessage)
-    console.log("in receierv")
+    const messageChannel = ChatbotMessagesUpdates(senderID, receiverID, setReceiverID, fetchMessage)
 
     return () => {
       SupabaseClient().removeChannel(messageChannel);
@@ -66,22 +54,12 @@ const Chatbot = (props: ChatbotProps) => {
   }, [receiverID]);
 
   useEffect(() => {
-    const queueChannel = SupabaseClient().channel('ChatbotQueue').on(
-      'postgres_changes',
-      {
-        event: '*',
-        schema: 'public',
-        table: 'ChatbotQueue',
-      },
-      () => {
-        checkQueue();
-      }
-    ).subscribe()
+    checkQueue()
+  }, [queueStatus])
 
-    return () => {
-      SupabaseClient().removeChannel(queueChannel);
-    }
-  }, [])
+  useEffect(() => {
+    return ChatbotQueueUpdates(checkQueue);
+  }, [queueStatus])
 
   const fetchMessage = async () => {
     if (receiverID) {
@@ -166,21 +144,25 @@ const Chatbot = (props: ChatbotProps) => {
       console.log("Error getting queue status");
     } else {
       if (data.length > 0) {
-        console.log("data")
         setQueueStatus(true);
   
-        const { data: posInQueue, error: posInQueueError, count } = await SupabaseClient()
+        const { data: posInQueue, error: posInQueueError, count: posCount } = await SupabaseClient()
           .from('ChatbotQueue')
           .select('queue_id', { count: 'exact' })
           .lt('queue_id', data[0].queue_id);
+
+        const { data: totalQueue, error: totalQueueError, count: totalCount } = await SupabaseClient()
+          .from('ChatbotQueue')
+          .select('*', { count: 'exact' });
   
-        if (posInQueueError) {
+        if (posInQueueError || totalQueueError) {
           console.log("Error getting queue position")
         } else {
-          setQueuePos(count + 1);
+          console.log(totalCount)
+          setQueuePos(posCount + 1);
+          setQueueTotal(totalCount);
         }
       } else {
-        console.log("no data")
         setQueueStatus(false);
       }
     }
@@ -203,6 +185,39 @@ const Chatbot = (props: ChatbotProps) => {
     setReceiverID(data[0].user_id);
   }
 
+  function ChatbotMessagesUpdates(senderID: string, receiverID: undefined, setReceiverID: React.Dispatch<React.SetStateAction<undefined>>, fetchMessage: () => Promise<void>) {
+    return SupabaseClient().channel('ChatbotMessages').on(
+        'postgres_changes',
+        {
+            event: 'INSERT',
+            table: "ChatbotMessages",
+        },
+        (payload) => {
+            if (payload.new.receiver_id === senderID && !receiverID) {
+                setReceiverID(payload.new.sender_id);
+            } else {
+                fetchMessage();
+            }
+        }
+    ).subscribe();
+  }
+
+  function ChatbotQueueUpdates(checkQueue: () => Promise<void>) {
+    const queueChannel = SupabaseClient().channel('ChatbotQueue').on(
+      'postgres_changes',
+      {
+        event: '*',
+        table: 'ChatbotQueue',
+      },
+      () => {
+        checkQueue();
+      }
+    ).subscribe();
+  
+    return () => {
+      SupabaseClient().removeChannel(queueChannel);
+    };
+  }
 
   if (!queueStatus && !firstLoad) {
     setLoad(true);
@@ -210,10 +225,7 @@ const Chatbot = (props: ChatbotProps) => {
   }
 
   return (
-    <div className={`chatbot ${isOpen ? 'open' : ''}`} style={{ left: position.x, top: position.y}} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
-      <button onClick={toggleChatbot} className="toggle-button">
-        Toggle Chatbot
-      </button>
+    <div className={`chatbot ${props.isOpen ? 'open' : ''}`} style={{ left: position.x, top: position.y}} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
       <div className="chatbot-window">
         <div className='messages'>
           {messages.map(message => (
@@ -235,6 +247,7 @@ const Chatbot = (props: ChatbotProps) => {
           )}
           {props.userRole !== "Regular" ? (
             <div>
+              {/* <p>People in queue: {queueTotal}</p> */}
               <button onClick={acceptConnection}>Accept</button>
             </div>
           ):(<p></p>)}
@@ -245,24 +258,3 @@ const Chatbot = (props: ChatbotProps) => {
 };
 
 export default Chatbot;
-
-function blah(senderID: string, receiverID: undefined, setReceiverID: React.Dispatch<React.SetStateAction<undefined>>, fetchMessage: () => Promise<void>) {
-    return SupabaseClient().channel('ChatbotMessages').on(
-        'postgres_changes',
-        {
-            event: 'INSERT',
-            schema: 'public',
-            table: "ChatbotMessages",
-        },
-        (payload) => {
-            console.log(payload.new.receiver_id, senderID, receiverID)
-            if (payload.new.receiver_id === senderID && !receiverID) {
-                console.log("1");
-                setReceiverID(payload.new.sender_id);
-            } else {
-                fetchMessage();
-                console.log("Fetching");
-            }
-        }
-    ).subscribe();
-}

@@ -1,11 +1,9 @@
-import { createClient } from "@supabase/supabase-js"
 import { redirect } from "next/navigation";
 import { SubmitButton } from "@/app/login/submit-button";
 import SupabaseClient from '@/components/Supabase';
 import Link from 'next/link';
 
 export default function ContactFeedback({searchParams,}:{searchParams:{message:string};}) {
-    
     /*Validating submitted form info"*/
     const feedbackSubmit = async (formData: FormData) =>{
         "use server";
@@ -14,24 +12,25 @@ export default function ContactFeedback({searchParams,}:{searchParams:{message:s
         const type = formData.get("Type") as string;
         const content = formData.get("Content") as string;
         if (!type || !content){
-            return redirect("/contact?message=Please ensure both sections are filled.");
+            return redirect("/contact?message=Unable_to_send_feedback._Please_ensure_both_sections_are_filled.");
         }
         
         {/*Sending form data*/}
-        // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko')
         const {error} = await SupabaseClient() 
             .from('testFeedback') 
             .insert ({content: content, type: type})
+        {/*Returning status of feedback entered*/}    
         if (error){
-            return redirect("/contact?message=Unable to send feedback. Please try again.");
+            return redirect("/contact?message=Unable_to_send_feedback._Please_try_again.");
         }
         else{
-            return redirect("/contact");
+            return redirect("/contact?message=Feedback_sent.");
         }
     };
 
     return (
         <>
+            {/*Feedback Form*/}
             <div id="Feedback">
                 <form>
                     <select name="Type">

@@ -13,6 +13,12 @@ const HomeProfile = (props: HomeChatbotProps) => {
   const [userName, setUserName] = useState([]);
   const [load, setLoad] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleChatbot = () => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  };
+  
 
   const fetchUserName = async () => {
     const { data, error } = await SupabaseClient()

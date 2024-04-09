@@ -1,6 +1,7 @@
  #HealthTracker{
     padding: 1rem;
     border-radius: 0.5rem;
+    color: black;
  }
 
  #weight-overlay,#addweight-overlay{
@@ -36,7 +37,7 @@
  .list-items{
    padding: 10px;
    font-size: 2rem;
-   color: green;
+   color:  #17B169;
    font-weight: bold;
    border-bottom: 1px solid grey;
  }
@@ -46,7 +47,7 @@
    border: 1px solid grey;
    border-radius: 0.5rem;
  }
- #addweightbutton:hover{
+ #addweightbutton:hover,#week-weight-button:hover{
    transform: scale(1.05);
    box-shadow:2px 2px 5px rgba(0, 0, 0, 0.15);
  }
@@ -100,3 +101,5 @@
    margin-top: 2px;
    padding:2px 4px 2px 4px;
  }
+
+ 
