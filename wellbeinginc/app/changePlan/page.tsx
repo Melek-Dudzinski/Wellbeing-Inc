@@ -37,7 +37,6 @@ export default async function ChangePlan() {
           <div className="changePlanContainer">
             {data && <ChangePlanPremade user={user.id} role={data}/>}
             <ChangePlanCustom user={user.id}/>
-            <ChangePlanFilter />
           </div>
       </>
   )

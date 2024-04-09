@@ -1,62 +1,15 @@
 import './CreatePlanModal.css'
-import profilePicture from '../images/Blank Profile Picture.jpg'
-import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import SupabaseClient from '../Supabase';
 import { redirect } from "next/navigation";
-
-const mealPlans = {
-  Balanced: { 
-    breakfast: "Toast with avocado and egg",
-    lunch: "Chicken salad sandwich",
-    snack: "Apple slices with peanut butter",
-    dinner: "Baked salmon with brown rice and roasted vegetables",
-    exercise: "Brisk walk(45 minutes)"
-  },
-  PowerDiet: { 
-    breakfast: "Protein smoothie with oats, banana, peanut butter",
-    lunch: "Turkey burger on a  bun with a side salad",
-    snack: "Trail mix",
-    dinner: "Steak with sweet potatoes",
-    exercise: " Weightlifting(60 minutes)"
-   },
-  LightFitness: { 
-    breakfast: "Greek yogurt with berries",
-    lunch: "Lentil soup with a side salad ",
-    snack: "Vegetable sticks with hummus",
-    dinner: "Grilled chicken breast with quinoa and steamed vegetables ",
-    exercise: "Yoga(30 minutes)"
-  },
-  WeightGain: { 
-    breakfast: "Large bowl of oatmeal with milk and dried fruit",
-    lunch: " Pasta with chicken and marinara sauce",
-    snack: "Protein shake",
-    dinner: " Beef stir-fry with rice and vegetables",
-    exercise: "Strength training(45 minutes)"
-   },
-  WeightLoss: { 
-    breakfast: "Egg white omelet with spinach and tomatoes",
-    lunch: "Turkey wrap with vegetables",
-    snack: "Almonds",
-    dinner: "Grilled fish with mixed green salad",
-    exercise: "Cardio workout(40 minutes)"
-   },
-  Vegan: { 
-    breakfast: " Tofu scramble with spinach ",
-    lunch: " Lentil soup with whole-grain crackers",
-    snack: " Fruit salad with nuts",
-    dinner: "Black bean burger on a whole-wheat bun, with a side salad",
-    exercise: "Yoga(45 minutes)"
-   }
-  // ... Other plans (WeightGain, WeightLoss, Vegan)
-};
 
 const Modal = ({isOpen, onClose, user, type}) => {
 
   const [menus,setMenus] = useState(null);
   const [activities,setActivities] = useState(null);
-  
   const dow = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+  //fetch menus for dropdown
   const getMenus = async () =>{
     const {data,error} = await SupabaseClient().from('testMenu').select()
     if (error)
@@ -64,7 +17,7 @@ const Modal = ({isOpen, onClose, user, type}) => {
     else 
       setMenus(data);
     }
-
+  //fetch activities for dropdown
   const getActivities = async () =>{
     const {data,error} = await SupabaseClient().from('testFitnessActivity').select()
     if (error)
@@ -73,6 +26,7 @@ const Modal = ({isOpen, onClose, user, type}) => {
       setActivities(data)
   }
 
+  //insert menu for table on specific day
   const AddMenuToTable = async (plan,menu,day) => {
     console.log(plan, ' - ', menu, ' - ', day)
     const {error} = await SupabaseClient()
@@ -85,6 +39,7 @@ const Modal = ({isOpen, onClose, user, type}) => {
     }
   }
 
+  //insert activity for table on specific day
   const AddActivityToTable = async (plan,activity,day) => {
     console.log(plan, ' - ', activity, ' - ', day)
     const {error} = await SupabaseClient()
@@ -97,6 +52,7 @@ const Modal = ({isOpen, onClose, user, type}) => {
     }
   }
 
+  //create plan in db
   const createPlanTemplate = async (name,dif,desc,act,men) =>
   {
     const {data,error} = await SupabaseClient()
@@ -117,7 +73,7 @@ const Modal = ({isOpen, onClose, user, type}) => {
       })
     }
   }
-
+//handle on click
   const createPlan = async (formData) => {
     const name = formData.get('name');
     const difficulty = formData.get('difficulty');
@@ -138,6 +94,7 @@ const Modal = ({isOpen, onClose, user, type}) => {
     redirect('/changePlan');
   }
 
+  //fetch data on render
   useEffect(()=>{
     getMenus();
     getActivities();

@@ -58,7 +58,7 @@ function ChangePlanPremade({user,role}) {
             <div className="planFieldContainer">
                 {//display plan templates
                     premadePlans && premadePlans.map(plan=>(
-                        <PlanSlot plan={plan} user={user}></PlanSlot>
+                        <PlanSlot key={plan.planID} plan={plan} user={user}></PlanSlot>
                     ))
                 }
 

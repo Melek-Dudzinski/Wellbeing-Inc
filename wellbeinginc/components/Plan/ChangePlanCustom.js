@@ -55,7 +55,7 @@ const ChangePlanCustom = ({user}) => {
         <div className="planFieldContainer">
             {//display plan templates
                 customPlans && customPlans.map(plan=>(
-                    <PlanSlot plan={plan} user={user}></PlanSlot>
+                    <PlanSlot key={plan.planID} plan={plan} user={user}></PlanSlot>
                 ))
             }
             <div className='planField'>

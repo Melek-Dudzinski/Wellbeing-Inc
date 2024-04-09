@@ -1,5 +1,6 @@
 import { getDateDBFormat } from "../Diary/DiaryEntries";
 import SupabaseClient from '../Supabase';
+import { redirect } from "next/navigation";
 
 function PlanSlot({plan, user}){
 
@@ -41,6 +42,7 @@ function PlanSlot({plan, user}){
     //handleOnButton
     const handleSwitch = (id) => {
         fetchActivePlan(id);
+        redirect('/plan');
     };
 
     return(
