@@ -2,6 +2,10 @@
 import './PlanPlan.css'; 
 import SupabaseClient from '../Supabase';
 import { useEffect, useState} from 'react';
+import {pdf} from "@react-pdf/renderer";
+import PlanPDF from './PlanPDF';
+import Link from 'next/link';
+import { saveAs } from 'file-saver';
 
 export default function ActivePlan({user}) {
     //store data in maps so it's easy to access based on meal type and day
@@ -9,7 +13,8 @@ export default function ActivePlan({user}) {
     const [meals,setMeals] = useState(null);
     const dow = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
     const mealTypes = ['Breakfast','Lunch','Dinner','Snack'];
-
+    const [plan,setPlan] = useState(null);
+    const [isClient, setIsClient] = useState(false)
     //get activities from db
     const getActivities = async (activitiesID) => {
         const {data, error} = await SupabaseClient()
@@ -57,13 +62,13 @@ export default function ActivePlan({user}) {
     const getPlan = async(planID) => {
         const {data,error} = await SupabaseClient()
         .from('testPlanTemplate')
-        .select(`planID, name, testPlanMenu ( planID, menuID, day), testPlanActivity ( planID, activityID, day)`)
+        .select(`planID, name, difficulty, description, testPlanMenu ( planID, menuID, day), testPlanActivity ( planID, activityID, day)`)
         .eq('planID',planID);
         if (error)
             console.log('Error! There was an error fetching from PlanTemplate!');
         else{
             console.log(data);
-
+            setPlan(data[0]);
             //sort meals and activities by day
             let activitiesID = [];
             let menusID = [];
@@ -77,8 +82,20 @@ export default function ActivePlan({user}) {
             getActivities(activitiesID);
             getMenuMeals(menusID);            
         }
-
     }
+
+    //save pdf locally to download
+    const downloadPDF = async() => {
+        const blob = await pdf((
+            <PlanPDF 
+             title={plan.name}
+             meals={meals}
+             activities={activities}
+             dow={dow}
+             />
+        )).toBlob();
+        saveAs(blob,'plan');
+    };
 
     //check if the user has an active plan
     const fetchActivePlanData = async () => {
@@ -97,10 +114,15 @@ export default function ActivePlan({user}) {
 
     useEffect(()=>{
         fetchActivePlanData();
+        setIsClient(true);
     },[]);
 
     return (
         <>
+                <div id="miniNav">
+                    <button id="switchButton"><Link href="changePlan">Switch Plan</Link></button>
+                    {isClient && plan && meals && activities && dow && (<button onClick={()=>downloadPDF()}>Download</button>)}
+                </div>
                 <table className='plan-page-table'>
                     <tbody>
                         <tr className="headers">
