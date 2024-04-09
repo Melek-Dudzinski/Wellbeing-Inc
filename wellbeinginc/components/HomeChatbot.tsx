@@ -12,6 +12,11 @@ type HomeChatbotProps = {
 const HomeProfile = (props: HomeChatbotProps) => {
   const [userName, setUserName] = useState([]);
   const [load, setLoad] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleChatbot = () => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+  };
 
   const fetchUserName = async () => {
     const { data, error } = await SupabaseClient()
@@ -39,9 +44,11 @@ const HomeProfile = (props: HomeChatbotProps) => {
                     <h1>HELLO {name.FirstName}</h1>
                     <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
                     <p>confidential support and guidance</p>
-                    {/* <button id = "chat-button">CONNECT</button> */}
                     {/* <Chatbot userID={props.userID} userRole={name.Role}/> */}
-                    <ChatbotPrototype userID={props.userID} userRole={name.Role}/>
+                    <button onClick={toggleChatbot} id="chat-button">
+                      Toggle Chatbot
+                    </button>
+                    <ChatbotPrototype userID={props.userID} userRole={name.Role} isOpen={isOpen} />
                 </div>
             ))}
 
