@@ -1,6 +1,9 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
+import HealthTrackerComponent from "@/components/HealthTracker/TodayWeightComponent";
+import AddWeight from "@/components/HealthTracker/AddWeight";
+import { DisplayWeekWeight } from "@/components/HealthTracker/TodayWeightComponent";
 
 export default async function HealthTracker() {
   const activePage = 'health'
@@ -18,6 +21,9 @@ export default async function HealthTracker() {
   return (
       <>
           <Navbar activePage={activePage}/>
+          {/*<HealthTrackerComponent user={user.id}/>
+          <DisplayWeekWeight user={user.id}/>
+          <AddWeight user={user.id}/>*/}
       </>
   )
 }

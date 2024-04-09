@@ -38,7 +38,7 @@ const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
                     <button className="close-button" onClick={onDismiss}>X</button>
                 </div>
                 <div id="entry-date">
-                    <h1>{today}</h1>
+                    <h1>{today.split("-").reverse().join("-")}</h1>
                     <p>{createMessage}</p>
                 </div>
                 <form method="dialog">

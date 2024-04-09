@@ -50,19 +50,34 @@
     flex-direction: column;
 }
 
-
-
+/*button.add-DiaryEntry, .turn-edit{
+    color:mediumspringgreen;
+    font-size: 2rem;
+    border: solid black;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+}*/
 .add-DiaryEntry, .turn-edit, #edit-submit-button{
 
 
     background-color: #17B169;
     padding: .4rem .8rem;
-    margin: 0 0 .6rem 2.5rem;
     width: fit-content;
     color: white;
     border-radius: 2rem;
+    width: 10rem;
 }
 
+#edit-submit-button{
+    margin: 0 0 .6rem 2.5rem;
+}
+
+.turn-edit,.add-DiaryEntry {
+    margin: 0 0 .6rem 0;
+}
+
+/*
 #edit-submit-button{
     background-color: #17B169;
     padding: .4rem .8rem;
@@ -70,7 +85,21 @@
     width: fit-content;
     color: white;
     border-radius: 2rem;
+}*/
+
+#container-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+#buttons-width{
+    width: fit-content;
+}
+#container-buttons >div{
+    width: fit-content;
+}
+
 
 p.add-DiaryEntry{
     color:aquamarine;
@@ -132,9 +161,31 @@ button.add-DiaryEntry:hover, .turn-edit:hover,.calendar-buttons button:hover,  #
     background-color: white;
     width: fit-content;
     border-radius: 1rem;
-    padding:1rem;
+    padding:2rem;
 }
 
 .calendar-view{
     color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Health-area{
+    position: absolute;
+    right: 5rem;
+    top:3.8rem;
+    
+}
+
+@media (max-width: 1050px) {
+    #Health-Diary{display: flex;
+    }
+    #Health-area{
+        position: unset;
+        right: unset;
+        top: unset;
+        margin-top: 1rem;
+        margin-right: 2rem;
+    }
 }
