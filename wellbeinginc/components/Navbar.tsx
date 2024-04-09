@@ -31,7 +31,7 @@ export default async function Navbar(props : NavbarProps) {
                 <li className={props.activePage === 'home' ? 'active' : ''}><Link href="/protected">HOME</Link></li>
                 <li className={props.activePage === 'plan' ? 'active' : ''}><Link href="/plan">PLAN</Link></li>
                 <li className={props.activePage === 'diary' ? 'active' : ''}><Link href="/diary">DIARY</Link></li>
-                <li className={props.activePage === 'health' ? 'active' : ''}><Link href="/healthTracker">HEALTH TRACKER</Link></li>
+                {/*<li className={props.activePage === 'health' ? 'active' : ''}><Link href="/healthTracker">HEALTH TRACKER</Link></li>*/}
                 <li className={props.activePage === 'articles' ? 'active' : ''}><Link href="/articles">ARTICLES</Link></li>
                 <li className={props.activePage === 'contact' ? 'active' : ''}><Link href="/contact">CONTACT US</Link></li>
                 <form action={signOut}>
