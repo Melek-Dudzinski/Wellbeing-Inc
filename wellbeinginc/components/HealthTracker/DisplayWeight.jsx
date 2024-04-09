@@ -29,12 +29,16 @@ export default function DisplayWeight({isOpen,onClose,user}){
     },[user])
     return(
     <>
-    <button id="close-button" onClick={onClose}>X</button>
-    <ul>
-        {Data.map((record, index) => (
-            <li key ={index}>{record.weight} and {record.startWeek.split("-").reverse().join("-")}</li>
-        ))}
-    </ul>
+    <div id="weight-overlay">
+        <div id="weight-width">
+        <button id="close-button" onClick={onClose}>X</button>
+        <ul>
+            {Data.map((record, index) => (
+                <li className="list-items" key ={index}>{record.startWeek.split("-").reverse().join("-")} : {record.weight}kg</li>
+            ))}
+        </ul>
+        </div>
+    </div>
     </>
     );
 }

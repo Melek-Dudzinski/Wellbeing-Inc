@@ -71,14 +71,19 @@ export default function AddWeight({isOpen,onClose,user}){
  
     
     return(
-        <div>
-            <form method="dialog">
-                <button id="close-button" onClick={onClose}>X</button>
-                <label>Please enter your weight for this week between {startofweektext} {endofweektext} in kg</label>
-                <input type="number" name="weight" required/>
-                <button type="submit" formAction={InsertWeight} >Add weight</button>
+        <div id="addweight-overlay">
+            <div id="addweight-contianer">
+                <form method="dialog">
+                    <button id="close-button" onClick={onClose}>X</button>
+                    <div id="addweightcenter">
+                        <label>Please enter your weight for this week between</label>
+                        <label>{startofweektext.split("-").reverse().join("-")} - {endofweektext.split("-").reverse().join("-")} in kg:</label>
+                        <input type="number" name="weight" min={0} required/>
+                        <button id="addweightbutton" type="submit" formAction={InsertWeight} >Add weight</button>
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
     );
 

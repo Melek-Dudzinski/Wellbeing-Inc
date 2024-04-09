@@ -51,7 +51,7 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
 
     return (
         <div className="diary">
-            <div className="date">{date}</div>
+            <div className="date">{date.split("-").reverse().join("-")}</div>
             <p className="Edit-Message"> {EditMessage}</p>
             <div className="diary-container">
                 <div className="diary-entry">

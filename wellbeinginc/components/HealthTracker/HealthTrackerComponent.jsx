@@ -68,17 +68,32 @@ export default function HealthTrackerComponent({user}){
         <div id="HealthTracker">
             {!ValidEntry ? (
                 <>
+                <div className="healthtracker-css">
                     <TodayWeightComponent user={user} />
                     <p>Have not put an entry for this week</p>
-                    <button onClick={openAddEntry}>Add entry</button> 
-                    <button onClick={openIsDisplay}>See All weeks weight</button>
+                    <div>
+                        <div>
+                            <div>
+                                <button onClick={openAddEntry}>Add entry</button> <br/>
+                            </div>
+
+                            <div>
+                                <button onClick={openIsDisplay}>See All weeks weight</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
                 </>
             ) : (   
                 <>
+                <div className="healthtracker-css">
                     <TodayWeightComponent user={user} />
                     <DisplayWeekWeight user={user} />
-                    <button onClick={openIsDisplay} >See All weeks weight</button>
-                    
+                    <div>
+                        <button onClick={openIsDisplay} id="week-weight-button" >See All weeks weight</button>
+                    </div>
+                </div>    
                 </>
             )}
             {isEntry && (

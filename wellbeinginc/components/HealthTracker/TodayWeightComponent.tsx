@@ -55,6 +55,7 @@ export function DisplayWeekWeight({user}){
         getLastWeekWeight();
     },[])
 
+
     const weightDifference = () =>{
         if (lastWeekAvailable === false){
             return 
@@ -70,7 +71,13 @@ export function DisplayWeekWeight({user}){
     return sentence;}
 
     return(
-    <p>{Weight}kg and {lastWeekWeight}kg {weightDifference()}</p>
+    <>
+    <p>Weight on {startofweektext.split("-").reverse().join("-")} : {Weight}kg</p>
+    {lastWeekAvailable ? 
+    <p>Weight on {startlastweek.split("-").reverse().join("-")}: {lastWeekWeight}kg</p>
+    : <p></p>}
+    <p>{weightDifference()}</p>
+    </>
     );
 };
 
@@ -96,7 +103,7 @@ export default function TodayWeightComponent({user}){
 
     return(<>
     
-    <p>Your initial weight is : {initalWeight}kg</p>
+    <p>Initial weight: {initalWeight}kg</p>
     
     </>);
 };
