@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Modal from './CreatePlanModal';
-import PlanTemplate from "../PlanTemplate";
 import SupabaseClient from '../Supabase';
 import PlanSlot from './PlanSlot';
 

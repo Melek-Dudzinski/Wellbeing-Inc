@@ -67,6 +67,7 @@ function DiaryEntries ({user}) {
             }
             else if(data){
                 setFetchError('');
+                console.log(data);
                 setEntries(data.map((entry) => ({date: entry.date, exerciseData : entry.exerciseSection, dietData : entry.dietSection, stepsData:entry.stepsSection, sleepData:entry.sleepSection})));
                 //check if the user has made an entry today
                 console.log(entries)
@@ -83,16 +84,22 @@ function DiaryEntries ({user}) {
         <>
         <DiaryCalendar dateState={selectDate} setDateState={setSelectDate}></DiaryCalendar>
         <div className="buttons-container">
-            <button className="turn-edit" onClick={toggleEdit}> Edit </button>
-            {
-            canCreate===true ? 
+        <div id="container-buttons">
+                <div id ="buttons-width">
                 <div>
-                    <button className="add-DiaryEntry" onClick={() => openModal()}>Add Entry</button> 
-                    <AddDiaryEntry isOpen={modalOpen} onDismiss={() => closeModal()} today={today} user={user}></AddDiaryEntry>
+                    <button className="turn-edit" onClick={toggleEdit}> Edit </button>
                 </div>
-            : 
-                <p className="add-DiaryEntry"> You're all done for today !</p>
-            }
+                {
+                canCreate===true ? 
+                    <div>
+                        <button className="add-DiaryEntry" onClick={() => openModal()}>Add Entry</button> 
+                        <AddDiaryEntry isOpen={modalOpen} onDismiss={() => closeModal()} today={today} user={user}></AddDiaryEntry>
+                    </div>
+                : 
+                    <p className="entered-entry"> You're all done for today !</p>
+                }
+                </div>
+            </div>
         </div>
         {entries && 
         (selectDate ? 

@@ -6,8 +6,11 @@ import Navbar from "@/components/Navbar"
 import ChangePlanCustom from "@/components/Plan/ChangePlanCustom"
 import ChangePlanPremade from "@/components/Plan/ChangePlanPremade"
 import ChangePlanFilter from "@/components/ChangePlanFilter"
+import CreateFoodItemButton from "@/components/CreateFoodItemButton";
+import SupabaseClient from '@/components/Supabase';
 
 export default async function ChangePlan() {
+  
   const activePage = 'plan'
   let role;
   const supabase = createClient();
@@ -31,13 +34,14 @@ export default async function ChangePlan() {
   return (
       <>
           <Navbar activePage={activePage}/>
-          <div className="miniNav">
+          <div className="backToPlan">
             <button><Link href="/plan">Back</Link></button>
           </div>
           <div className="changePlanContainer">
             {data && <ChangePlanPremade user={user.id} role={data}/>}
             <ChangePlanCustom user={user.id}/>
           </div>
+          {data && <CreateFoodItemButton userID = {user.id} userRole={data[0].Role}/>}
       </>
   )
 }

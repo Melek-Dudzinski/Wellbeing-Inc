@@ -37,20 +37,31 @@ const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
                 <div className="modal-header">
                     <button className="close-button" onClick={onDismiss}>X</button>
                 </div>
-                <div>
-                    <h1>{today}</h1>
+                <div id="entry-date">
+                    <h1>{today.split("-").reverse().join("-")}</h1>
                     <p>{createMessage}</p>
                 </div>
                 <form method="dialog">
-                    <label>Exercise Section</label>
-                    <input type="text" name="exercise" required minLength="1" maxLength="300"></input>
-                    <label>Diet Section</label>
-                    <input type="text" name="diet" required minLength="1" maxLength="300"></input>
-                    <label>Steps Section</label>
-                    <input type="number" name="steps" required minLength="1" maxLength="7"></input>
-                    <label>Sleep Section</label>
-                    <input type="text" name="sleep" required minLength="1" maxLength="300"></input>
-                    <button type="submit" formAction={createEntry}>Create</button>
+                    <div className="diary-entry">
+                        <label>Exercise Section</label>
+                        <input type="text" name="exercise" required minLength="1" maxLength="300"></input>
+                    </div>
+                    <div className="diary-entry">
+                        <label>Diet Section</label>
+                        <input type="text" name="diet" required minLength="1" maxLength="300"></input>
+                    </div>
+                    <div className="diary-entry">
+                        <label>Steps Section</label>
+                        <input type="number" name="steps" required minLength="1" maxLength="7"></input>
+                    </div>
+                    <div className="diary-entry">
+                        <label>Sleep Section</label>
+                        <input type="text" name="sleep" required minLength="1" maxLength="300"></input>
+                    </div>
+                    <div id="diary-save-button">
+                        <button type="submit" formAction={createEntry}>Create Entry</button>
+                    </div>
+                
                 </form>
             </div>
         </div>

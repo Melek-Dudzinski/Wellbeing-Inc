@@ -1,11 +1,15 @@
 'use client' 
-import Image from 'next/image';
+//import Image from 'next/image';
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
+//import { createClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import SupabaseClient from '@/components/Supabase';
 
-export const ArticlesView = () => {
+type ArticleViewProps ={
+    userRole: string;
+}
+
+export const ArticlesView = (props: ArticleViewProps) => {
     const [articles, setArticles] = useState(null);
     const [selectedArticle, setSelectedArticle] = useState(0); // Default to the first article
     // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
@@ -76,7 +80,9 @@ export const ArticlesView = () => {
                                     <img src={article.image_url} style={{ maxWidth: '290px', maxHeight: '290px', left: '3%', }} /> 
                                     <div className="article-title" >{article.title}</div>
                                     <div className="article-body" dangerouslySetInnerHTML={{ __html: article.content }} />
-                                    <button id = "del" onClick = {()=> removeArticle(article.title)}>Delete Entry</button>
+                                    {props.userRole !== "Regular" ? (
+                                        <button id = "del" onClick = {()=> removeArticle(article.title)}>Delete Entry</button>
+                                    ):(<p></p>)} 
                                 </div>
                             </div>
                         )}
