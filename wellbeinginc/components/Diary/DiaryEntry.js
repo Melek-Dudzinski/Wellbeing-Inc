@@ -23,6 +23,7 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
         if (!exerciseContent || !dietContent || !stepsContent || !sleepContent)
         {
             setEditMessage('Error! One of the fields may be empty or have a wrong input type!')
+            return;
         }
         //UPDATE exerciseSection, dietSection, stepsSection, sleepSection FROM DiaryEntry WHERE DATE = date AND EmployeeID = user;
         const {data, error} = await supabase.from('testDiaryEntry')
