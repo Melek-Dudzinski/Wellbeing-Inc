@@ -11,6 +11,8 @@
     gap: 20px;
 }
 
+
+
 .diary-entry {
     width: 20rem;
     background-color: white;
@@ -48,6 +50,10 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.buttons-container p{
+    color: black;
 }
 
 /*button.add-DiaryEntry, .turn-edit{
