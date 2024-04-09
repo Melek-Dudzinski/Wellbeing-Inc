@@ -16,14 +16,6 @@ export default async function Articles() {
     return redirect("/login");
   }
 
- /*Retrieving User Role */
-//  const{data,error} = await supabase .from('TestUserProfile').select('Role').eq('EmployeeNo',user.id);
-//  if (error){
-//   return redirect("/articles?message=Unable to validate your user status.")
-//  }
- /*if(data.Role != 'Mental Health Champion' || data.Role != 'Admin Mental Health Champion'){
-  return redirect("/articles")
- }*/
  
 
   const { data, error } = await SupabaseClient()

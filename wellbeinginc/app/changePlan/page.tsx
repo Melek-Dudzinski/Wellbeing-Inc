@@ -6,8 +6,11 @@ import Navbar from "@/components/Navbar"
 import ChangePlanCustom from "@/components/ChangePlanCustom"
 import ChangePlanPremade from "@/components/ChangePlanPremade"
 import ChangePlanFilter from "@/components/ChangePlanFilter"
+import CreateFoodItemButton from "@/components/CreateFoodItemButton";
+import SupabaseClient from '@/components/Supabase';
 
 export default async function ChangePlan() {
+  
   const activePage = 'plan'
 
   const supabase = createClient();
@@ -18,6 +21,15 @@ export default async function ChangePlan() {
 
   if (!user) {
     return redirect("/login");
+  }
+
+  const { data: dataRole, error } = await SupabaseClient()
+      .from('TestUserProfile')
+      .select('Role')
+      .eq('EmployeeNo', user.id);
+  
+  if (error) {
+      console.log("Error getting user role for create food item")
   }
 
   return (
@@ -31,6 +43,7 @@ export default async function ChangePlan() {
             <ChangePlanCustom />
             <ChangePlanFilter />
           </div>
+          <CreateFoodItemButton userID = {user.id} userRole={dataRole[0].Role}/>
       </>
   )
 }
