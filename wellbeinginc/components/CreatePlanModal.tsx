@@ -1,6 +1,4 @@
 import './CreatePlanModal.css'
-import profilePicture from './images/Blank Profile Picture.jpg'
-import Image from 'next/image'
 
 type CreatePlanModalProps = {
     isOpen: boolean;

@@ -1,7 +1,7 @@
-import './ProfileModal2.css'
+import './ProfileModal.css'
 import profilePicture from './images/Blank Profile Picture.jpg'
 import Image from 'next/image'
-import { createClient } from "@supabase/supabase-js"
+import SupabaseClient from '@/components/Supabase';
 import { redirect } from "next/navigation";
 
 type ProfileModalProps = {
@@ -15,7 +15,6 @@ const Modal = (props : ProfileModalProps) => {
 
   /*Validating submitted form info"*/
   const profileSubmit = async (formData: FormData) =>{
-    //"use server";
 
     {/*Extracting form data to update user profile information*/}
     const name = formData.get("name") as string;
@@ -29,7 +28,7 @@ const Modal = (props : ProfileModalProps) => {
     }
     
     {/*Sending form data to update user profile information if valid*/}
-    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko')
+    const supabase = SupabaseClient()
     const {error} = await supabase 
         .from('TestUserProfile') 
         .update ({FirstName: name, LastName: surname, allergies: allergies})
@@ -53,7 +52,6 @@ const Modal = (props : ProfileModalProps) => {
               <div className='profilePicture'>
                   <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
               </div>
-              {/*<input className="hidden" type="file" id="profile-picture" name="profile-picture"/>*/}
             </form>
         <div className="modal-content">
 

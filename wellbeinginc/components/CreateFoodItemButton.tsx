@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Modal from '@/components/CreateFoodItemModal';
 
 type CreateFoodItemButtonProps = {

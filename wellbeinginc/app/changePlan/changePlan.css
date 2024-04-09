@@ -26,52 +26,52 @@
 }
 
   
-  /* Container Style: Flexbox for Easy Layout */
-  .planFieldContainer {
-    display: flex; 
-    width: 100%; /* Ensure the container fills the screen width */
-    margin-bottom: 1rem;
-  }
-  
-  /* Button Style: Distribute Space Evenly  */
-  .planField button {
-    flex-grow: 1; /* Buttons expand to take up equal space */
-    border: 1px solid; /* Remove default button border (adjust as needed) */
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #D9D9D9;
-    cursor: pointer;
-    width: 10rem;
-    height: 12rem;
-  }
+/* Container Style: Flexbox for Easy Layout */
+.planFieldContainer {
+  display: flex; 
+  width: 100%; /* Ensure the container fills the screen width */
+  margin-bottom: 1rem;
+}
 
-  .planField button:hover {
+/* Button Style: Distribute Space Evenly  */
+.planField button {
+  flex-grow: 1; /* Buttons expand to take up equal space */
+  border: 1px solid; /* Remove default button border (adjust as needed) */
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+  cursor: pointer;
+  width: 10rem;
+  height: 12rem;
+}
+
+.planField button:hover {
+  transform: scale(1.01);
+  box-shadow: 2px 2px 2px 10px grey ; 
+}
+
+/* Paragraph Style: Ensure Text is Centered */
+.planField button p {
+  text-align: center;
+} 
+
+.backToPlan button{
+  background-color: #17B169;
+  padding: .2rem 1rem;
+  margin: 1rem 0;
+  width: fit-content;
+  
+  color: white;
+  border-radius: 1rem;
+}
+
+.backToPlan button:hover {
     transform: scale(1.01);
-    box-shadow: 2px 2px 2px 10px grey ; 
-  }
-  
-  /* Paragraph Style: Ensure Text is Centered */
-  .planField button p {
-    text-align: center;
-  } 
+    box-shadow: 2px 2px 5px grey;
+}
 
-  .backToPlan button{
-    background-color: #17B169;
-    padding: .2rem 1rem;
-    margin: 1rem 0;
-    width: fit-content;
+.filterPlanTable td{
+    width: 10rem;
     
-    color: white;
-    border-radius: 1rem;
-  }
-
-    .backToPlan button:hover {
-        transform: scale(1.01);
-        box-shadow: 2px 2px 5px grey;
-    }
-
-    .filterPlanTable td{
-        width: 10rem;
-        
-    }
+}
   

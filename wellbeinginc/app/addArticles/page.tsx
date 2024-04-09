@@ -1,4 +1,3 @@
-import { createClient } from "@supabase/supabase-js"
 import { redirect } from "next/navigation";
 import { SubmitButton } from "@/app/login/submit-button";
 import Navbar from '@/components/Navbar'

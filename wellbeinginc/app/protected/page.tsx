@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { redirect } from "next/navigation";
 import { createClient } from '@/utils/supabase/server';
-import React, { useState } from 'react';
 import Navbar from "@/components/Navbar"
 import HomeArticle from "@/components/HomeArticle"
 import HomePlan from "@/components/HomePlan"

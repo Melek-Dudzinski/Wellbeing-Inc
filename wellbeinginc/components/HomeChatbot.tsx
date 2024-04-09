@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react';
-import Chatbot from "@/components/Chatbot";
 import ChatbotPrototype from "@/components/ChatbotPrototype";
 import SupabaseClient from '@/components/Supabase';
 import '@/app/protected/protected.css'
@@ -39,8 +38,6 @@ const HomeProfile = (props: HomeChatbotProps) => {
                     <h1>HELLO {name.FirstName}</h1>
                     <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
                     <p>confidential support and guidance</p>
-                    {/* <button id = "chat-button">CONNECT</button> */}
-                    {/* <Chatbot userID={props.userID} userRole={name.Role}/> */}
                     <ChatbotPrototype userID={props.userID} userRole={name.Role}/>
                 </div>
             ))}

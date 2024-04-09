@@ -2,12 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 import DiaryEntries from "@/components/Diary/DiaryEntries";
-import TodayWeightComponent from "@/components/HealthTracker/TodayWeightComponent";
 import HealthTrackerComponent from "@/components/HealthTracker/HealthTrackerComponent"
-import { DisplayWeekWeight } from "@/components/HealthTracker/TodayWeightComponent";
-import AddWeight from "@/components/HealthTracker/AddWeight";
-import DisplayWeight from "@/components/HealthTracker/DisplayWeight"
-import Link from 'next/link';
 import './diary.css';
 
 export default async function Diary() {
@@ -36,9 +31,6 @@ export default async function Diary() {
               </div>
 
           </div>
-
-
-          {/*<button id="HealthTracker-button"><Link href="/healthTracker">HEALTH TRACKER</Link></button>*/}
       </>
   )
 }

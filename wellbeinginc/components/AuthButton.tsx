@@ -5,9 +5,7 @@ import { redirect } from "next/navigation";
 export default async function AuthButton() {
   const supabase = createClient();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const {data: { user },} = await supabase.auth.getUser();
 
   const signOut = async () => {
     "use server";
@@ -34,6 +32,7 @@ export default async function AuthButton() {
       </form>
     </div>
   ) : (
+     /*Or, redirect non-signed in user to the login page*/
     <Link
       href="/login"
       className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"

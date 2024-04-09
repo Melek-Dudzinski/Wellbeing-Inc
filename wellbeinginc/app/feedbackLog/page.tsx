@@ -3,14 +3,11 @@
 import SupabaseClient from '@/components/Supabase';
 import { redirect } from "next/navigation";
 import { useState, useEffect } from "react";
-//import Navbar from '@/components/Navbar'
 import Link from 'next/link';
 import './feedbackLog.css';
 
 export default function FeedbackLog() {
     const[entries,setEntries] = useState(null)
-    //const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
-    //const activePage = 'contact'
 
     /*Fetching feedback entries */
     const getFeedback = async () => {

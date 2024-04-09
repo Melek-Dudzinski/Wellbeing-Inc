@@ -3,14 +3,12 @@ import TodayWeightComponent from "@/components/HealthTracker/TodayWeightComponen
 import { DisplayWeekWeight } from "@/components/HealthTracker/TodayWeightComponent";
 import AddWeight from "@/components/HealthTracker/AddWeight";
 import DisplayWeight from "@/components/HealthTracker/DisplayWeight"
-import { createClient } from "@supabase/supabase-js";
 import "./HealthTrackerComponent.css";
 import { useState,useEffect } from "react";
 import { Weekdates } from "@/components/HealthTracker/AddWeight";
 import SupabaseClient from '@/components/Supabase';
 
 export default function HealthTrackerComponent({user}){
-    //const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
     const [isEntry,setIsEntry] = useState(false);
     const [Data,setData] = useState([]);
     const[ValidEntry,setValidEntry] = useState(false);

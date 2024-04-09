@@ -16,8 +16,6 @@ export default async function Articles() {
     return redirect("/login");
   }
 
- 
-
   const { data, error } = await SupabaseClient()
         .from('TestUserProfile')
         .select('Role')

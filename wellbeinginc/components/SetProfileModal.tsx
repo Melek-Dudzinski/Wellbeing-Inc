@@ -24,7 +24,7 @@ const Modal = (props: SetProfileProps) => {
     const allergy3 = formData.get("allergies3") as string;
     const allergies = [allergy1,allergy2,allergy3]
 
-    const { data, error } = await SupabaseClient().from('TestUserProfile').insert([
+    const { error } = await SupabaseClient().from('TestUserProfile').insert([
       {
         EmployeeNo: props.userID,
         Email: props.userEmail,
@@ -51,8 +51,6 @@ const Modal = (props: SetProfileProps) => {
               <div className='create-profile-profilePicture'>
                   <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
               </div>
-             {/* <input className="hidden" type="file" id="profile-picture" name="profile-picture"/> */}
-             {/* <input type="text" id="profile-picture" name="profile-picture"/> */}
         </form>
         <div className="create-profile-modal-content">
           <form action={saveChanges} method="">

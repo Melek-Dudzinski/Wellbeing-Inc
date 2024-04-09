@@ -102,9 +102,6 @@ function DiaryEntries ({user}) {
         </div>
         {entries && 
         (selectDate ? 
-            //entries.map(e=> {if (e.date==getDateDBFormat(selectDate))
-
-            //console.log(getSelectEntry(selectDate))
             getSelectEntry(selectDate)
         :
             entries.map((entry,id) => (
