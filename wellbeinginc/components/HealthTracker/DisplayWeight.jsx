@@ -19,6 +19,11 @@ export default function DisplayWeight({isOpen,onClose,user}){
                 throw error;
             }
             else if(data){
+                //for sorting out the dates into the correct dates
+                data.forEach(record => {
+                    record.startWeekDate = new Date(record.startWeek);
+                });
+                data.sort((a,b) => a.startWeekDate - b.startWeekDate);
                 setData(data);
             }}
             catch(error){
