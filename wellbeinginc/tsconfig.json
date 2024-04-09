@@ -24,6 +24,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ArticlesArticle.js", "components/DiaryEntry.js", "components/DiaryEntries.js", "components/DiaryEntries.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ArticlesArticle.js", "components/DiaryEntry.js", "components/DiaryEntries.js", "components/DiaryEntries.js", "components/Plan/CreatePlanModal.js", "components/Plan/CreatePlanModal2.js"],
   "exclude": ["node_modules"]
 }
