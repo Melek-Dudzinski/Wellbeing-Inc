@@ -1,5 +1,4 @@
  #HealthTracker{
-    background-color: rgb(247, 247, 247);
     padding: 1rem;
     border-radius: 0.5rem;
  }
@@ -12,10 +11,10 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    color:black;
+    
  }
 
  #weight-overlay >ul{
@@ -58,15 +57,12 @@
    align-items: center;
    gap: 0.5rem;
    font-size: 1.5rem;
-   font-weight: bold;
  }
  
  .healthtracker-css > *{
-   border-bottom: 1px solid grey;
    width: 100%;
    padding: 2px;
    font-size: 15px;
-   font-weight: bold;
  }
 
  .healthtracker-css > div{
@@ -77,25 +73,25 @@
  }
  .healthtracker-css > div >div{
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    width: fit-content;
  }
 
  .healthtracker-css > div > div >div {
-   align-self: center;
    margin-top: 0.5rem;
    width: 100%;
 
-   
  }
 
  .healthtracker-css > div > div>div >button,#week-weight-button{
-   background-color: green;
-   border-radius: 0.5rem;
-   padding: 2px;
-   color: white;
+   color: #3C524C;
    font-weight:normal;
-   width: 100%; 
+   color: #3C524C;
+    font-size: 1rem;
+    margin-left: 1rem;
+    background: #F3F0E4;
+    padding: 0.2rem;
+    width: 6rem;
  }
 
  #week-weight-button{

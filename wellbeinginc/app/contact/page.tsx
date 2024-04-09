@@ -6,6 +6,8 @@ import ContactFeedback from '@/components/ContactFeedback'
 import ContactChampions from '@/components/ContactChampions'
 import SupabaseClient from '@/components/Supabase';
 import Link from 'next/link';
+import Image from 'next/image';
+import image1 from '@/components/images/image1.png';
 
 export default async function contact() {
     const activePage = 'contact'
@@ -32,13 +34,14 @@ export default async function contact() {
     return (
         <>
             <Navbar activePage={activePage}/>
-            <div className="contactBody">
+            <div className="title">Contact Us</div>
+            <Image id= "image1" src={image1} alt="Image 1" />
+            <div className="contact">
                 <ContactFeedback searchParams={{message: ""}} />
-                <ContactChampions />
-                {data[0].Role !== "Regular" ? (
+            </div>
+            {data[0].Role !== "Regular" ? (
                     <button id = "view-log"><Link href="feedbackLog">View Feedback</Link></button>
                 ):(<p></p>)}
-            </div>
         </>
     )
 }

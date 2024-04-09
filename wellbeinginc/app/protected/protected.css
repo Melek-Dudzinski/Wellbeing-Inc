@@ -1,139 +1,121 @@
-.homepage-grid {
-    color: black;
-    display: grid;
-    grid-template-areas:
-      'top-section top-section top-section top-section top-section'
-      'left-section-below-top left-section-below-top right-section-below-top right-section-below-top right-section-below-top';
-    grid-gap: 1rem; 
-    padding: 1rem; /* Add padding to overall grid */
-  }
+.body{
+  background: #668D7F !important;
 
-  .top-section {
-    grid-area: top-section;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    height: 30rem;
-    
-    border-radius: 10px;
-  }
-  .top-section h1 {
-    font-size: 4rem; /* Larger title size */
-    font-weight: bold; /* Space between title and subtitle */
-    color: #F9629F;
-  }
-
-  .top-section p{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color:  #720e9e;
-  }
-
-  #home-chatbot-section{
-    background-image: url("../../components/images/imageee1.png");
-    background-repeat:no-repeat;
-    position: absolute;
-    background-size: 100% 100%;
-    width: 98%;
-    height: 68%;
-    opacity: 0.55; 
-    z-index: -1;  
-}
-  
-  .left-section-below-top {
-    grid-area: left-section-below-top;
-    display: flex; /* Allow profile and plan to sit side-by-side */
-    flex-direction: column; 
-  }
-  
-  .right-section-below-top {
-    grid-area: right-section-below-top;
-    background-color: #BDCCBE; /* Example background color */
-    padding: 1.5rem 0;
-    border-radius: 10px;
-    max-height: 97%;
-  }
-  
-  /* Profile and Plan Sections */
-  #profile-sect,
-  #plan-sect {
-    background-color: #BDCCBE;
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    margin-bottom:  1rem; /* Space between profile and plan */
-  }
-  
-
-  /* ... add styles for elements within each section as needed */
-#see-more-button{
-    background-color:#17B169;
-    border-radius: 2rem;
-    padding: .3rem 1rem;
-    width: fit-content;
-    
-    color: white;
-    
 }
 
-.button-article{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+.intro{
+  color: #F3F0E4;
+  font-family: Inika;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 4rem; /* 37.5% */
+  width: 40rem;
+  margin-top: 5rem;
+
   }
 
+.chatbot-intro{
+  color: #F2F0E3;
+  font-family: Inter;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.40625rem */
+  letter-spacing: -0.01031rem;
+  width: 26rem;
+  margin-top: 4rem;
 
-.home-article-container:hover,#see-more-button:hover, #chat-button:hover{
-    transform: scale(1.01);
-    box-shadow: 2px 2px 5px grey;
 }
 
 #chat-button{    
-    background-color: #17B169;
-    padding: 5px;
-    margin-top: 50px;
-    width: 10rem;
-    height: 3rem;
-    font-size: 25px;
-    color: white;
-    border-radius: 2rem;
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.125rem */
+  letter-spacing: -0.00825rem;
+  margin-top: 1rem;
+  border: 2px solid #F3F0E4; /* White outline */
+  background-color: transparent; /* Transparent background */
+  padding: 10px 20px; /* Adjust padding as needed */
+  /* Adjust font size as needed */
+  cursor: pointer; /* Add cursor pointer */
+  color: #F3F0E4;
+}
+
+#chat-button:hover {
+  background-color: #ffffff; /* White background on hover */
+  color:#668D7F
+}
+
+.left{
+  margin-left: 6rem;
+}
+
+.HomeImg{
+  position: absolute;
+  margin-left: 48.5rem;
+  margin-top: -28.2rem;
+  width: 47%;
+  height: 85%;
+}
+
+#profile-sect {
+  position: absolute;
+  margin-left: 39rem;
+  margin-top: -4rem;
+  border-radius: 1.5625rem;
+  background: #F3F0E4;
+  z-index: 1;
+  width: 12.5625rem;
+  height: 15.25019rem;
+}
+
+.profile-photo{
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.details{
+  margin-top: 1rem;
+  text-align: center;
+  color: #000;
+  font-family: Inter;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 218.182% */
+
+}
+
+.edit-profile{
+  margin-top: 0.4rem;
+  margin-left: 1.7rem;
+  background: #668D7F;
+  border-radius: 2.5rem;
+  width: 8.7025rem;
+  height: 2.18869rem;
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.125rem */
+  letter-spacing: -0.00825rem;
 }
 
 
-  /* place 2 articles side by side */
-  .Article-column {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .home-article-container {
-    text-align: justify;
-    width: 400px;
-    height: 100%;
-    background-color: #8AA48E;
-    margin: 0 1.5rem;
-    padding: 1.5rem; 
-    border-radius: 10px; 
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); 
-  }
-  .home-article-body {
-    margin-top: 10px; /* Additional spacing */
-    line-height: 1.5; /* Improved line spacing */
-  }
 
-  /*Image and title for article*/
-  .home-img-and-title{
-    display: flex;
-    flex-direction: row;
-  }
-  .home-img-and-title img{
-    margin-right: 0.5rem;
-  }
-  #home-article-title {
-    font-weight: bold;
-    font-size: 1.15em; /* Larger title size */
-  }
+
+
+
+
+
+
+
   
+ 
   
+ 
   
 

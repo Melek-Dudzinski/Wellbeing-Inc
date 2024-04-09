@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js"
 import { redirect } from "next/navigation";
 import { SubmitButton } from "@/app/login/submit-button";
 import SupabaseClient from '@/components/Supabase';
+import Link from 'next/link';
 
 export default function ContactFeedback({searchParams,}:{searchParams:{message:string};}) {
     
@@ -33,7 +34,6 @@ export default function ContactFeedback({searchParams,}:{searchParams:{message:s
         <>
             <div id="Feedback">
                 <form>
-                    <legend>Provide Feedback</legend>
                     <select name="Type">
                         <option value="" disabled selected>Select Feedback Topic</option>
                         <option value = "Home">Home</option>
@@ -44,9 +44,10 @@ export default function ContactFeedback({searchParams,}:{searchParams:{message:s
                         <option value = "Contact Us">Contact Us</option>
                         <option value = "Other">Other</option>
                     </select>
-                    <textarea name="Content" rows="10"></textarea>
+                    <textarea name="Content" rows="13"></textarea>
                     <SubmitButton className="submit-button" formAction={feedbackSubmit} pendingText="Sending...">Submit</SubmitButton>
                     {searchParams?.message && (<p id ="message">{searchParams.message}</p>)}
+                    <button id = "view-details"><Link href="details">View contact information for our Mental Health Champions and Ambassidors</Link></button>
                 </form>
             </div>
         </>

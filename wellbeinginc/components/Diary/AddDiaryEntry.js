@@ -42,26 +42,15 @@ const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
                     <p>{createMessage}</p>
                 </div>
                 <form method="dialog">
-                    <div className="diary-entry">
-                        <label>Exercise Section</label>
-                        <input type="text" name="exercise" required minLength="1" maxLength="300"></input>
-                    </div>
-                    <div className="diary-entry">
-                        <label>Diet Section</label>
-                        <input type="text" name="diet" required minLength="1" maxLength="300"></input>
-                    </div>
-                    <div className="diary-entry">
-                        <label>Steps Section</label>
-                        <input type="number" name="steps" required minLength="1" maxLength="7"></input>
-                    </div>
-                    <div className="diary-entry">
-                        <label>Sleep Section</label>
-                        <input type="text" name="sleep" required minLength="1" maxLength="300"></input>
-                    </div>
-                    <div id="diary-save-button">
-                        <button type="submit" formAction={createEntry}>Create Entry</button>
-                    </div>
-                
+                    <label>Exercise Section</label>
+                    <input type="text" name="exercise" required minLength="1" maxLength="300"></input>
+                    <label>Diet Section</label>
+                    <input type="text" name="diet" required minLength="1" maxLength="300"></input>
+                    <label>Steps Section</label>
+                    <input type="number" name="steps" required minLength="1" maxLength="7"></input>
+                    <label>Sleep Section</label>
+                    <input type="text" name="sleep" required minLength="1" maxLength="300"></input>
+                    <button type="submit" formAction={createEntry}>Create</button>
                 </form>
             </div>
         </div>

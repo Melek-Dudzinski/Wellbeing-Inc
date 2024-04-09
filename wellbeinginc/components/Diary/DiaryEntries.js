@@ -47,7 +47,7 @@ function DiaryEntries ({user}) {
                 </div>));
         }
         else
-            return <p className="not-found">There is no entry on this day!</p>
+            return <p className="not-found">There is no entry on this day.</p>
     }
 
     //use effect hook, async
@@ -83,8 +83,7 @@ function DiaryEntries ({user}) {
         <>
         <DiaryCalendar dateState={selectDate} setDateState={setSelectDate}></DiaryCalendar>
         <div className="buttons-container">
-        <div id="container-buttons">
-                <div id ="buttons-width">
+
                 <div>
                     <button className="turn-edit" onClick={toggleEdit}> Edit </button>
                 </div>
@@ -95,10 +94,8 @@ function DiaryEntries ({user}) {
                         <AddDiaryEntry isOpen={modalOpen} onDismiss={() => closeModal()} today={today} user={user}></AddDiaryEntry>
                     </div>
                 : 
-                    <p className="entered-entry"> You're all done for today !</p>
+                    <p className="add-DiaryEntry"> Done for today</p>
                 }
-                </div>
-            </div>
         </div>
         {entries && 
         (selectDate ? 

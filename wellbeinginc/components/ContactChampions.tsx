@@ -43,19 +43,20 @@ export default function ContactChampions() {
       }, []);
 
     return (
-        <>
-            <div id="Information">
-                <h2>Mental Health Champions</h2>
-                    {championDetails.map(champion => (
-                        <div key={champion.EmployeeNo} className='Champion'>
-                            <Image src={blank} alt="Blank" height="150" width="150"/>
-                            <div>
-                                <h3>Name: {champion.FirstName}</h3>
-                                <p>Email: {champion.Email}</p>
-                            </div>
-                        </div>
-                    ))}
-            </div>
-        </>
+          <>
+          <div id="Information">
+              <div className="championsContainer">
+                  {championDetails.map(champion => (
+                      <div key={champion.EmployeeNo} className="champion">
+                          <Image src={blank} alt="Blank" height="150" width="230"/>
+                          <div className='info'>
+                              <h3>{champion.FirstName}</h3>
+                              <p>{champion.Email}</p>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+      </>
     )
 }

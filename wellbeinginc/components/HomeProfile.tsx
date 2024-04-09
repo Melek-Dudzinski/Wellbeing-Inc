@@ -48,21 +48,21 @@ const HomeProfile = (props: HomeProfileProps) => {
       <>
         <div className='container'>
           <div className='profile-photo'>
-              <Image src={blank} alt="Blank" height="100" width="100"/>
+            <Image src={blank} alt="Blank" width="60"/>
             </div>
             <div className='details'>
               {userDetails.map(details => (
                 <div key={details.EmployeeNo}>
-                  <h3>Name: {details.FirstName}</h3>
-                  <p>Email: {props.userEmail}</p>
-                  <p>Status: {details.Role}</p>
+                  <h3>{details.FirstName} {details.LastName}</h3> 
+                  <p>{props.userEmail}</p>
+                  <p>{details.Role}</p>
                 </div>
               ))}
             </div>
-            <div className='edit-profile'>
-                {/* Passing Props to Edit Profile Modal */}
-                <button onClick={openModal}>Edit Profile</button>
-                <Modal isOpen={modalOpen} onClose={closeModal} userID = {props.userID}/>
+
+            <div className=''>
+                <button className='edit-profile' onClick={openModal}>Edit Profile</button>
+                <Modal isOpen={modalOpen} onClose={closeModal} />
             </div>
         </div>
       </>
