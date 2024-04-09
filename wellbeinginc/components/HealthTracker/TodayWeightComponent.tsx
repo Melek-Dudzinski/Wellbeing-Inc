@@ -46,6 +46,9 @@ export function DisplayWeekWeight({user}){
                 console.log(error.message);
                 throw error;
             }
+            else if(data === null || data.length===0){
+                setLastWeekAvailable(false);
+            }
             else if(data){
                 setLastWeekWeight(data[0].weight);
                 setLastWeekAvailable(true);
@@ -57,11 +60,7 @@ export function DisplayWeekWeight({user}){
 
 
     const weightDifference = () =>{
-        if (lastWeekAvailable === false){
-            return 
-        }
-
-        else if((Weight - lastWeekWeight) < 0){
+        if((Weight - lastWeekWeight) < 0){
             const sentence = "you have lost "+ (lastWeekWeight - Weight).toString() +"kg since last week" ; 
             return sentence;
     }
@@ -75,8 +74,10 @@ export function DisplayWeekWeight({user}){
     <p>Weight on {startofweektext.split("-").reverse().join("-")} : {Weight}kg</p>
     {lastWeekAvailable ? 
     <p>Weight on {startlastweek.split("-").reverse().join("-")}: {lastWeekWeight}kg</p>
-    : <p></p>}
-    <p>{weightDifference()}</p>
+    : null}
+
+    {lastWeekAvailable ?
+    <p>{weightDifference()}</p>:null}
     </>
     );
 };
