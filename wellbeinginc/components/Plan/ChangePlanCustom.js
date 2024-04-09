@@ -8,6 +8,7 @@ import PlanSlot from './PlanSlot';
 const ChangePlanCustom = ({user}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [customPlans, setCustomPlans] = useState(null);
+    const [changeMsg, setChangeMsg] = useState(null);
     const openModal = () => {
       setModalOpen(true);
     };
@@ -35,6 +36,7 @@ const ChangePlanCustom = ({user}) => {
     return (
         <>
         <h1 className="planName">CUSTOM PLAN</h1>
+        <p>{changeMsg}</p>
          {/*
             <table className="custPlanTable">
                 <tbody>
@@ -55,7 +57,7 @@ const ChangePlanCustom = ({user}) => {
         <div className="planFieldContainer">
             {//display plan templates
                 customPlans && customPlans.map(plan=>(
-                    <PlanSlot key={plan.planID} plan={plan} user={user}></PlanSlot>
+                    <PlanSlot key={plan.planID} plan={plan} user={user} setMsg={setChangeMsg}></PlanSlot>
                 ))
             }
             <div className='planField'>

@@ -9,6 +9,7 @@ import PlanSlot from './PlanSlot';
 function ChangePlanPremade({user,role}) {
     const [modalOpen, setModalOpen] = useState(false);
     const [premadePlans, setPremadePlans] = useState(null);
+    const [changeMsg, setChangeMsg] = useState(null);
     //only display the create option to admins
     const isAdmin = () => {
             return (role[0].Role.match(/Admin.*/))};
@@ -41,6 +42,7 @@ function ChangePlanPremade({user,role}) {
     return (
         <>
             <h1 className="planName">PREMADE PLAN</h1>
+            <p>{changeMsg}</p>
             {/*
             <table className="prePlanTable">
                 <tbody>
@@ -58,7 +60,7 @@ function ChangePlanPremade({user,role}) {
             <div className="planFieldContainer">
                 {//display plan templates
                     premadePlans && premadePlans.map(plan=>(
-                        <PlanSlot key={plan.planID} plan={plan} user={user}></PlanSlot>
+                        <PlanSlot key={plan.planID} plan={plan} user={user} setMsg={setChangeMsg}></PlanSlot>
                     ))
                 }
 

@@ -1,8 +1,9 @@
+'use client';
 import { getDateDBFormat } from "../Diary/DiaryEntries";
 import SupabaseClient from '../Supabase';
 import { redirect } from "next/navigation";
 
-function PlanSlot({plan, user}){
+function PlanSlot({plan, user, setMsg}){
 
     //alter a current plan occurence if it exists
     const updateActivePlan = async (plan) => {
@@ -11,7 +12,8 @@ function PlanSlot({plan, user}){
         .update({planID:plan,employeeID:user,planStartDate:getDateDBFormat(new Date())})
         .eq('employeeID',user);
         if (error)
-            console.log('Error! There was an error inserting data into PlanOccurence')
+            console.log('Error! There was an error updating data into PlanOccurence')
+        else setMsg('Plan sucessfully selected')
     };
     //create new plan occurence if there is no entry in the table
     const addNewActivePlan = async (plan) => {
@@ -21,6 +23,7 @@ function PlanSlot({plan, user}){
         .eq('employeeID',user);
         if (error)
             console.log('Error! There was an error inserting data into PlanOccurence')
+        else setMsg('Plan sucessfully selected')
     };
 
     //check if the user has an active plan
@@ -34,15 +37,14 @@ function PlanSlot({plan, user}){
         else {
             (console.log(data))
             if (data.length == 0)
-                addNewActivePlan(plan);
-            else updateActivePlan(plan);
+                addNewActivePlan(plan)
+            else updateActivePlan(plan)
         }
     };
 
     //handleOnButton
     const handleSwitch = (id) => {
         fetchActivePlan(id);
-        redirect('/plan');
     };
 
     return(
