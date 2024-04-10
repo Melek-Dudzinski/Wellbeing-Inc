@@ -235,10 +235,18 @@ const Chatbot = (props: ChatbotProps) => {
   return (
     <div className={`chatbot ${props.isOpen ? 'open' : ''}`} style={{ left: position.x, top: position.y}} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
       <div className="chatbot-window">
+        {errorMessage}
+        <p></p>
+        {status}
+        <p></p>
+        {queueStatus ?  (
+            <p>Position in queue {queuePos}</p>
+        ):(<p></p>)}
+        <hr/>
         <div className='messages'>
           {messages.map(message => (
             <div key={message.message_id} className={`message ${message.receiver_id === senderID ? 'receiverStyle' : 'senderStyle'}`}>
-              <p>{message.content}</p>
+              <p><span className={`message ${message.receiver_id === senderID ? 'receiverColour' : 'senderColour'}`}>{message.content}</span></p>
             </div>
           ))}
         </div>
@@ -248,7 +256,7 @@ const Chatbot = (props: ChatbotProps) => {
           {queueStatus ? (
             <div>
               <button onClick={leaveQueue} >Leave</button>
-              <p>Position in queue {queuePos}</p>
+              {/* <p>Position in queue {queuePos}</p> */}
             </div>
           ) : (
             <button onClick={joinQueue} >Join</button>
@@ -259,8 +267,6 @@ const Chatbot = (props: ChatbotProps) => {
               <button onClick={acceptConnection}>Accept</button>
             </div>
           ):(<p></p>)}
-          {errorMessage}
-          {status}
         </div>
       </div>
     </div>
