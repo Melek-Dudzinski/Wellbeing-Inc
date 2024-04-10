@@ -19,6 +19,8 @@ const Chatbot = (props: ChatbotProps) => {
   const [queueStatus, setQueueStatus] = useState(false);
   const [queuePos, setQueuePos] = useState();
   const [queueTotal, setQueueTotal] = useState();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [status, setStatus] = useState("Status: Please join the queue");
 
   const senderID = props.userID;
   const [receiverID, setReceiverID] = useState();
@@ -42,6 +44,9 @@ const Chatbot = (props: ChatbotProps) => {
 
   useEffect(() => {
     fetchMessage();
+    if (receiverID) {
+      setStatus("Connected")
+    }
   }, [receiverID]);
   
 
@@ -98,12 +103,13 @@ const Chatbot = (props: ChatbotProps) => {
         fetchMessage();
       }
     } else {
-      console.log("no connection")
+      setErrorMessage("You are not connected to a champion. Please join the queue and wait.")
     }
     
   }
 
   const joinQueue = async () => {
+    setErrorMessage("")
     const { data, error } = await SupabaseClient()
       .from('ChatbotQueue')
       .insert([
@@ -112,6 +118,7 @@ const Chatbot = (props: ChatbotProps) => {
       }
     ]);
     setQueueStatus(true);
+    setStatus("Status: In queue")
 
     if (error) {
       console.error('Error adding to queue');
@@ -127,6 +134,7 @@ const Chatbot = (props: ChatbotProps) => {
       .delete()
       .eq('user_id', senderID);
     setQueueStatus(false);
+    setStatus("Status: Please join the queue")
 
     if (error) {
       console.log('Error removing from queue')
@@ -251,6 +259,8 @@ const Chatbot = (props: ChatbotProps) => {
               <button onClick={acceptConnection}>Accept</button>
             </div>
           ):(<p></p>)}
+          {errorMessage}
+          {status}
         </div>
       </div>
     </div>
