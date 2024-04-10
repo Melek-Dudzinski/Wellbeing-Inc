@@ -28,7 +28,6 @@ const Modal = (props : ProfileModalProps) => {
     if (!name || !surname){
         return redirect("/protected?message=Please ensure at least both name sections are filled.");
     }
-    console.log(name, surname, allergies, props.userID)
     {/*Sending form data to update user profile information if valid*/}
     // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko')
     const {error} = await SupabaseClient() 
@@ -60,22 +59,23 @@ const Modal = (props : ProfileModalProps) => {
 
             {/* Profile Form */}
             <form action={profileSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name"/>
+              <label htmlFor="name">Name:</label>
+              <input type="text" id="name" name="name"/>
 
-                <label htmlFor="surname">Surname:</label>
-                <input type="text" id="surname" name="surname"/>
+              <label htmlFor="surname">Surname:</label>
+              <input type="text" id="surname" name="surname"/>
 
-                <label>Allergies:</label>
-                <div>
-                    <label><input type="checkbox" name="allergies1" value="peanut"/> Nuts</label><br/>
-                    <label><input type="checkbox" name="allergies2" value="dairy"/> Dairy</label><br/>
-                    <label><input type="checkbox" name="allergies3" value="gluten"/> Gluten</label><br/>
-                </div>
-                <div id='modal-save-button'>
-                  <button type="submit">Save Changes</button>
-                </div>
-            </form>
+              <label>Allergies:</label>
+              <div className="checkbox-container">
+                  <label><input type="checkbox" name="allergies1" value="peanut"/> Nuts</label>
+                  <label><input type="checkbox" name="allergies2" value="dairy"/> Dairy</label>
+                  <label><input type="checkbox" name="allergies3" value="gluten"/> Gluten</label>
+              </div>
+
+              <div id='modal-save-button'>
+                <button className='save'type="submit">Save Changes</button>
+              </div>
+          </form>
 
         </div>
       </div>

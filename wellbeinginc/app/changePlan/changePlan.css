@@ -65,6 +65,15 @@
     height: 100%;
   } 
 
+  .new{
+    color: #F3F0E4;
+    font-family: Inika;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+
+  }
+
   .bottom-style {
     margin-top: 18.3rem; /* Align content to start from the top */
     height: 7rem;
@@ -186,6 +195,13 @@
   margin-left:-48rem ;
   margin-top:15rem;
   position: absolute;
+}
+
+.addedPlan{
+  color: #F3F0E4;
+  text-align: center;
+  padding-bottom: 2rem;
+  font-size: 1.2rem;
 }
 
   

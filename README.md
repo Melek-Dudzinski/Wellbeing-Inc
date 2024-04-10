@@ -1,5 +1,14 @@
 # Wellbeing-Inc.
 
+###Group9 Members###
+ - Abdul Rafay - 220578187
+ - Newton Nath - 220298872
+ - Ion Tugui - 220346140
+ - Sana A. Siddiqui - 210865013
+ - Vivek D. Vanmali - 220260743
+ - Melchior Dudzinski 220276847
+ - Temidayo R. Ogunfuye 220098803
+
 How to run:
 1. Clone newest version of main
 2. Open terminal, and make sure you are in 'wellbeinginc' folder (cd wellbeinginc)
@@ -18,88 +27,7 @@ How to run:
 10. Run 'npm run dev'
 
 
-Only focus on 'app' and 'components' folders, ignore rest. Each folder in 'app' is a page, modify the page.tsx to modify the page. Page.tsx should be basic and call components.
-Pages to do:
-- login                   Dayo , CSS done
-- articles                Sana
-- changePlan              Melek
-- contact                 Rafay
-- diary
-- diaryEntry
-- healthTracker
-- home (now called protected)  Newton & Vivek
-- plan                    Melek
-- planCreate              Melek
-- profile                 Melek
-- landing                 Melek
-
-- Supabase                Dayo and Ion
-
-We have a premade login page with authentication, CSS needs to be modified to match theme. Don't change code.
-
-Componens are simple parts of the page for easier creation/modification. If component is multiple words (e.g HomeArticle) first word is what page the component relates to (exeptions: PlanTemplate which is smaller version of plan that can appear when you choose the plan or main page). Single word components appear on multiple pages.
-Components to do:
-- Activity
-- ArticlesArticle - layout done
-- ChangePlanCustom
-- ChangeFilter
-- ChangePlanPremade
-- ContactChampions - layout done
-- ContactFeedback - layout done, linked to Supabase
-- DiaryCalendar - layout done, has compile issues
-- DiaryEntry - layout done
-- Header
-- HomeArticle - layout done but not connected to DB
-- HomePlan
-- HomeProfile - layout done
-- Menu
-- Navbar - layout done
-- PlanPlan
-- PlanTemplate
-- FeedbackLog
-These pages/componets are only a start, everything can be modified. If any page/component doesn't make sense, ask.
-
-Usefull webstes:
-Next.js - https://nextjs.org/docs/app/building-your-application/routing
-Supabase - https://supabase.com/docs/guides/getting-started
-Typescript - https://react.dev/learn/typescript
-React - https://legacy.reactjs.org/tutorial/tutorial.html
-HTML - https://www.w3schools.com/html/
-Tailwind CSS - https://tailwindcss.com/docs/installation
 
 
-- Fix CSS for all
-- Create Account - redirect to health tracker for first entry
-- Home page - home article and chatbot button design done but button does nothing ( home page mostly done)
-- Plan - connect to db
-- Diary connect to db, new entry button
-- Health tracker - combine with diary
-- Articles - connect to db
-- Chatbot
 
-Usecases:
-    Login/out
-    Tracker (Diary)
-    Edit profile
-    Edit article
-    Switch plan
-    Feedback
-    Chatbot
 
-Still To Claim:
-
--article CSS (dayo)
--formatting site buttons (dayo)
--adding role access to buttons (melek/ion)
--diary CSS (newton)
--initial profile creation (melek)
--redirect option to homepage when already logged in on landing page (dayo)
--slides (sana/rafay)
--home page plan linking (ion)
--finishing chatbot(melek)
--finishing healthtracker component (vivek)
--browse food items (dayo)
--browse plans ()
--if time, create food item
--organise the components (weds)
--acceptance testing(everyone)

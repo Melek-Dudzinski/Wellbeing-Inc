@@ -75,10 +75,10 @@
 }
 
 #Feedback #message{
-    margin-top: 10px;
-    color: green;
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 0.7rem;
+    padding-top: 0.3rem;
+    margin-left: 1.27rem;
+  
 }
 
 /*Viewng Feedback Button*/
@@ -96,7 +96,7 @@
 }
 
 #view-details{
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     font-size: 0.7rem;
 }
 
