@@ -39,12 +39,11 @@
   border: 2px solid #F3F0E4; /* White outline */
   background-color: transparent; /* Transparent background */
   padding: 10px 20px; /* Adjust padding as needed */
-  /* Adjust font size as needed */
   cursor: pointer; /* Add cursor pointer */
   color: #F3F0E4;
 }
 
-#chat-button:hover {
+#chat-button:hover{
   background-color: #ffffff; /* White background on hover */
   color:#668D7F
 }
@@ -91,17 +90,11 @@
 
 .edit-profile{
   margin-top: 0.4rem;
-  margin-left: 1.7rem;
+  margin-left: 0.9rem;
   background: #668D7F;
   border-radius: 2.5rem;
   width: 8.7025rem;
   height: 2.18869rem;
-  font-family: Inter;
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%; /* 1.125rem */
-  letter-spacing: -0.00825rem;
 }
 
 

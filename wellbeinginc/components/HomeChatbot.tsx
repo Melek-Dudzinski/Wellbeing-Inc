@@ -54,12 +54,18 @@ const HomeProfile = (props: HomeChatbotProps) => {
                 {userName.map(name => (
                     <div key={name.EmployeeNo}>
                     <div className='intro'> Hi {name.FirstName}, <p>Embrace Your Wellness Journey Today </p></div>
+                    <div className='chatbot-intro'>Need someone to talk to? Connect with our Mental Health Champion for confidential support and guidance.</div>
+                    <button onClick={toggleChatbot} id="chat-button">
+                      CONNECT
+                    </button>
+                    <ChatbotPrototype userID={props.userID} userRole={name.Role} isOpen={isOpen} />
                     
-                    <ChatbotPrototype userID={props.userID} userRole={name.Role}/>
                     </div>
+
                 ))}
-                <div className='chatbot-intro'>Need someone to talk to? Connect with our Mental Health Champion for confidential support and guidance.</div>
-                <button id="chat-button" >CONNECT</button>
+                
+               
+              
                 
               </>
             )}

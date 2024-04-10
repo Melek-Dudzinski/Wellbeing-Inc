@@ -25,6 +25,7 @@
     background-color: #F3F0E4;
     margin-left: -32.5rem;
     margin-top: 2.5rem;
+    
 }
 
 #Feedback form {
@@ -51,6 +52,7 @@
     width: 100%;
     resize: vertical;
     background-color: none;
+    color: black;
 }
 
 #Feedback .submit-button {

@@ -3,6 +3,9 @@
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+    width: 23rem;
+    margin-left: -20rem;
+    margin-top: 10rem;
   }
   
   .chatbot.open .chatbot-window {
@@ -24,6 +27,7 @@
     border: 1px solid #ccc;
     background-color: #fff;
     overflow-y: auto;
+    
   }
   
   .chatbot .chatbot-window .message {

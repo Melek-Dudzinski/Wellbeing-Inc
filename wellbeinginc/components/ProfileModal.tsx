@@ -53,13 +53,13 @@ const Modal = (props : ProfileModalProps) => {
               <div className='profilePicture'>
                   <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
               </div>
-              {/*<input className="hidden" type="file" id="profile-picture" name="profile-picture"/>*/}
+                <input className="hidden" type="file" id="profile-picture" name="profile-picture"/>
             </form>
         <div className="modal-content">
 
             {/* Profile Form */}
             <form action={profileSubmit} method="">
-                <label htmlFor="name">First Name:</label>
+                <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name"/>
 
                 <label htmlFor="surname">Surname:</label>
