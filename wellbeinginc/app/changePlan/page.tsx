@@ -5,14 +5,11 @@ import './changePlan.css'
 import Navbar from "@/components/Navbar"
 import ChangePlanCustom from "@/components/Plan/ChangePlanCustom"
 import ChangePlanPremade from "@/components/Plan/ChangePlanPremade"
-import ChangePlanFilter from "@/components/ChangePlanFilter"
 import CreateFoodItemButton from "@/components/CreateFoodItemButton";
-import SupabaseClient from '@/components/Supabase';
 
 export default async function ChangePlan() {
   
   const activePage = 'plan'
-  let role;
   const supabase = createClient();
 
   const {
