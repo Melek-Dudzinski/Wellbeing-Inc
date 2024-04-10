@@ -39,13 +39,13 @@ export default async function ChangePlan() {
           </div>
           <div className="changePlanContainer">
             {data && <ChangePlanPremade user={user.id} role={data}/>}
-            
-
-            <div className="changePlanContainer2">
+          </div>
+          <div className="changePlanContainer2">
             <ChangePlanCustom user={user.id}/>
           </div>
+            
 
-          </div>
+          
           {data && <CreateFoodItemButton userID = {user.id} userRole={data[0].Role}/>}
       </>
   )

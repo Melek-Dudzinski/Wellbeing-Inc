@@ -54,7 +54,7 @@ const HomeProfile = (props: HomeProfileProps) => {
                 </div>
               ))}
 
-            <div className=''>
+            <div>
                 <button className='edit-profile' onClick={openModal}>Edit Profile</button>
                 <Modal isOpen={modalOpen} onClose={closeModal} />
             </div>

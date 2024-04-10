@@ -11,6 +11,7 @@
   width: 40rem;
   margin-bottom: 3rem;
   margin-top: 1rem;
+  margin-left: 7rem;
 }
 
 .planName{
@@ -22,31 +23,37 @@
   width: 40rem;
   margin-bottom: 1rem;
   margin-top: -3rem;
-  position: absolute;
-  margin-left: -6rem;
 
+}
+
+.changePlanContainer{
+  margin-left: 6rem;
+  
 }
 
 .changePlanContainer2{
-  margin-top: 35rem;
+  margin-top: 7rem;
+}
+
+/* Container Style: Flexbox for Easy Layout */
+.planFieldContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items:center;
+  gap: 4rem;
+  max-width:70rem;
+  justify-content: center;
   
 }
 
-  /* Container Style: Flexbox for Easy Layout */
-  .planFieldContainer {
-    display: flex;
-    justify-content: space-between; /* Creates space between the elements */
-    position: absolute;
-    width: 65%;
-    right: 13%;
-   
-  }
+.planField {
+  width: 16.125rem;
+  height: 24.8125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
   
-  .planField {
-    width: 16.125rem;
-    height: 24.8125rem;
-    
-  }
+}
 
   .planField button:hover {
     box-shadow: 0rem 0rem 5rem rgb(40, 50, 61) ; 
@@ -74,34 +81,34 @@
   
   .plan-title{
     color: #FFF;
-text-align: left;
-font-family: Inika;
-font-size: 2rem;
-font-style: normal;
-font-weight: 700;
-line-height: 1.5rem; /* 75% */
+    text-align: left;
+    font-family: Inika;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem; /* 75% */
   }
 
   .plan-duration{
     color: #FFF;
     text-align: left;
-font-family: "Inria Serif";
-font-size: 0.875rem;
-font-style: normal;
-font-weight: 400;
-line-height: 1.5rem; /* 171.429% */
+    font-family: "Inria Serif";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 171.429% */
   }
 
   .select-plan{
     color: #000;
-text-align: center;
-font-family: "Inria Serif";
-font-size: 0.75rem;
-font-style: normal;
-font-weight: 400;
-line-height: 1.5rem; /* 200% */
-background: #F3F0E4;
-width: 5.625rem;
+    text-align: center;
+    font-family: "Inria Serif";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 200% */
+    background: #F3F0E4;
+    width: 5.625rem;
   }
 
   .newPlan{
@@ -109,39 +116,17 @@ width: 5.625rem;
     right: 3%;
     top: 40%;
     color: #FFF;
-text-align: center;
-font-family: Inika;
-font-size: 2rem;
-font-style: normal;
-font-weight: 700;
-line-height: 2rem; /* 75% */
-width: 12.5625rem;
+    text-align: center;
+    font-family: Inika;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2rem; /* 75% */
+    width: 12.5625rem;
   }
 
-  .miniNav button{
-    background-color: #17B169;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 0 1rem;
-    border-radius: 2rem;
-  }
 
-    .miniNav button:hover {
-        transform: scale(1.01);
-        box-shadow: 2px 2px 5px grey;
-    }
-
-    .filterPlanTable td{
-        width: 10rem;
-        
-    }
-
-    .filterPlanTable{
-      width: 10rem;
-    }
-
-    /* Dropdown container */
+/* Dropdown container */
 .dropdown {
   position: absolute;
   display: inline-block;
@@ -183,11 +168,6 @@ width: 12.5625rem;
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  
 }
 
 .filterPlanContainer{

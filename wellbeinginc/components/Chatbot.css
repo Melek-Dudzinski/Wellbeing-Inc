@@ -3,7 +3,7 @@
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    width: 23rem;
+    width: 0rem;
     margin-left: -20rem;
     margin-top: 10rem;
   }
@@ -22,7 +22,7 @@
   
   .chatbot .chatbot-window {
     display: none;
-    width: 300px;
+    width: 330px;
     height: 400px;
     border: 1px solid #ccc;
     background-color: #fff;
@@ -31,7 +31,7 @@
   }
   
   .chatbot .chatbot-window .message {
-    padding: 10px;
+    
   }
   
   .chatbot .chatbot-window .input-container {
