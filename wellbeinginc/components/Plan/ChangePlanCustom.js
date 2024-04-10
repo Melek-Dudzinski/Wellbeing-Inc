@@ -8,6 +8,7 @@ const ChangePlanCustom = ({user}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [customPlans, setCustomPlans] = useState(null);
     const [changeMsg, setChangeMsg] = useState(null);
+
     const openModal = () => {
       setModalOpen(true);
     };
@@ -32,18 +33,28 @@ const ChangePlanCustom = ({user}) => {
         fetchPlans();
     },[]);
 
+    // Function to set change message and reset it after a timeout
+    const setChangeMsgWithTimeout = (msg) => {
+        setChangeMsg(msg);
+        // Reset changeMsg after 5 seconds
+        setTimeout(() => {
+            setChangeMsg(null);
+        }, 2000); // 5000 milliseconds = 5 seconds
+    };
+
     return (
         <>
         <h1 className="planName">CUSTOM PLAN</h1>
-        <p>{changeMsg}</p>
+        <p className="addedPlan">{changeMsg}</p>
         <div className="planFieldContainer">
             {//display plan templates
                 customPlans && customPlans.map(plan=>(
-                    <PlanSlot key={plan.planID} plan={plan} user={user} setMsg={setChangeMsg}></PlanSlot>
+                    <PlanSlot key={plan.planID} plan={plan} user={user} setMsg={setChangeMsgWithTimeout}></PlanSlot>
                 ))
             }
             <div className='planField'>
-                <button onClick={openModal}>+</button>
+                <img style={{ position: 'absolute', zIndex: '-1', width: '258px', height: '400px' }} /> 
+                <button className="new" onClick={openModal}>Create New Plan</button>
                 <Modal isOpen={modalOpen} onClose={closeModal} user={user} type='Custom'/>
             </div>
         </div>

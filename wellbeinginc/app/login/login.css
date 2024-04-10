@@ -97,3 +97,14 @@ body{
     margin-left: -83rem;
     margin-top: 1rem;
 }
+
+#message{
+    color: rgb(197, 41, 41);
+    font-family: "Inknut Antiqua";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 8rem;
+    margin-top: 2rem;
+}

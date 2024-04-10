@@ -18,7 +18,7 @@
 .chatbot-intro{
   color: #F2F0E3;
   font-family: Inter;
-  font-size: 0.9375rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;
   line-height: 150%; /* 1.40625rem */
@@ -67,12 +67,12 @@
   border-radius: 1.5625rem;
   background: #F3F0E4;
   z-index: 1;
-  width: 12.5625rem;
-  height: 15.25019rem;
+  width: 15rem;
+  height: 17rem;
 }
 
 .profile-photo{
-  margin-left: 4rem;
+  margin-left: 40%;
   margin-top: 2rem;
 }
 
@@ -81,7 +81,7 @@
   text-align: center;
   color: #000;
   font-family: Inter;
-  font-size: 0.6875rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem; /* 218.182% */
@@ -89,14 +89,13 @@
 }
 
 .edit-profile{
-  margin-top: 0.4rem;
+  margin-top: 0.8rem;
   margin-left: 0.9rem;
   background: #668D7F;
   border-radius: 2.5rem;
   width: 8.7025rem;
   height: 2.18869rem;
 }
-
 
 
 

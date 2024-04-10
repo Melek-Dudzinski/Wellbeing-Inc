@@ -59,22 +59,23 @@ const Modal = (props : ProfileModalProps) => {
 
             {/* Profile Form */}
             <form action={profileSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name"/>
+              <label htmlFor="name">Name:</label>
+              <input type="text" id="name" name="name"/>
 
-                <label htmlFor="surname">Surname:</label>
-                <input type="text" id="surname" name="surname"/>
+              <label htmlFor="surname">Surname:</label>
+              <input type="text" id="surname" name="surname"/>
 
-                <label>Allergies:</label>
-                <div>
-                    <label><input type="checkbox" name="allergies1" value="peanut"/> Nuts</label><br/>
-                    <label><input type="checkbox" name="allergies2" value="dairy"/> Dairy</label><br/>
-                    <label><input type="checkbox" name="allergies3" value="gluten"/> Gluten</label><br/>
-                </div>
-                <div id='modal-save-button'>
-                  <button type="submit">Save Changes</button>
-                </div>
-            </form>
+              <label>Allergies:</label>
+              <div className="checkbox-container">
+                  <label><input type="checkbox" name="allergies1" value="peanut"/> Nuts</label>
+                  <label><input type="checkbox" name="allergies2" value="dairy"/> Dairy</label>
+                  <label><input type="checkbox" name="allergies3" value="gluten"/> Gluten</label>
+              </div>
+
+              <div id='modal-save-button'>
+                <button className='save'type="submit">Save Changes</button>
+              </div>
+          </form>
 
         </div>
       </div>

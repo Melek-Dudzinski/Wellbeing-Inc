@@ -5,13 +5,8 @@
   text-align: center;
   font-family: Inika;
   font-size: 4rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: 4rem; 
-  width: 40rem;
-  margin-bottom: 3rem;
-  margin-top: 1rem;
-  margin-left: 7rem;
+  padding-bottom: 5rem;
 }
 
 .planName{
@@ -26,10 +21,6 @@
 
 }
 
-.changePlanContainer{
-  margin-left: 6rem;
-  
-}
 
 .changePlanContainer2{
   margin-top: 7rem;
@@ -55,8 +46,9 @@
   
 }
 
-  .planField button:hover {
+  .planField button:hover{
     box-shadow: 0rem 0rem 5rem rgb(40, 50, 61) ; 
+    cursor:default;
   }
   
   /* Paragraph Style: Ensure Text is Centered */
@@ -64,6 +56,15 @@
     width: 100%;
     height: 100%;
   } 
+
+  .new{
+    color: #F3F0E4;
+    font-family: Inika;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+
+  }
 
   .bottom-style {
     margin-top: 18.3rem; /* Align content to start from the top */
@@ -99,7 +100,12 @@
     line-height: 1.5rem; /* 171.429% */
   }
 
-  .select-plan{
+  .button-container{
+    display:flex;
+    flex-direction: row;
+  }
+
+  .select-plan, .update-plan{
     color: #000;
     text-align: center;
     font-family: "Inria Serif";
@@ -109,6 +115,12 @@
     line-height: 1.5rem; /* 200% */
     background: #F3F0E4;
     width: 5.625rem;
+    margin-right: 2rem;
+  }
+
+  .update-plan button:hover, .select-plan:hover{
+    cursor:pointer;
+    box-shadow: 0rem 0rem 5rem rgb(40, 50, 61) ; 
   }
 
   .newPlan{
@@ -125,51 +137,6 @@
     width: 12.5625rem;
   }
 
-
-/* Dropdown container */
-.dropdown {
-  position: absolute;
-  display: inline-block;
-}
-
-/* Dropdown button */
-.dropbtn {
-  background: #F3F0E4;
-  color: #3C524C;
-  padding-inline: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  margin-top: 11.8rem;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content label {
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content label:hover {
-  background-color: #f1f1f1;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 .filterPlanContainer{
   margin-left: 50rem;
   margin-top: -3rem;
@@ -183,9 +150,16 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
-  margin-left:-48rem ;
+  margin-left:-52rem ;
   margin-top:15rem;
   position: absolute;
+}
+
+.addedPlan{
+  color: #F3F0E4;
+  text-align: center;
+  padding-bottom: 2rem;
+  font-size: 1.2rem;
 }
 
   

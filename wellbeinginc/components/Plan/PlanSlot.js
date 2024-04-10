@@ -1,6 +1,8 @@
 'use client';
 import { getDateDBFormat } from "../Diary/DiaryEntries";
 import SupabaseClient from '../Supabase';
+import Modal from './UpdatePlanModal';
+import {useState} from 'react';
 import { redirect } from "next/navigation";
 import Image from 'next/image';
 import image42 from '@/components/images/image42.png';
@@ -8,6 +10,14 @@ import image43 from '@/components/images/image43.png';
 import image44 from '@/components/images/image44.png';
 
 function PlanSlot({plan, user, setMsg}){
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const openModal = () => {
+        setModalOpen(true);
+      };
+      const closeModal = () => {
+        setModalOpen(false);
+      };
 
     //alter a current plan occurence if it exists
     const updateActivePlan = async (plan) => {
@@ -53,12 +63,18 @@ function PlanSlot({plan, user, setMsg}){
 
     return(
         <div className="planField" id={plan.planID}>
-            <button className = "selectButton" onClick={() => handleSwitch(plan.planID)}>
+            <button className = "selectButton" >
             <img src={plan.img_url} style={{ position: 'absolute', zIndex: '-1', width: '258px', height: '400px' }} /> 
             <div className = 'bottom-style'> 
                 <div className='plan-title'>{plan.name}</div>
                 <div className='plan-duration'> <p> {plan.difficulty}</p></div>
-                <div className='select-plan'> Select Plan</div>
+                <div className="button-container">
+                    <div className='select-plan' onClick={() => handleSwitch(plan.planID)}> Select Plan</div>
+                    <div className='update-plan'>
+                        <button onClick={openModal}>Update Plan</button> 
+                        <Modal isOpen={modalOpen} onClose={closeModal} planID={plan.planID}/>
+                    </div>
+                </div>
             </div>
             </button>
         </div>

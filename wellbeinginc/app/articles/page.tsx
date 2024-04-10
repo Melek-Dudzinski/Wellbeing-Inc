@@ -31,7 +31,7 @@ export default async function Articles() {
       <Navbar activePage={activePage}/>
       <ArticlesView userRole={data[0].Role}/>
       <div className="more"> More Articles: </div>
-      {data[0].Role !== "Regular" ? (
+      {data[0].Role === "Mental Health Champion" || data[0].Role === "Admin Mental Health Champion" ? (
         <button id = "add-article"><Link href="addArticles">Add New Article</Link></button>
       ):(<p></p>)}  
       

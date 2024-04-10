@@ -34,7 +34,7 @@ export default function DisplayWeight({isOpen,onClose,user}){
     },[user])
     return(
     <>
-    <div id="weight-overlay">
+    <div id="addweight-overlay">
         <div id="weight-width">
         <button id="close-button" onClick={onClose}>X</button>
         <ul>

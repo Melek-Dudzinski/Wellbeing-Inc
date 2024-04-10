@@ -53,11 +53,11 @@ const Modal = ({isOpen, onClose, user, type}) => {
   }
 
   //create plan in db
-  const createPlanTemplate = async (name,dif,desc,act,men) =>
+  const createPlanTemplate = async (name,dif,desc,act,men,img) =>
   {
     const {data,error} = await SupabaseClient()
     .from('testPlanTemplate')
-    .insert({name:name, difficulty:dif, description:desc, type:type, creator:user})
+    .insert({name:name, difficulty:dif, description:desc, type:type, creator:user,img_url:img})
     .select('planID').single()
     if (error)
     {
@@ -78,6 +78,7 @@ const Modal = ({isOpen, onClose, user, type}) => {
     const name = formData.get('name');
     const difficulty = formData.get('difficulty');
     const description = formData.get('description');
+    const img = formData.get('img');
     const menuInput = () => {
       let arr = [];
       for (let i=0;i<7;i++)
@@ -90,7 +91,7 @@ const Modal = ({isOpen, onClose, user, type}) => {
       arr.push({activity : formData.get("activity"+(i+1)), day: dow[i]});
       return arr
     } 
-    createPlanTemplate(name,difficulty,description,activityInput(),menuInput());
+    createPlanTemplate(name,difficulty,description,activityInput(),menuInput(),img);
     redirect('/changePlan');
   }
 
@@ -111,11 +112,13 @@ const Modal = ({isOpen, onClose, user, type}) => {
                   <form>
                     <fieldset className="day-options">
                     <label>Name</label>
-                    <input type='text' required maxLength="100" name='name' defaultValue='Please enter your desired plan name...'></input>
+                    <input type='text' required maxLength="100" name='name'></input>
                     <label>Difficulty</label>
                     <input type='text' maxLength="100" name='difficulty'></input>
                     <label>Description</label>
                     <input type='text' maxLength="300" name='description'></input>
+                    <label>Image URL</label>
+                    <input type='url' name='img'></input>
                     <legend>Choose your plan</legend>
                       {Array(7).fill(0).map((_, dayIndex) => ( 
                         <div key={dayIndex}> {/* Important for React to track */}

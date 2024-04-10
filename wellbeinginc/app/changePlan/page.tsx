@@ -1,11 +1,13 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Link from 'next/link';
-import './changePlan.css'
-import Navbar from "@/components/Navbar"
-import ChangePlanCustom from "@/components/Plan/ChangePlanCustom"
-import ChangePlanPremade from "@/components/Plan/ChangePlanPremade"
+import './changePlan.css';
+import Navbar from "@/components/Navbar";
+import CreateMenuButton from "@/components/Plan/CreateMenuButton";
+import ChangePlanCustom from "@/components/Plan/ChangePlanCustom";
+import ChangePlanPremade from "@/components/Plan/ChangePlanPremade";
 import CreateFoodItemButton from "@/components/CreateFoodItemButton";
+
 
 export default async function ChangePlan() {
   
@@ -40,10 +42,8 @@ export default async function ChangePlan() {
           <div className="changePlanContainer2">
             <ChangePlanCustom user={user.id}/>
           </div>
-            
-
-          
           {data && <CreateFoodItemButton userID = {user.id} userRole={data[0].Role}/>}
+          {data && <CreateMenuButton Role={data}></CreateMenuButton>}
       </>
   )
 }

@@ -81,7 +81,7 @@ export const ArticlesView = (props: ArticleViewProps) => {
                         <div className='article-content'>
                             <div className="article-title" >{article.title}</div>
                             <div className="article-body" dangerouslySetInnerHTML={{ __html: article.content }} />
-                            {props.userRole !== "Regular" ? (
+                            {props.userRole === "Mental Health Champion" || props.userRole === "Admin Mental Health Champion" ? (
                                 <button id = "del" onClick = {()=> removeArticle(article.title)}>Delete Entry</button>
                             ):(<p></p>)} 
                         </div>
