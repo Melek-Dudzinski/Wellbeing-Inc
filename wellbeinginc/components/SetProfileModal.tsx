@@ -60,10 +60,10 @@ const Modal = (props: SetProfileProps) => {
             <input type="text" id="surname" name="surname" placeholder='Your Surname' required/>
 
             <label htmlFor="height">Height - in cm:</label>
-            <input type="number" id="height" name="height" placeholder='Your Height' required/>
+            <input type="number" id="height" name="height" placeholder='Your Height' min="50" max="250" required/>
 
             <label htmlFor="weight">Weight - in kg:</label>
-            <input type="number" id="weight" name="weight" placeholder='Your Weight' required/>
+            <input type="number" id="weight" name="weight" placeholder='Your Weight' min="20" max="800" required/>
 
             <label>Allergies:</label>
             <div>
