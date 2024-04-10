@@ -60,7 +60,7 @@ function ChangePlanPremade({ user, role }) {
             <div className="planFieldContainer">
                 {premadePlans &&
                     premadePlans.map((plan) => (
-                        <PlanSlot key={plan.planID} plan={plan} user={user} setMsg={setChangeMsgWithTimeout} />
+                        <PlanSlot key={plan.planID} plan={plan} user={user} setMsg={setChangeMsgWithTimeout} showEdit={isAdmin()}/>
                     ))}
 
                 {isAdmin() && (

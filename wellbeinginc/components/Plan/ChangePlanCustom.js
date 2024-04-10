@@ -49,7 +49,7 @@ const ChangePlanCustom = ({user}) => {
         <div className="planFieldContainer">
             {//display plan templates
                 customPlans && customPlans.map(plan=>(
-                    <PlanSlot key={plan.planID} plan={plan} user={user} setMsg={setChangeMsgWithTimeout}></PlanSlot>
+                    <PlanSlot key={plan.planID} plan={plan} user={user} setMsg={setChangeMsgWithTimeout} showEdit={true}></PlanSlot>
                 ))
             }
             <div className='planField'>

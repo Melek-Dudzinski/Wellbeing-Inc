@@ -9,7 +9,7 @@ import image42 from '@/components/images/image42.png';
 import image43 from '@/components/images/image43.png';
 import image44 from '@/components/images/image44.png';
 
-function PlanSlot({plan, user, setMsg}){
+function PlanSlot({plan, user, setMsg,showEdit}){
 
     const [modalOpen, setModalOpen] = useState(false);
     const openModal = () => {
@@ -70,10 +70,11 @@ function PlanSlot({plan, user, setMsg}){
                 <div className='plan-duration'> <p> {plan.difficulty}</p></div>
                 <div className="button-container">
                     <div className='select-plan' onClick={() => handleSwitch(plan.planID)}> Select Plan</div>
-                    <div className='update-plan'>
-                        <button onClick={openModal}>Update Plan</button> 
-                        <Modal isOpen={modalOpen} onClose={closeModal} planID={plan.planID}/>
-                    </div>
+                    {showEdit && (                    
+                        <div className='update-plan'>
+                            <button onClick={openModal}>Update Plan</button> 
+                            <Modal isOpen={modalOpen} onClose={closeModal} planID={plan.planID}/>
+                        </div>)}
                 </div>
             </div>
             </button>
