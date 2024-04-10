@@ -9,6 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-width: 1px;
+    border-color: white;
   }
   
   /* Modal container */

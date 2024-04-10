@@ -6,9 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.4.2",
     "@supabase/ssr": "^0.1.0",
     "@supabase/supabase-js": "latest",
     "autoprefixer": "10.4.17",
+    "file-saver": "^2.0.5",
     "geist": "^1.2.1",
     "moment": "^2.30.1",
     "next": "latest",
