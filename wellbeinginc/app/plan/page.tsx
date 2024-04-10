@@ -22,10 +22,6 @@ export default async function Plan() {
   return (
       <>
           <Navbar activePage={activePage}/>
-          <div id="miniNav">
-            <button id="switchButton"><Link href="changePlan">Switch Plan</Link></button>
-            <button >Download Plan</button>
-          </div>
           <Suspense fallback='Loading...'>
             <ActivePlan user={user.id}/>
           </Suspense>
