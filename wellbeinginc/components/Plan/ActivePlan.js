@@ -117,10 +117,11 @@ export default function ActivePlan({user}) {
 
     return (
         <>
+            <div className='buttons'>
                 <div id="miniNav">
                     <button id="switchButton"><Link href="changePlan">Switch Plan</Link></button>
                     {plan && meals && activities && dow && (<button onClick={()=>downloadPDF()}>Download Plan</button>)}
-                </div>
+                </div></div>
                 <table className='plan-page-table'>
                     <tbody>
                         <tr className="headers">

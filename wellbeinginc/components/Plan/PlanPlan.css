@@ -1,17 +1,21 @@
 .plan-page-table {
-    color: black;
+    color: #668D7F;
     border: 1px solid;
     border-radius: 10px;
     overflow: hidden;
     width: 90%;
     height: 80%;
-    background-color: white;
+    background-color: #d5e2dd;
 }
 
 
 .plan-page-table td {
     text-align: center;
     border: 1px solid;
-    height: 7rem;
+    height: 5rem;
 
+}
+
+.plan-page-table td:first-child {
+    width: 8rem; /* Adjust the width as per your requirement */
 }
