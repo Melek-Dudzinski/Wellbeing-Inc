@@ -7,6 +7,7 @@ import CreateMenuButton from "@/components/Plan/CreateMenuButton";
 import ChangePlanCustom from "@/components/Plan/ChangePlanCustom";
 import ChangePlanPremade from "@/components/Plan/ChangePlanPremade";
 import CreateFoodItemButton from "@/components/CreateFoodItemButton";
+import SupabaseClient from '@/components/Supabase';
 
 
 export default async function ChangePlan() {
@@ -22,7 +23,7 @@ export default async function ChangePlan() {
     return redirect("/login");
   }
 
-  const { data, error } = await supabase
+  const { data, error } = await SupabaseClient()
   .from('TestUserProfile')
   .select('Role')
   .eq('EmployeeNo', user.id);
