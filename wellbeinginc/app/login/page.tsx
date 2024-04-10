@@ -68,7 +68,7 @@ export default function Login({
       <div className="sign-in-form">
         <form>
         <p id = "form-title">
-            LOGIN
+            Log In
           </p>
 
           <div id="email-sec" className="sign-in-input">
