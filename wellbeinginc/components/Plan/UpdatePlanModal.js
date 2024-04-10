@@ -230,7 +230,7 @@ const Modal = ({isOpen, onClose, planID}) => {
                         <div key={dayIndex}> {/* Important for React to track */}
                           <label htmlFor={`day${dayIndex + 1}`}>{dow[dayIndex]}:</label>
                           <select name={"menu"+(dayIndex + 1)} id={`day${dayIndex + 1}`} required>
-                            <option value={prevMenus[dayIndex].MenuID} disabled="">{prevMenus[dayIndex].name}</option>
+                            <option value={prevMenus[dayIndex] && prevMenus[dayIndex].MenuID} disabled="">{prevMenus[dayIndex] && prevMenus[dayIndex].name}</option>
                             {menus && menus.map((menu) => (
                               <option key={menu.MenuID} value={menu.MenuID}>
                                 {menu.name} 
@@ -239,7 +239,7 @@ const Modal = ({isOpen, onClose, planID}) => {
                           </select>
                           <br></br>
                           <select name={"activity"+(dayIndex + 1)} id={`day${dayIndex + 1}`} required>
-                            <option value={PrevActivities[dayIndex].ActivityID} disabled="" >{PrevActivities[dayIndex].type} - {PrevActivities[dayIndex].duration} minutes</option>
+                            <option value={PrevActivities[dayIndex] && PrevActivities[dayIndex].ActivityID} disabled="" >{PrevActivities[dayIndex] && PrevActivities[dayIndex].type} - {PrevActivities[dayIndex] && PrevActivities[dayIndex].duration} minutes</option>
                             {activities && activities.map((a)=>(
                               <option key={a.ActivityID} value={a.ActivityID}>
                                 {a.type} - {a.duration} minutes
