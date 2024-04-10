@@ -113,6 +113,10 @@ button.add-DiaryEntry:hover, .turn-edit:hover{
     color:red
 }
 
+.calendar-container{
+    color:Black;
+}
+
 .calendar-buttons{
     display:flex;
     flex-direction: column;

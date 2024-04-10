@@ -67,7 +67,10 @@
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
+  }
 
+  button.new:hover{
+    cursor: pointer;
   }
 
   .bottom-style {
