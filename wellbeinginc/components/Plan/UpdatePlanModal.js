@@ -213,7 +213,9 @@ const Modal = ({isOpen, onClose, planID}) => {
                     <button id="plan-close-button" onClick={onClose}>X</button>
                   </div>
                   <form>
-                    <fieldset className="day-options">
+                    {/* <fieldset className="day-options"> */}
+                    <div className='container'>
+                      <div className='left'>
                     {planData[0] &&
                     (<>
                         <label>Name</label>
@@ -225,6 +227,9 @@ const Modal = ({isOpen, onClose, planID}) => {
                         <label>Image URL</label>
                         <input type='url' name='img' defaultValue={planData[0].img_url}></input>
                     </>)}
+                    </div>
+                    <div className='right'>
+                    <fieldset className="day-options">
                     <legend>Choose your plan</legend>
                       {prevMenus && PrevActivities&& Array(7).fill(0).map((_, dayIndex) => ( 
                         <div key={dayIndex}> {/* Important for React to track */}
@@ -248,7 +253,10 @@ const Modal = ({isOpen, onClose, planID}) => {
                           </select>
                         </div>
                       ))}
-                    </fieldset>
+                      </fieldset>
+                      </div>
+                    </div>
+                    {/* </fieldset> */}
                     <button id="plan-submit-button" type="submit" formAction={updatePlan}>Submit Changes</button>
                   </form>
                   </div>

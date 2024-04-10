@@ -110,40 +110,48 @@ const Modal = ({isOpen, onClose, user, type}) => {
                     <button id="plan-close-button" onClick={onClose}>X</button>
                   </div>
                   <form>
-                    <fieldset className="day-options">
-                    <label>Name</label>
-                    <input type='text' required maxLength="100" name='name'></input>
-                    <label>Difficulty</label>
-                    <input type='text' maxLength="100" name='difficulty'></input>
-                    <label>Description</label>
-                    <input type='text' maxLength="300" name='description'></input>
-                    <label>Image URL</label>
-                    <input type='url' name='img'></input>
-                    <legend>Choose your plan</legend>
-                      {Array(7).fill(0).map((_, dayIndex) => ( 
-                        <div key={dayIndex}> {/* Important for React to track */}
-                          <label htmlFor={`day${dayIndex + 1}`}>{dow[dayIndex]}:</label>
-                          <select name={"menu"+(dayIndex + 1)} id={`day${dayIndex + 1}`} required>
-                            <option value="" disabled="">Choose the meal plan for the day</option>
-                            {menus && menus.map((menu) => (
-                              <option key={menu.MenuID} value={menu.MenuID}>
-                                {menu.name} 
-                              </option>
-                            ))}
-                          </select>
-                          <br></br>
-                          <select name={"activity"+(dayIndex + 1)} id={`day${dayIndex + 1}`} required>
-                            <option value="" disabled="">Choose the activity for the day</option>
-                            {activities && activities.map((a)=>(
-                              <option key={a.ActivityID} value={a.ActivityID}>
-                                {a.type} - {a.duration} minutes
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                      ))}
-                    </fieldset>
-                    <button id="plan-submit-button" type="submit" formAction={createPlan}>Save Plan</button>
+                    <div className='container'>
+                      {/* <fieldset className="day-options"> */}
+                      <div className='left'>
+                        <label>Name</label>
+                        <input type='text' required maxLength="100" name='name'></input>
+                        <label>Difficulty</label>
+                        <input type='text' maxLength="100" name='difficulty'></input>
+                        <label>Description</label>
+                        <input type='text' maxLength="300" name='description'></input>
+                        <label>Image URL</label>
+                        <input type='url' name='img'></input>
+                      </div>
+                      <div className='right'>
+                      <fieldset className="day-options">
+                        <legend>Choose your plan</legend>
+                        {Array(7).fill(0).map((_, dayIndex) => ( 
+                          <div key={dayIndex}> {/* Important for React to track */}
+                            <label htmlFor={`day${dayIndex + 1}`}>{dow[dayIndex]}:</label>
+                            <select name={"menu"+(dayIndex + 1)} id={`day${dayIndex + 1}`} required>
+                              <option value="" disabled="">Choose the meal plan for the day</option>
+                              {menus && menus.map((menu) => (
+                                <option key={menu.MenuID} value={menu.MenuID}>
+                                  {menu.name} 
+                                </option>
+                              ))}
+                            </select>
+                            <br></br>
+                            <select name={"activity"+(dayIndex + 1)} id={`day${dayIndex + 1}`} required>
+                              <option value="" disabled="">Choose the activity for the day</option>
+                              {activities && activities.map((a)=>(
+                                <option key={a.ActivityID} value={a.ActivityID}>
+                                  {a.type} - {a.duration} minutes
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        ))}
+                      </fieldset>
+                      </div>
+                      {/* </fieldset> */}
+                      <button id="plan-submit-button" type="submit" formAction={createPlan}>Save Plan</button>
+                    </div>
                   </form>
                   </div>
                 </div>
