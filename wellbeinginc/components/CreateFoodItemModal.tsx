@@ -1,5 +1,6 @@
 import './ProfileModal2.css'
 import SupabaseClient from '@/components/Supabase';
+import { redirect } from "next/navigation";
 
 type CreateFoodItemModalProps = {
     isOpen: boolean;
@@ -37,7 +38,7 @@ const CreateFoodItemModal = (props : CreateFoodItemModalProps) => {
             console.error("Error sending data")
         }
 
-        props.onClose();
+        redirect('/changePlan');
     }
 
     return (
