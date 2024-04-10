@@ -28,7 +28,6 @@
 
 .changePlanContainer{
   margin-left: 6rem;
-  
 }
 
 .changePlanContainer2{
@@ -186,8 +185,8 @@
 }
 
 .back-button{
-  background: #F3F0E4;
-  color: #3C524C;
+  background: #76a192;
+  color: white;
   padding-inline: 10px;
   font-size: 16px;
   border: none;

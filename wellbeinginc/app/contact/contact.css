@@ -17,8 +17,8 @@
 }
 
 #Feedback {
-    width: 29rem;
-    height: 32rem;
+    width: 32rem;
+    height: 35rem;
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -66,16 +66,19 @@
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #6aae85;
+    background-color: #76a192;
     color: white;
     font-weight: bold;
     cursor: pointer;
     width: 50%;
-    margin-left: 6rem;
+}
+
+#Feedback #clear {
+    margin-left: 1rem;
 }
 
 #Feedback #message{
-    font-size: 0.7rem;
+    font-size: 1rem;
     padding-top: 0.3rem;
     margin-left: 1.27rem;
   
@@ -87,17 +90,17 @@
 }
 
 #view-log{
-    background-color: #F3F0E4;
+    background-color: #76a192;
     padding: 0.6rem;
     margin-left: 70rem;
     margin-top: -3rem;
     font-size: 1rem;
-    color: #3d644c;
+    color: white;
 }
 
 #view-details{
     padding-top: 0.5rem;
-    font-size: 0.7rem;
+    font-size: 1rem;
 }
 
 #view-details:hover{
