@@ -37,7 +37,7 @@ export default async function contact() {
             <div className="title">Contact Us</div>
             <Image id= "image1" src={image1} alt="Image 1" />
             <div className="contact">
-                <ContactFeedback searchParams={{message: ""}} />
+                <ContactFeedback />
             </div>
             {data[0].Role !== "Regular" ? (
                     <button id = "view-log"><Link href="feedbackLog">View Feedback</Link></button>

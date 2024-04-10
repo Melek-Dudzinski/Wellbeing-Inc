@@ -43,10 +43,17 @@
     resize: none; 
     outline: none;
 }
-
+ 
+/*Feedback Form Buttons*/
+#Feedback .buttons{
+    display:flex;
+    justify-content: center;
+}
+  
 #Feedback select {
     width: 100%;
 }
+
 
 #Feedback textarea {
     width: 100%;
@@ -55,7 +62,7 @@
     color: black;
 }
 
-#Feedback .submit-button {
+#Feedback .submit-button, #Feedback #clear {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -67,15 +74,17 @@
     margin-left: 6rem;
 }
 
+#Feedback #message{
+    margin-top: 10px;
+    color: green;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/*Viewng Feedback Button*/
 #Feedback .submit-button:hover {
     background-color: #227848
 }
-
-#Feedback #message {
-    margin-top: 10px;
-    color: green;
-}
-
 
 #view-log{
     background-color: #F3F0E4;
