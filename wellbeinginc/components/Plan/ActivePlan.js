@@ -27,13 +27,11 @@ export default function ActivePlan({user}) {
             let acti = []
             //get right order
             activitiesID.map(i=>{
-                acti.push(data.filter((act)=>act.ActivityID==i)[0])
-            })
+                acti.push(data.filter((act)=>act.ActivityID==i)[0]);
+            });
             setActivities(acti);
         }
-            //console.log(activities)
-            
-    }
+    };
     
     //get the meals from db
     const getMenuMeals = async(menuID) => {
@@ -71,17 +69,18 @@ export default function ActivePlan({user}) {
             //sort meals and activities by day
             let activitiesID = [];
             let menusID = [];
-            dow.map(day=>{
-                const m = data[0].testPlanMenu.filter((menu)=> menu.day==day)[0];
-                const a = data[0].testPlanActivity.filter((act)=> act.day==day)[0];
-                console.log(a)
-                menusID.push(m.menuID)
-                activitiesID.push(a.activityID);
-            })
+            if (data[0].testPlanActivity&&data[0].testPlanActivity)
+                dow.map(day=>{
+                    const m = data[0].testPlanMenu.filter((menu)=> menu.day==day)[0];
+                    const a = data[0].testPlanActivity.filter((act)=> act.day==day)[0];
+                    console.log(a)
+                    menusID.push(m.menuID)
+                    activitiesID.push(a.activityID);
+                })
             getActivities(activitiesID);
             getMenuMeals(menusID);            
         }
-    }
+    };
 
     //save pdf locally to download
     const downloadPDF = async() => {
