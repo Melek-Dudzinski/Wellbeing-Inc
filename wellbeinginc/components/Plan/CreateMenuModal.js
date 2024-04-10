@@ -69,7 +69,7 @@ const Modal = ({isOpen, onClose}) => {
                   <form>
                     <fieldset className="day-options">
                     <label>Name</label>
-                    <input type='text' required maxLength="100" name='name' defaultValue='Please enter your desired plan name...'></input>
+                    <input type='text' required maxLength="100" name='name' defaultValue='New Menu'></input>
                     <label>Type</label>
                     <input type='text' maxLength="100" name='type'></input>
                     <legend>Choose your Menu</legend>

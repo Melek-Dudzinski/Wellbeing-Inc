@@ -2,7 +2,7 @@
 import { useState} from 'react';
 import Modal from './CreateMenuModal';
 
-const CreateMenuButton = (Role) => {
+const CreateMenuButton = ({Role}) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
@@ -15,7 +15,7 @@ const CreateMenuButton = (Role) => {
 
     return (
         <>
-            {role[0].Role.match(/Admin.*/) ? (
+            {Role[0].Role.match(/Admin.*/) ? (
                 <div className='create-Menu'>
                     <button onClick={openModal}>Add New Menu</button>
                     <Modal isOpen={modalOpen} onClose={closeModal}/>
