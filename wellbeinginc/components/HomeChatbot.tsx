@@ -59,7 +59,7 @@ const HomeProfile = (props: HomeChatbotProps) => {
                       CONNECT
                     </button>
                     <ChatbotPrototype userID={props.userID} userRole={name.Role} isOpen={isOpen} />
-                    
+                    {/* <Chatbot userID={props.userID} userRole={name.Role} isOpen={isOpen} /> */}
                     </div>
 
                 ))}

@@ -28,7 +28,7 @@ const Modal = (props : ProfileModalProps) => {
     if (!name || !surname){
         return redirect("/protected?message=Please ensure at least both name sections are filled.");
     }
-    
+    console.log(name, surname, allergies, props.userID)
     {/*Sending form data to update user profile information if valid*/}
     // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko')
     const {error} = await SupabaseClient() 
@@ -59,7 +59,7 @@ const Modal = (props : ProfileModalProps) => {
         <div className="modal-content">
 
             {/* Profile Form */}
-            <form action={profileSubmit} method="">
+            <form action={profileSubmit}>
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name"/>
 

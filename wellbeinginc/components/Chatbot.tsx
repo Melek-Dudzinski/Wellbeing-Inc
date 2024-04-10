@@ -1,23 +1,19 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { createClient } from "@supabase/supabase-js"
 import SupabaseClient from '@/components/Supabase';
 import './Chatbot.css';
 
 type ChatbotProps = {
   userID: string;
   userRole: string;
+  isOpen: boolean;
 }
 
 const Chatbot = (props: ChatbotProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [position, setPosition] = useState({ x : window.innerWidth - 150, y: window.innerHeight - 100 });
+  const [position, setPosition] = useState({ x : window.innerWidth / 2 - 150, y: window.innerHeight / 2 - 200  });
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0});
-  const [startTime, setStartTime] = useState(0);
-  const [endTime, setEndTime] = useState(0);
 
-  // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [queueStatus, setQueueStatus] = useState(false);
@@ -30,21 +26,12 @@ const Chatbot = (props: ChatbotProps) => {
 
   const [firstLoad, setLoad] = useState(false);
 
-  const toggleChatbot = () => {
-    const duration = endTime - startTime;
-    if (duration < 100) {
-      setIsOpen((prevIsOpen) => !prevIsOpen);
-    }
-  };
-
   const handleMouseDown = e => {
-    setStartTime(Date.now());
     setIsDragging(true);
     setOffset({x: e.clientX - position.x, y: e.clientY - position.y});
   };
 
   const handleMouseUp = () => {
-    setEndTime(Date.now());
     setIsDragging(false);
   };
 
@@ -319,10 +306,7 @@ const Chatbot = (props: ChatbotProps) => {
   }
 
   return (
-    <div className={`chatbot ${isOpen ? 'open' : ''}`} style={{ left: position.x, top: position.y}} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
-      <button onClick={toggleChatbot} className="toggle-button">
-        Toggle Chatbot
-      </button>
+    <div className={`chatbot ${props.isOpen ? 'open' : ''}`} style={{ left: position.x, top: position.y}} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseDown={handleMouseDown}>
       <div className="chatbot-window">
         <div className='messages'>
           {messages.map(message => (
