@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import './contact.css'
 import Navbar from '@/components/Navbar'
 import ContactFeedback from '@/components/ContactFeedback'
-import ContactChampions from '@/components/ContactChampions'
 import SupabaseClient from '@/components/Supabase';
 import Link from 'next/link';
 import Image from 'next/image';

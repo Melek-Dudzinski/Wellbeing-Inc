@@ -1,6 +1,4 @@
 'use client' 
-import { createClient } from "@supabase/supabase-js";
-import { useState,useEffect } from "react";
 import { redirect } from "next/navigation";
 import SupabaseClient from '@/components/Supabase';
 import "./HealthTrackerComponent.css";
@@ -26,7 +24,6 @@ export function Weekdates(newdate){
 
 
 export default function AddWeight({isOpen,onClose,user}){
-    //const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
     const currentdate = new Date();
     const [startofweektext,endofweektext] = Weekdates(currentdate);
     
@@ -78,8 +75,8 @@ export default function AddWeight({isOpen,onClose,user}){
                     <div id="addweightcenter">
                         <label>Please enter your weight for this week between</label>
                         <label>{startofweektext.split("-").reverse().join("-")} - {endofweektext.split("-").reverse().join("-")} in kg:</label>
-                        <input type="number" name="weight" min={0} required/>
-                        <button id="addweightbutton" type="submit" formAction={InsertWeight} >Add weight</button>
+                        <input type="number" name="weight" min={30} max={800} required/>
+                        <button id="addweightbutton" type="submit" formAction={InsertWeight} >Save</button>
                     </div>
 
                 </form>

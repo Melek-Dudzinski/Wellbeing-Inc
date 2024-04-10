@@ -2,7 +2,6 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar"
 import ActivePlan from "@/components/Plan/ActivePlan"
-import Link from 'next/link'
 import { Suspense } from "react";
 import './plan.css'
 
