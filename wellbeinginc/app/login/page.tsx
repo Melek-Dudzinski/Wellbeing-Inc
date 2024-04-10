@@ -86,7 +86,7 @@ export default function Login({
             formAction={signIn}
             pendingText="Signing In..."
           >
-            LOGIN
+            Log In
           </SubmitButton>
 
            <div className="sign">Dont have an account yet? <SubmitButton formAction={signUp} pendingText="Signing Up..."> Sign Up </SubmitButton></div>
