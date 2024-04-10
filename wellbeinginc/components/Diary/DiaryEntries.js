@@ -13,7 +13,7 @@ function DiaryEntries ({user}) {
     const today = getDateDBFormat(new Date());
     const [canCreate, setCanCreate] = useState(true);
     const [modalOpen, setModalOpen] = useState(false);
-    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+    // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
     const [turnEdit, setTurnEdit] = useState({button :"edit-button-disabled", textAreaReadOnly:true});
     const [selectDate, setSelectDate] = useState(null)
 
@@ -55,7 +55,7 @@ function DiaryEntries ({user}) {
         //fetch entry data from db
         const fetchEntries = async () => {
             //SELECT * FROM DiaryEntry;
-            const{data, error} = await supabase.from('testDiaryEntry').select()
+            const{data, error} = await SupabaseClient().from('testDiaryEntry').select()
             .eq('employeeID', user)
             .order('date', {ascending:false});
             //LOG ERROR MESSAGE IN CONSOLE, OTHERWISE SHOW DATA

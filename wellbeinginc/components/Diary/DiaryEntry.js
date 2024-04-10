@@ -5,6 +5,7 @@ import image19 from '../images/image19.png';
 import image20 from '../images/image20.png';
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
+import SupabaseClient from '@/components/Supabase';
 
 
 export default function DiaryEntry({date,exerciseData, dietData, stepsData, sleepData,user, canEditStyle}) {
@@ -14,7 +15,7 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
     const [stepsContent,setStepsContent] = useState(stepsData)
     const [sleepContent,setSleepContent] = useState(sleepData)
     const [EditMessage, setEditMessage] = useState(null)
-    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+    // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
 
     //update an entry
     const updateEntry = async () => {
@@ -25,7 +26,7 @@ export default function DiaryEntry({date,exerciseData, dietData, stepsData, slee
             setEditMessage('Error! One of the fields may be empty or have a wrong input type!')
         }
         //UPDATE exerciseSection, dietSection, stepsSection, sleepSection FROM DiaryEntry WHERE DATE = date AND EmployeeID = user;
-        const {data, error} = await supabase.from('testDiaryEntry')
+        const {data, error} = await SupabaseClient().from('testDiaryEntry')
         .update({exerciseSection: exerciseContent, dietSection: dietContent, stepsSection: stepsContent,sleepSection: sleepContent})
         .eq('date', date).eq('employeeID', user)
         .select()
