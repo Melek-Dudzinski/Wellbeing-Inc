@@ -36,23 +36,6 @@ const ChangePlanCustom = ({user}) => {
         <>
         <h1 className="planName">CUSTOM PLAN</h1>
         <p>{changeMsg}</p>
-         {/*
-            <table className="custPlanTable">
-                <tbody>
-                    <tr>
-                        <button className="customPlanField"><td><PlanTemplate name="name1" description="description1"/></td></button>
-                        <button className="customPlanField"><td><PlanTemplate name="name2" description="description2"/></td></button>
-                        <button className="customPlanField"><td><PlanTemplate name="name3" description="description3"/></td></button>
-                        <button className="customPlanField"><td><PlanTemplate name="name4" description="description4"/></td></button>
-                        <button className="customPlalnField"><td><PlanTemplate name="name5" description="description5"/></td></button>
-                        <div className='customPlanField'>
-                            <button onClick={openModal}>+</button>
-                            <Modal isOpen={modalOpen} onClose={closeModal} />
-                        </div>
-                    </tr>
-                </tbody>
-            </table>
-         */}
         <div className="planFieldContainer">
             {//display plan templates
                 customPlans && customPlans.map(plan=>(

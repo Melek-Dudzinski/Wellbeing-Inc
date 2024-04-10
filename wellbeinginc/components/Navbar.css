@@ -1,13 +1,18 @@
+
 .navbar {
-    background-color: white;
-    color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Inter', sans-serif;
-    width: 100%;
+    width: 100vw;
     height: 3.2rem;
-    padding-right: 1rem;
+    padding: 3rem;
+    padding-right: 10rem;
+    color: #F3F0E4;
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; 
+    letter-spacing: -0.01663rem;
 }
 
 .nav-links {
@@ -16,11 +21,11 @@
 
 .nav-links li {
     list-style: none;
-    padding: 0 0.6rem;
+    padding: 0 1rem;
 }
 
 .nav-links li a:hover {
-    color:#17B169;
+    color:#78b397;
 }
 
 .logo {
@@ -30,17 +35,16 @@
 }
 
 .nav-links li.active a{
-    /* Modify this to change what selected looks like */
-  color: red;
-}
+    color: rgb(198, 161, 75);
+  }
 
 
 li button {
     background-color: none;
-    color: black;
     border: none;
     cursor: pointer;
-    border-radius: 2rem;
+    border-radius: 0.4rem;
+    
 }
 
 li button:hover {

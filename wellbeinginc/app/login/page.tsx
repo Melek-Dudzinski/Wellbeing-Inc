@@ -5,6 +5,7 @@ import { SubmitButton } from "./submit-button";
 import Image from 'next/image';
 import logo from '@/components/images/logo.png';
 import './login.css';
+import image45 from '@/components/images/image45.png';
 
 export default function Login({
   searchParams,
@@ -55,39 +56,29 @@ export default function Login({
   return (
     <>
       {/* Page Banner */}
-      <div className="banner">
-        <Image id="img" src={logo} alt="FDM Logo"/>
-        <p>Welcome to your personal well-being portal, as part of your FDM experience.</p>
-      </div>
+        <Image className="banner" id="img" src={logo} alt="FDM Logo"/>
+
+
+        <Image id= "loginphoto" src={image45} alt="Image 45" />
+
+       <div className="welcome">Welcome to your personal well-being portal, as part of your FDM experience.</div>
+     
 
       {/*Sign In Form Layout*/}
       <div className="sign-in-form">
         <form>
-          <p id = "form-title">
-            <span className="form-header">Sign</span> <span className="form-header">in</span> <span className="form-header">to</span> <span className="app-name">WellbeingInc.</span>
+        <p id = "form-title">
+            LOGIN
           </p>
 
-          <div id = "email-sec" className="sign-in-input">
-            <label htmlFor="email">
-              Email
-            </label>
-            <input
-              name="email"
-              placeholder="you@example.com"
-              required
-            />
+          <div id="email-sec" className="sign-in-input">
+            <label htmlFor="email">Email:</label>
+            <input name="email" required />
           </div>
 
-          <div id = "pword-sec" className="sign-in-input">
-            <label htmlFor="password">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="••••••••"
-              required
-            />
+          <div id="pword-sec" className="sign-in-input">
+            <label htmlFor="password">Password:</label>
+            <input type="password" name="password" required />
           </div>
 
           {/*Sign Up/Sign In Buttons*/}
@@ -95,15 +86,12 @@ export default function Login({
             formAction={signIn}
             pendingText="Signing In..."
           >
-            Sign In
+            LOGIN
           </SubmitButton>
 
-          <SubmitButton className = "button"
-            formAction={signUp}
-            pendingText="Signing Up..."
-          >
-            Sign Up
-          </SubmitButton>
+           <div className="sign">Dont have an account yet? <SubmitButton formAction={signUp} pendingText="Signing Up..."> Sign Up </SubmitButton></div>
+          
+          
           {searchParams?.message && (
             <p id ="message">
               {searchParams.message}

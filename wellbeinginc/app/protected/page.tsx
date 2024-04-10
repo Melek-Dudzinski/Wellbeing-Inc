@@ -10,6 +10,8 @@ import SetProfile from '@/components/SetProfileModal';
 import HomeChatbot from '@/components/HomeChatbot';
 import SupabaseClient from '@/components/Supabase';
 import './protected.css';
+import Image from 'next/image';
+import image41 from '@/components/images/image41.png';
 
 
 export default async function ProtectedPage() {
@@ -47,23 +49,14 @@ export default async function ProtectedPage() {
       {profileSet ? (
         <div>
           <Navbar activePage={activePage}/>
-          <div className="homepage-grid">
-            <div className ="top-section">
-              <div id="home-chatbot-section"></div>
-              <HomeChatbot userID={user.id} />
-            </div>
-            <div className='left-section-below-top'>
+              <div className="left">
+              <HomeChatbot userID={user.id} /></div>
+
               <div id="profile-sect"><HomeProfile  userEmail={user.email} userID={user.id}/></div>
-              <div id="plan-sect"><HomePlan /></div>
-            </div>
-            <div className='right-section-below-top'>
-              <HomeArticle />
-              <section className='button-article'> 
-                <button id='see-more-button'><Link href="/articles">See More</Link></button>
-              </section>
-            </div>
+              <Image className = "HomeImg" src={image41} alt="image41" /> 
+              
+            
           </div>
-        </div>
        ) : (
         <SetProfile userID={user.id} userEmail={user.email}/>
       )} 
