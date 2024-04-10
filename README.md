@@ -1,7 +1,7 @@
 # Wellbeing-Inc.
 
 ###Group Members###
- . Abdul Rafay - 220578187
+ - Abdul Rafay - 220578187
  . Newton Nath - 220298872
  . Ion Tugui - 220346140
  . Sana A. Siddiqui - 210865013
