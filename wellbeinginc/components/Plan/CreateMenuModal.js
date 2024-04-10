@@ -88,7 +88,7 @@ const Modal = ({isOpen, onClose}) => {
                         </div>
                       ))}
                     </fieldset>
-                    <button id="plan-submit-button" type="submit" formAction={createMenu}>Save Plan</button>
+                    <button id="plan-submit-button" type="submit" formAction={createMenu}>Save Menu</button>
                   </form>
                   </div>
                 </div>
