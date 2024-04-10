@@ -46,8 +46,9 @@
   
 }
 
-  .planField button:hover {
+  .planField button:hover{
     box-shadow: 0rem 0rem 5rem rgb(40, 50, 61) ; 
+    cursor:default;
   }
   
   /* Paragraph Style: Ensure Text is Centered */
@@ -99,7 +100,12 @@
     line-height: 1.5rem; /* 171.429% */
   }
 
-  .select-plan{
+  .button-container{
+    display:flex;
+    flex-direction: row;
+  }
+
+  .select-plan, .update-plan{
     color: #000;
     text-align: center;
     font-family: "Inria Serif";
@@ -109,6 +115,12 @@
     line-height: 1.5rem; /* 200% */
     background: #F3F0E4;
     width: 5.625rem;
+    margin-right: 2rem;
+  }
+
+  .update-plan button:hover, .select-plan:hover{
+    cursor:pointer;
+    box-shadow: 0rem 0rem 5rem rgb(40, 50, 61) ; 
   }
 
   .newPlan{
