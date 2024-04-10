@@ -54,10 +54,17 @@
     background-color: white;
 }
 
-#Feedback form .submit-button
+/*Feedback Form Buttons*/
+#Feedback form .buttons{
+    display:flex;
+    justify-content: center;
+}
+#Feedback form .submit-button, #Feedback form #clear
 {
     margin-top: 0.25rem; margin-bottom: 0.25rem;
     padding-top: 0.5rem; padding-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 
     font-size: 2rem;
 
@@ -67,17 +74,19 @@
     border: none;
     border-radius: 35px;
 
-    width: 8rem;
+    width: 12rem;
 
     background-color:#17B169;
     color: white;
 }
+
 #Feedback form #message{
-    color: black;
-    font-size: 1.2rem;
+    color: white;
+    font-size: 1.5rem;
     text-align: center;
 }
 
+/*Viewng Feedback Button*/
 #view-log{
     background-color: #6A6F6A;
     padding: 0.75rem;

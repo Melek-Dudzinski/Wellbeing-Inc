@@ -33,7 +33,7 @@ export default async function contact() {
         <>
             <Navbar activePage={activePage}/>
             <div className="contactBody">
-                <ContactFeedback searchParams={{message: ""}} />
+                <ContactFeedback />
                 <ContactChampions />
                 {data[0].Role !== "Regular" ? (
                     <button id = "view-log"><Link href="feedbackLog">View Feedback</Link></button>
