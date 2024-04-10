@@ -130,7 +130,6 @@ export default function ActivePlan({user}) {
                             <td>SNACK</td>
                             <td>EXERCISE</td>
                         </tr>
-                        {meals && console.log(meals[5])}
                         {activities && meals &&
                             dow.map((day,i)=>(
                                     <tr key={day}>
