@@ -22,7 +22,6 @@ const Chatbot = (props: ChatbotProps) => {
 
   const senderID = props.userID;
   const [receiverID, setReceiverID] = useState();
-  const [possibleReceiverID, setPossibleReceiverID] = useState([]);
 
   const [firstLoad, setLoad] = useState(false);
 
@@ -52,36 +51,31 @@ const Chatbot = (props: ChatbotProps) => {
         console.log("Error getting regular connection")
       } else {
         if (connectionData.length == 1) {
+          console.log("setting id")
           setReceiverID(connectionData.champion_id);
-        } else {
-          if (possibleReceiverID.receiver_id === senderID) {
-            setReceiverID(possibleReceiverID.sender_id);
-          }
         }
       }
     }
   }
 
   useEffect(() => {
-    handleReceiverID();
     fetchMessage();
     console.log("Fetching")
-  }, [receiverID, possibleReceiverID])
+  }, [receiverID])
 
   useEffect(() => {
-    const messageChannel = ChatbotMessagesUpdates(setPossibleReceiverID, handleReceiverID, fetchMessage)
+    const messageChannel = ChatbotMessagesUpdates(handleReceiverID, fetchMessage)
 
     return () => {
       SupabaseClient().removeChannel(messageChannel);
     };
-  }, [receiverID, possibleReceiverID]);
+  }, [receiverID]);
 
   useEffect(() => {
     const queueChannel = SupabaseClient().channel('ChatbotQueue').on(
       'postgres_changes',
       {
         event: '*',
-        schema: 'public',
         table: 'ChatbotQueue',
       },
       () => {
@@ -195,6 +189,7 @@ const Chatbot = (props: ChatbotProps) => {
         setQueueStatus(false);
       }
     }
+    handleReceiverID()
   }
 
   const acceptConnection = async () => {
@@ -285,16 +280,17 @@ const Chatbot = (props: ChatbotProps) => {
     }
   }
 
-  function ChatbotMessagesUpdates(setPossibleReceiverID: React.Dispatch<React.SetStateAction<never[]>>, handleReceiverID: () => Promise<void>, fetchMessage: () => Promise<void>) {
+  function ChatbotMessagesUpdates(handleReceiverID: () => Promise<void>, fetchMessage: () => Promise<void>) {
     return SupabaseClient().channel('ChatbotMessages').on(
       'postgres_changes',
       {
         event: 'INSERT',
-        schema: 'public',
         table: "ChatbotMessages",
       },
-      (payload) => {
-        setPossibleReceiverID(payload.new);
+      () => {
+        console.log("test")
+        handleReceiverID();
+        fetchMessage();
       }
     ).subscribe();
   }
@@ -303,6 +299,7 @@ const Chatbot = (props: ChatbotProps) => {
     setLoad(true);
     checkQueue();
     checkConnection();
+    console.log("queue change")
   }
 
   return (
