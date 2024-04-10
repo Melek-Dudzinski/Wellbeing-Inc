@@ -4,6 +4,7 @@
     background: #8FB099;
     padding: 0.5rem;
     color: white;
+    border-radius: 5px;
 }
 
 .more{
@@ -30,6 +31,7 @@
     padding: 0.5rem;
     color: white;
     background-color: #8FB099;
+    border-radius: 5px;
 }
 
 .article-img{

@@ -66,7 +66,7 @@ function ChangePlanPremade({ user, role }) {
                 {isAdmin() && (
                     <div className="planField">
                         <button className="new" onClick={openModal}>
-                            Create New Plan
+                            Create New Premade Plan
                         </button>
                         <Modal isOpen={modalOpen} onClose={closeModal} user={user} type="Premade" />
                     </div>

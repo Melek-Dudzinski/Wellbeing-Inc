@@ -42,8 +42,10 @@ export default async function ChangePlan() {
           <div className="changePlanContainer2">
             <ChangePlanCustom user={user.id}/>
           </div>
-          {data && <CreateFoodItemButton userID = {user.id} userRole={data[0].Role}/>}
-          {data && <CreateMenuButton Role={data}></CreateMenuButton>}
+          <div id="planFlex">
+            {data && <CreateFoodItemButton userID = {user.id} userRole={data[0].Role}/>}
+            {data && <CreateMenuButton Role={data}></CreateMenuButton>}
+          </div>
       </>
   )
 }

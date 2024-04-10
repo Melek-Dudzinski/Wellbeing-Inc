@@ -21,8 +21,8 @@ const CreateFoodItemButton = (props: CreateFoodItemButtonProps) => {
     return (
         <>
             {props.userRole !== "Regular" ? (
-                <div className='edit-profile'>
-                    <button onClick={openModal}>Add new food item</button>
+                <div className='addFood'>
+                    <button onClick={openModal}>Add New Food Item</button>
                     <Modal isOpen={modalOpen} onClose={closeModal} userID = {props.userID}/>
                 </div>
             ):(<p></p>)}

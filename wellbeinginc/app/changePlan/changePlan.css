@@ -43,8 +43,12 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  
 }
+
+.planField .new {
+  border: 1px solid white;
+}
+
 
   .planField button:hover{
     box-shadow: 0rem 0rem 5rem rgb(40, 50, 61) ; 
@@ -103,17 +107,18 @@
   .button-container{
     display:flex;
     flex-direction: row;
+
   }
 
   .select-plan, .update-plan{
-    color: #000;
+    color: white;
     text-align: center;
     font-family: "Inria Serif";
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5rem; /* 200% */
-    background: #F3F0E4;
+    background: #76a192;
     width: 5.625rem;
     margin-right: 2rem;
   }
@@ -144,8 +149,8 @@
 }
 
 .back-button{
-  background: #F3F0E4;
-  color: #3C524C;
+  background: #76a192;
+  color: white;
   padding-inline: 10px;
   font-size: 16px;
   border: none;
@@ -162,4 +167,18 @@
   font-size: 1.2rem;
 }
 
-  
+.addFood, .create-Menu {
+  color: white;
+  background-color: #76a192;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#planFlex {
+  display: flex;
+  margin: 20px;
+}
+
+.create-Menu {
+  margin-left: 1rem;
+}
