@@ -14,7 +14,6 @@ export default function ActivePlan({user}) {
     const dow = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
     const mealTypes = ['Breakfast','Lunch','Dinner','Snack'];
     const [plan,setPlan] = useState(null);
-    const [isClient, setIsClient] = useState(false)
     //get activities from db
     const getActivities = async (activitiesID) => {
         const {data, error} = await SupabaseClient()
@@ -114,14 +113,13 @@ export default function ActivePlan({user}) {
 
     useEffect(()=>{
         fetchActivePlanData();
-        setIsClient(true);
     },[]);
 
     return (
         <>
                 <div id="miniNav">
                     <button id="switchButton"><Link href="changePlan">Switch Plan</Link></button>
-                    {isClient && plan && meals && activities && dow && (<button onClick={()=>downloadPDF()}>Download</button>)}
+                    {plan && meals && activities && dow && (<button onClick={()=>downloadPDF()}>Download Plan</button>)}
                 </div>
                 <table className='plan-page-table'>
                     <tbody>
