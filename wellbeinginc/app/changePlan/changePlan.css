@@ -5,13 +5,8 @@
   text-align: center;
   font-family: Inika;
   font-size: 4rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: 4rem; 
-  width: 40rem;
-  margin-bottom: 3rem;
-  margin-top: 1rem;
-  margin-left: 7rem;
+  padding-bottom: 5rem;
 }
 
 .planName{
@@ -24,11 +19,6 @@
   margin-bottom: 1rem;
   margin-top: -3rem;
 
-}
-
-.changePlanContainer{
-  margin-left: 6rem;
-  
 }
 
 .changePlanContainer2{
@@ -134,51 +124,6 @@
     width: 12.5625rem;
   }
 
-
-/* Dropdown container */
-.dropdown {
-  position: absolute;
-  display: inline-block;
-}
-
-/* Dropdown button */
-.dropbtn {
-  background: #F3F0E4;
-  color: #3C524C;
-  padding-inline: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  margin-top: 11.8rem;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content label {
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content label:hover {
-  background-color: #f1f1f1;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 .filterPlanContainer{
   margin-left: 50rem;
   margin-top: -3rem;
@@ -186,13 +131,13 @@
 }
 
 .back-button{
-  background: #F3F0E4;
+  background-color: #F3F0E4;
+  padding: .4rem .8rem;
+  margin: 1rem 0.5rem;
+  width: fit-content;
   color: #3C524C;
-  padding-inline: 10px;
-  font-size: 16px;
-  border: none;
   cursor: pointer;
-  margin-left:-48rem ;
+  margin-left:-52rem ;
   margin-top:15rem;
   position: absolute;
 }

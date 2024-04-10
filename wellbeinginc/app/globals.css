@@ -46,11 +46,3 @@ body{
   }
 }
 
-.miniNav  button{
-  background-color: rgb(230, 224, 224);
-  border-width: 5px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 20px;
-}
-
