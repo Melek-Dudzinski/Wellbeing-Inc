@@ -1,13 +1,13 @@
 # Wellbeing-Inc.
 
-###Group Members###
+###Group9 Members###
  - Abdul Rafay - 220578187
- . Newton Nath - 220298872
- . Ion Tugui - 220346140
- . Sana A. Siddiqui - 210865013
- . Vivek D. Vanmali - 220260743
- . Melchior Dudzinski 220276847
- . Temidayo R. Ogunfuye 220098803
+ - Newton Nath - 220298872
+ - Ion Tugui - 220346140
+ - Sana A. Siddiqui - 210865013
+ - Vivek D. Vanmali - 220260743
+ - Melchior Dudzinski 220276847
+ - Temidayo R. Ogunfuye 220098803
 
 How to run:
 1. Clone newest version of main
