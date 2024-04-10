@@ -78,7 +78,7 @@ export default function HealthTrackerComponent({user}){
                             </div>
 
                             <div>
-                                <button onClick={openIsDisplay}>See All weeks weight</button>
+                                <button onClick={openIsDisplay}>View All</button>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ export default function HealthTrackerComponent({user}){
                     <TodayWeightComponent user={user} />
                     <DisplayWeekWeight user={user} />
                     <div>
-                        <button onClick={openIsDisplay} id="week-weight-button" >See All weeks weight</button>
+                        <button onClick={openIsDisplay} id="week-weight-button" >View All </button>
                     </div>
                 </div>    
                 </>

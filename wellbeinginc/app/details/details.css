@@ -1,0 +1,57 @@
+#Image52{
+    position: absolute;
+    width: 100%;
+}
+
+
+.navbar {
+    z-index: 1; 
+}
+
+#Information
+{
+    text-align: left;
+    font-size: 1.5rem;
+
+}
+
+.title{
+    color: #F3F0E4;
+    text-align: center;
+    font-family: Inika;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem; /* 100% */
+    margin-top: 13rem;
+}
+
+
+.championsContainer {
+    display: flex;
+    flex-wrap: wrap; /* Wrap champions into multiple rows */
+    margin-left: 2rem;
+    margin-top: 2rem;
+    
+}
+
+/* Add CSS for individual champion */
+.champion {
+    width: 17rem; /* Set the width of each champion (4 champions per row) */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.info{
+    color: #FFF;
+    font-family: Inika;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem; /* 100% */
+}
+
+.feedback-log{
+    grid-column:1/ span 2;
+}

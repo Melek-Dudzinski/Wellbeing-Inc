@@ -62,35 +62,37 @@ export const ArticlesView = (props: ArticleViewProps) => {
     
     return (
     <>
-        {/* Displaying articles from database */}
-        {articles && (
-            <div>
-                {articles.map((article, index) => (
-                    <div key={index} className='article-wrapper'>
-                        <div className='article-bar'>
-                            <div className='articleView-content'>
-                                <img src={article.image_url} style={{ maxWidth: '80px', maxHeight: '80px', position: 'absolute', left: '3%', }} />
-                                <div className="articleView-title" onClick={() => handleArticleClick(index)}>{article.title}</div>
-                                <div className="articleView-date">{article.date}</div>
-                            </div>
-                        </div>
-                        {selectedArticle === index && (
-                            <div className="article-container">
-                                <div className='article-content'>
-                                    <img src={article.image_url} style={{ maxWidth: '290px', maxHeight: '290px', left: '3%', }} /> 
-                                    <div className="article-title" >{article.title}</div>
-                                    <div className="article-body" dangerouslySetInnerHTML={{ __html: article.content }} />
-                                    {props.userRole !== "Regular" ? (
-                                        <button id = "del" onClick = {()=> removeArticle(article.title)}>Delete Entry</button>
-                                    ):(<p></p>)} 
+            {articles && (
+                <div>
+                    {articles.map((article, index) => (
+                        <div key={index} className='article-wrapper'style={{ marginBottom: '-32rem', marginTop: '34rem' }}>
+                            <div className='article-bar'>
+                                <div className='articleView-content'>
+                                    <img src={article.image_url} style={{ maxWidth: '80px', maxHeight: '80px', position: 'absolute', right: '20%', }} />
+                                    <div className="articleView-title" onClick={() => handleArticleClick(index)}>{article.title}</div>
+                                    <div className="articleView-date">{article.date}</div>
                                 </div>
                             </div>
-                        )}
+                            {selectedArticle === index && (
+                    <div> 
+                    
+                    <img className="article-img" src={article.image_url} style={{maxWidth: '110rem', width: '93.5rem', height: '40rem', objectFit: 'cover'}} />                            
+                    <div className="article-container">
+                        <div className='article-content'>
+                            <div className="article-title" >{article.title}</div>
+                            <div className="article-body" dangerouslySetInnerHTML={{ __html: article.content }} />
+                            {props.userRole !== "Regular" ? (
+                                <button id = "del" onClick = {()=> removeArticle(article.title)}>Delete Entry</button>
+                            ):(<p></p>)} 
+                        </div>
                     </div>
-                ))}
+                    </div>
+                )}
+            </div>
+        ))}
             </div>
         )}
     </>
-);
-}
+)}
+
 

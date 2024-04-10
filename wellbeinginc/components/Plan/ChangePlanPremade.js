@@ -5,6 +5,7 @@ import { useState,useEffect } from 'react';
 import SupabaseClient from '../Supabase';
 import PlanSlot from './PlanSlot';
 
+
 //switching view to premade plans
 function ChangePlanPremade({user,role}) {
     const [modalOpen, setModalOpen] = useState(false);
@@ -41,22 +42,9 @@ function ChangePlanPremade({user,role}) {
 
     return (
         <>
-            <h1 className="planName">PREMADE PLAN</h1>
+            <div className="PremadeName">My Health Fitness Programs</div>
             <p>{changeMsg}</p>
-            {/*
-            <table className="prePlanTable">
-                <tbody>
-                    <tr>
-                        <button className="premadePlanField"><td><PlanTemplate name="name1" description="description1"/></td></button>
-                        <button className="premadePlanField"><td><PlanTemplate name="name2" description="description2"/></td></button>
-                        <button className="premadePlanField"><td><PlanTemplate name="name3" description="description3"/></td></button>
-                        <button className="premadePlanField"><td><PlanTemplate name="name4" description="description4"/></td></button>
-                        <button className="premadePlalnField"><td><PlanTemplate name="name5" description="description5"/></td></button>
-                        <button className="premadePlanField"><td><PlanTemplate name="name6" description="description6"/></td></button>
-                    </tr>
-                </tbody>
-            </table>
-             */}
+           
             <div className="planFieldContainer">
                 {//display plan templates
                     premadePlans && premadePlans.map(plan=>(

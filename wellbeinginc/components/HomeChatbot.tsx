@@ -12,11 +12,13 @@ type HomeChatbotProps = {
 const HomeProfile = (props: HomeChatbotProps) => {
   const [userName, setUserName] = useState([]);
   const [load, setLoad] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleChatbot = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
+  
 
   const fetchUserName = async () => {
     const { data, error } = await SupabaseClient()
@@ -28,30 +30,45 @@ const HomeProfile = (props: HomeChatbotProps) => {
       console.log("Error getting queue status");
     } else {
         setUserName(data)
+        setLoading(false);
     }
   }
 
   if (!load) {
     fetchUserName();
     setLoad(true);
+    
   }
 
   return (
       <>
         <div>
-            {userName.map(name => (
-                <div key={name.EmployeeNo}>
-                    <h1>HELLO {name.FirstName}</h1>
-                    <p>Need someone to talk to? Connect with our Mental Health Champion for</p>
-                    <p>confidential support and guidance</p>
-                    {/* <Chatbot userID={props.userID} userRole={name.Role}/> */}
+            {loading ? (
+              <div>
+                <div className='intro'> Hi, <p>Embrace Your Wellness Journey Today </p></div>
+                <div className='chatbot-intro'>Need someone to talk to? Connect with our Mental Health Champion for confidential support and guidance.</div>
+                <button id="chat-button">CONNECT</button>
+              </div>
+            ) : (
+              <>
+                {userName.map(name => (
+                    <div key={name.EmployeeNo}>
+                    <div className='intro'> Hi {name.FirstName}, <p>Embrace Your Wellness Journey Today </p></div>
+                    <div className='chatbot-intro'>Need someone to talk to? Connect with our Mental Health Champion for confidential support and guidance.</div>
                     <button onClick={toggleChatbot} id="chat-button">
-                      Toggle Chatbot
+                      CONNECT
                     </button>
                     <ChatbotPrototype userID={props.userID} userRole={name.Role} isOpen={isOpen} />
-                </div>
-            ))}
+                    
+                    </div>
 
+                ))}
+                
+               
+              
+                
+              </>
+            )}
         </div>
       </>
     )

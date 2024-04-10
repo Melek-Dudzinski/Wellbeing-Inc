@@ -34,13 +34,18 @@ export default async function ChangePlan() {
   return (
       <>
           <Navbar activePage={activePage}/>
-          <div className="backToPlan">
+          <div className="back-button">
             <button><Link href="/plan">Back</Link></button>
           </div>
           <div className="changePlanContainer">
             {data && <ChangePlanPremade user={user.id} role={data}/>}
+          </div>
+          <div className="changePlanContainer2">
             <ChangePlanCustom user={user.id}/>
           </div>
+            
+
+          
           {data && <CreateFoodItemButton userID = {user.id} userRole={data[0].Role}/>}
       </>
   )

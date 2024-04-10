@@ -3,6 +3,7 @@
 import { SubmitButton } from "@/app/login/submit-button";
 import { useState } from "react";
 import SupabaseClient from '@/components/Supabase';
+import Link from 'next/link';
 
 export default function ContactFeedback() {
     const[feedbackStatus, setFeedbackStatus] = useState("")
@@ -37,7 +38,6 @@ export default function ContactFeedback() {
             {/*Feedback Form*/}
             <div id="Feedback">
                 <form>
-                    <legend>Provide Feedback</legend>
                     <select name="Type">
                         <option value="" disabled selected>Select Feedback Topic</option>
                         <option value = "Home">Home</option>
@@ -48,14 +48,15 @@ export default function ContactFeedback() {
                         <option value = "Contact Us">Contact Us</option>
                         <option value = "Other">Other</option>
                     </select>
-                    <textarea name="Content" rows="10"></textarea>
 
+                    <textarea name="Content" rows="13"></textarea>
                     <div className = "buttons">
                         <SubmitButton className="submit-button" formAction={feedbackSubmit} pendingText="Sending...">Submit</SubmitButton>
                         <input id = "clear" type="reset" value = "Clear Form"/>
                     </div>
-
                     <p id ="message">{feedbackStatus}</p>
+                  
+                    <button id = "view-details"><Link href="details">View contact information for our Mental Health Champions and Ambassidors</Link></button>
                 </form>
             </div>
         </>

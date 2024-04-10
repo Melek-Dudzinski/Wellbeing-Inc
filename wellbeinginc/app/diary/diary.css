@@ -1,21 +1,33 @@
 /* diary.css */
 
-
 .diary{
     margin-top: 3rem;
+    margin-left: 5rem;
 }
 
 .diary-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 5rem;
+    
 }
 
-
-
 .diary-entry {
-    width: 20rem;
-    background-color: white;
+    width: 16rem;
+    border-top: 1px solid #F3F0E4;
+    border-right: 1px solid #F3F0E4;
+    border-left: 1px solid #F3F0E4;
+        
+    }
+
+.diary-title{
+    color: #FFF;
+    font-family: Inika;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem; /* 120% */
+    padding: 0.4rem;
 }
 
 .date {
@@ -24,110 +36,59 @@
 }
 
 .content {
-    width: 20rem;
+    width: 15rem;
     height: 90px; /* Adjust height as needed */
-    background-color: #f9f9f9;
     vertical-align: top;
     overflow-wrap: break-word; /* Wrap long words */
     white-space: pre-wrap; /* Wrap text and preserve line breaks */
+    border: none; 
+    background: transparent;
+    resize: none; 
+    outline: none;
+    padding-left: 0.4rem;
+    
 }
 
-.content-no-edit {
-    width: 20rem;
-    height: 90px; /* Adjust height as needed */
-    background-color: #f9f9f9;
-    vertical-align: top;
-    overflow-wrap: break-word; /* Wrap long words */
-    white-space: pre-wrap; /* Wrap text and preserve line breaks */
-}
-
-.diary-entry textarea {
+textarea{
     resize: none;
-    color:black;
+    color:#FFF;
 }
 
 .buttons-container{
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.buttons-container p{
-    color: black;
+button.add-DiaryEntry, .turn-edit{
+    color: #3C524C;
+    font-size: 1rem;
+    margin-left: 1rem;
+    background: #F3F0E4;
+    padding: 0.2rem;
+    width: 6rem;
 }
-
-/*button.add-DiaryEntry, .turn-edit{
-    color:mediumspringgreen;
-    font-size: 2rem;
-    border: solid black;
-    margin-bottom: 1rem;
-    background-color: white;
-    border-radius: 1rem;
-}*/
-.add-DiaryEntry, .turn-edit, #edit-submit-button{
-
-
-    background-color: #17B169;
-    padding: .4rem .8rem;
-    width: fit-content;
-    color: white;
-    border-radius: 2rem;
-    width: 10rem;
-}
-
-#edit-submit-button{
-    margin: 0 0 .6rem 2.5rem;
-}
-
-.turn-edit,.add-DiaryEntry {
-    margin: 0 0 .6rem 0;
-}
-
-/*
-#edit-submit-button{
-    background-color: #17B169;
-    padding: .4rem .8rem;
-    margin-bottom: .6rem;
-    width: fit-content;
-    color: white;
-    border-radius: 2rem;
-}*/
-
-#container-buttons{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#buttons-width{
-    width: fit-content;
-}
-#container-buttons >div{
-    width: fit-content;
-}
-
 
 p.add-DiaryEntry{
-    color:aquamarine;
-    font-size: 2rem;
-    border: solid black;
-    margin-bottom: 1rem;
-    background-color: white;
-    border-radius: 1rem;
+    color: #3C524C;
+    font-size: 1rem;
+    margin-left: 1rem;
+    background: #F3F0E4;
+    padding: 0.2rem;
+    min-width: 6rem;
+    text-align: center;
 }
 
-button.add-DiaryEntry:hover, .turn-edit:hover,.calendar-buttons button:hover,  #edit-submit-button:hover{
-    transform: scale(1.01);
-    box-shadow: 2px 2px 5px grey;
+.edit-container {
+    color: #3C524C;
+    font-size: 1rem;
+    background: #F3F0E4;
+    padding: 0.1rem;
+    min-width: 6rem;
+    text-align: center;
 }
 
-
-.calendar-buttons button{
-    padding: .4rem .8rem;
-    margin-bottom: .2rem;
-    width: fit-content;
-    color: #17B169;
-    
+button.add-DiaryEntry:hover, .turn-edit:hover{
+    color: #3C524C;
 }
 
 .edit-content{
@@ -146,52 +107,24 @@ button.add-DiaryEntry:hover, .turn-edit:hover,.calendar-buttons button:hover,  #
     color:red
 }
 
-
-
-.calendar-buttons {
-    display: flex;
-    justify-content: center; 
-    align-items: center;  
-
-  }
-#deselect-date-button{
-    border-left: 1px solid black;
+.calendar-buttons{
+    display:flex;
+    flex-direction: column;
 }
 
-
+.calendar-buttons button:hover{
+    color:coral;
+}
 
 .not-found{
-    color:red;
-    font-size: 2rem;
-    border: solid black;
-    background-color: white;
-    width: fit-content;
-    border-radius: 1rem;
-    padding:2rem;
+    color:rgb(6, 6, 6);
+    font-size: 1rem;
+    margin-top: 10rem;
+    margin-left: 1rem;
 }
 
-.calendar-view{
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#Health-area{
+.healthtracker{
     position: absolute;
-    right: 5rem;
-    top:3.8rem;
-    
-}
-
-@media (max-width: 1050px) {
-    #Health-Diary{display: flex;
-    }
-    #Health-area{
-        position: unset;
-        right: unset;
-        top: unset;
-        margin-top: 1rem;
-        margin-right: 2rem;
-    }
+    margin-top: 5rem;
+    margin-left: 61rem;
 }
