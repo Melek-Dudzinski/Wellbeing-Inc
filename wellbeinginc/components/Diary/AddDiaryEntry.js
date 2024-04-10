@@ -2,10 +2,11 @@ import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import "./AddDiaryEntry.css";
 import { redirect } from "next/navigation";
+import SupabaseClient from '@/components/Supabase';
 
 const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
 
-    const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
+    // const supabase = createClient('https://nwysqtnfikxauolsknzt.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53eXNxdG5maWt4YXVvbHNrbnp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA0NDUwNjAsImV4cCI6MjAyNjAyMTA2MH0.P7FqiOhrxAGqukCFe98sMDp0kq8deBHv_PLSsYr0Cko');
     const [createMessage,setCreateMessage] = useState(null)
     
     const createEntry = async (formData) => {
@@ -22,7 +23,7 @@ const AddDiaryEntry = ({isOpen, onDismiss,today,user}) => {
             setCreateMessage('Error! Some fields might be empty!');
             return;
         }
-        const {error} = await supabase.from('testDiaryEntry').insert({date:today, employeeID: user, exerciseSection: ex, dietSection: di, stepsSection: st,sleepSection: sl,})
+        const {error} = await SupabaseClient().from('testDiaryEntry').insert({date:today, employeeID: user, exerciseSection: ex, dietSection: di, stepsSection: st,sleepSection: sl,})
         if (error)
         {
             setCreateMessage('Error! Could not create new entry');
