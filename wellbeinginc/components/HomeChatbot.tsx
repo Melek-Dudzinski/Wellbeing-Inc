@@ -63,10 +63,6 @@ const HomeProfile = (props: HomeChatbotProps) => {
                     </div>
 
                 ))}
-                
-               
-              
-                
               </>
             )}
         </div>
