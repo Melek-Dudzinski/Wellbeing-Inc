@@ -66,6 +66,7 @@ export default function HealthTrackerComponent({user}){
       return (
         
         <div id="HealthTracker">
+            <h3 id="HealthTitle">Health Tracker</h3>
             {!ValidEntry ? (
                 <>
                 <div className="healthtracker-css">

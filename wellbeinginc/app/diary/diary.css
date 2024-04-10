@@ -57,15 +57,21 @@ textarea{
 .buttons-container{
     display: flex;
     flex-direction: row;
+    margin-top: 0.5rem;
 }
 
 button.add-DiaryEntry, .turn-edit{
-    color: #3C524C;
+    color: white;
     font-size: 1rem;
-    margin-left: 1rem;
     background: #F3F0E4;
     padding: 0.2rem;
     width: 6rem;
+    background-color: #76a192;
+    border-radius: 5px;
+}
+
+.add-DiaryEntry {
+    margin-left: 5rem;
 }
 
 p.add-DiaryEntry{
@@ -110,6 +116,14 @@ button.add-DiaryEntry:hover, .turn-edit:hover{
 .calendar-buttons{
     display:flex;
     flex-direction: column;
+}
+
+.calendar-buttons p {
+    color: white;
+    border-left: 4px solid #76a192;
+    border-right: 4px solid #76a192;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .calendar-buttons button:hover{

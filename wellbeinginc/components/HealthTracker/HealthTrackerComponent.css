@@ -144,12 +144,14 @@
  }
 
  .healthtracker-css > div > div>div >button,#week-weight-button{
-   color: #1a2422;
+   color: white;
    font-weight:normal;
-    font-size: 0.7rem;
-    margin-left: 1rem;
-    padding: 0.2rem;
-    width: 6rem;
+  font-size: 0.7rem;
+  margin-left: 1rem;
+  padding: 0.2rem;
+  width: 6rem;
+  background-color: #76a192;
+  border-radius: 5px;
  }
 
  #week-weight-button{
@@ -161,4 +163,8 @@
    position: absolute;
  }
 
- 
+ #HealthTitle {
+  text-align: center;
+  font-weight: 1rem;
+  text-decoration: underline;
+ }
