@@ -11,7 +11,11 @@ How to run:
 5. Create a new file in 'wellbeinginc' called 'next-env.d.ts' and paste (include ///):
     /// <reference types="next" />
     /// <reference types="next/image-types/global" />
-6. Run 'npm run dev'
+6. Run 'npm install react-calendar'
+7. Run 'npm install @react-pdf/renderer --save'
+8. Run 'npm install file-saver --save'
+9. Run 'npm install --save-dev @ag-media/react-pdf-table'
+10. Run 'npm run dev'
 
 
 Only focus on 'app' and 'components' folders, ignore rest. Each folder in 'app' is a page, modify the page.tsx to modify the page. Page.tsx should be basic and call components.
