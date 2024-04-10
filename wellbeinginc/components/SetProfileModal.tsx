@@ -47,10 +47,11 @@ const Modal = (props: SetProfileProps) => {
         <div className="modal-content">
           <form action={saveChanges} method="">
             <div className='profilePicture'>
-              <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label>
+              {/* <label htmlFor="profile-picture"><Image src={profilePicture} alt="myProfilePicture"/></label> */}
+              <Image src={profilePicture} alt="myProfilePicture"/>
             </div>
             {/* <input className="hidden" type="file" id="profile-picture" name="profile-picture"/> */}
-            <input type="text" id="profile-picture" name="profile-picture"/>
+            {/* <input type="text" id="profile-picture" name="profile-picture"/> */}
 
             <label htmlFor="name">First Name:</label>
             <input type="text" id="name" name="name" placeholder='Your Name' required/>

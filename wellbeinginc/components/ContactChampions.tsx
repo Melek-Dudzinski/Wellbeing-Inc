@@ -50,7 +50,7 @@ export default function ContactChampions() {
                       <div key={champion.EmployeeNo} className="champion">
                           <img src={champion.ProfilePicture} style={{width: '230px', height: '150px' }} /> 
                           <div className='info'>
-                              <h3>{champion.FirstName}</h3>
+                              <h3>{champion.FirstName} {champion.LastName}</h3>
                               <p>{champion.Email}</p>
                           </div>
                       </div>
