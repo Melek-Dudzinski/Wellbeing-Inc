@@ -78,14 +78,14 @@
 }
 
 #Feedback #message{
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding-top: 0.3rem;
     margin-left: 1.27rem;
-  
+    text-align: center;
 }
 
 /*Viewng Feedback Button*/
-#Feedback .submit-button:hover {
+#Feedback .submit-button:hover, #Feedback #clear:hover {
     background-color: #227848
 }
 
