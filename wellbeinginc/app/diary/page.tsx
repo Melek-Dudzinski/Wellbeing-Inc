@@ -24,7 +24,6 @@ export default async function Diary() {
           <Navbar activePage={activePage}/>  
               <DiaryEntries user={user.id}></DiaryEntries>
               <div className="healthtracker"><HealthTrackerComponent user={user.id} /></div>
-          {/*<button id="HealthTracker-button"><Link href="/healthTracker">HEALTH TRACKER</Link></button>*/}
       </>
   )
 }

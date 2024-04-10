@@ -35,7 +35,7 @@ const ChangePlanCustom = ({user}) => {
     return (
         <>
         <h1 className="planName">CUSTOM PLAN</h1>
-        <p>{changeMsg}</p>
+        <p className="addedPlan">{changeMsg}</p>
         <div className="planFieldContainer">
             {//display plan templates
                 customPlans && customPlans.map(plan=>(
@@ -43,7 +43,7 @@ const ChangePlanCustom = ({user}) => {
                 ))
             }
             <div className='planField'>
-                <button onClick={openModal}>+</button>
+                <button className="new" onClick={openModal}>Create New Plan</button>
                 <Modal isOpen={modalOpen} onClose={closeModal} user={user} type='Custom'/>
             </div>
         </div>
