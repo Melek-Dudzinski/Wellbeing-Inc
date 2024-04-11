@@ -146,3 +146,7 @@ button.add-DiaryEntry:hover, .turn-edit:hover{
     margin-top: 5rem;
     margin-left: 61rem;
 }
+
+.calendar-view{
+    margin-top: 1rem;
+}

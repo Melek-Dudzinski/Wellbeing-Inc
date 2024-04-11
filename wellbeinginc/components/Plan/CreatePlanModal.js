@@ -150,8 +150,9 @@ const Modal = ({isOpen, onClose, user, type}) => {
                       </fieldset>
                       </div>
                       {/* </fieldset> */}
-                      <button id="plan-submit-button" type="submit" formAction={createPlan}>Save Plan</button>
+                     
                     </div>
+                    <button id="plan-submit-button" type="submit" formAction={createPlan}>Save Plan</button>
                   </form>
                   </div>
                 </div>

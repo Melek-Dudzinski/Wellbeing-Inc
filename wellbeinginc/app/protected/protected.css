@@ -23,7 +23,7 @@
   font-weight: 500;
   line-height: 150%; /* 1.40625rem */
   letter-spacing: -0.01031rem;
-  width: 26rem;
+  width: 28rem;
   margin-top: 4rem;
 
 }
@@ -55,7 +55,7 @@
 .HomeImg{
   position: absolute;
   margin-left: 48.5rem;
-  margin-top: -28.2rem;
+  margin-top: -28.3rem;
   width: 47%;
   height: 85%;
 }
@@ -63,16 +63,16 @@
 #profile-sect {
   position: absolute;
   margin-left: 39rem;
-  margin-top: -4rem;
+  margin-top: -5rem;
   border-radius: 1.5625rem;
   background: #F3F0E4;
   z-index: 1;
-  width: 15rem;
-  height: 17rem;
+  width: 13rem;
+  height: 16rem;
 }
 
 .profile-photo{
-  margin-left: 40%;
+  margin-left: 35%;
   margin-top: 2rem;
 }
 
@@ -81,7 +81,7 @@
   text-align: center;
   color: #000;
   font-family: Inter;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem; /* 218.182% */

@@ -71,7 +71,7 @@ export const ArticlesView = (props: ArticleViewProps) => {
                                 </div>
                             </div>
                             {selectedArticle === index && (
-                    <div> 
+                        <div> 
                     
                     <img className="article-img" src={article.image_url} style={{maxWidth: '110rem', width: '93.5rem', height: '40rem', objectFit: 'cover'}} />                            
                     <div className="article-container">
