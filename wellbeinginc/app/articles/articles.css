@@ -65,8 +65,11 @@
     line-height: 2.8125rem; /* 93.75% */
     letter-spacing: -0.057rem;
     width: 38.75rem;
-    height: 3.375rem;
+    /*height: 3.375rem;*/
+    height:fit-content;
     flex-shrink: 0;
+    background-color: #425b518e;
+    
 }
 
 .article-body p {
