@@ -116,7 +116,7 @@ export default function ActivePlan({user}) {
 
     return (
         <>
-            <div className='buttons'>
+            <div className='plan-buttons'>
                 <div id="miniNav">
                     <button id="switchButton"><Link href="changePlan">Switch Plan</Link></button>
                     {plan && meals && activities && dow && (<button onClick={()=>downloadPDF()}>Download Plan</button>)}

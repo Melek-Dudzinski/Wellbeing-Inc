@@ -33,7 +33,7 @@ export default async function contact() {
     return (
         <>
             <Navbar activePage={activePage}/>
-            <div className="title">Contact Us</div>
+            <div className="title-contact">Contact Us</div>
             <Image id= "image1" src={image1} alt="Image 1" />
             <div className="contact">
                 <ContactFeedback />
